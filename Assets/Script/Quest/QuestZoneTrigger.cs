@@ -19,6 +19,8 @@ public class QuestZoneTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enter By: " + other.tag);
+        Debug.Log("Enter By: " + other);
+
     }
 
     private void OnTriggerExit(Collider other)
