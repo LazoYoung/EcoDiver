@@ -1,44 +1,34 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.XR;
-using CommonUsages = UnityEngine.XR.CommonUsages;
-using InputDevice = UnityEngine.XR.InputDevice;
 
 namespace Script.Interaction
 {
     public class DiverMotionController : MonoBehaviour
     {
+        public InputController inputController;
+        
         [Tooltip("Button used to trigger swimming motion")]
         public InputActionReference triggerButton;
         
-        [Tooltip("(Optional) XR Origin")]
-        public GameObject origin;
+        [Tooltip("Value of the trigger button")]
+        public InputActionReference triggerButtonValue;
 
-        [Tooltip("(Optional) GameObject which simulates the left-hand controller")]
-        public GameObject leftController;
+        private bool _trigger;
         
-        [Tooltip("(Optional) GameObject which simulates the right-hand controller")]
-        public GameObject rightController;
-        
-        [Tooltip("(Optional) Position of XR left-hand controller")]
-        public InputActionReference leftHandPosition;
-        
-        [Tooltip("(Optional) Position of XR right-hand controller")]
-        public InputActionReference rightHandPosition;
-
-        public bool experiment;
-        
-        private InputDevice _leftHand;
-        
-        private InputDevice _rightHand;
-        
-        private bool _backup;
-
         private void Awake()
         {
-            InitInputDevices();
             triggerButton.action.performed += OnTrigger;
+            
+            if (triggerButton == null || !triggerButton.action.enabled)
+            {
+                Debug.LogError("Trigger button is missing or inactive!");
+                enabled = false;
+            }
+            else if (triggerButtonValue == null || triggerButtonValue.action.enabled)
+            {
+                Debug.LogError("Trigger button value is missing or inactive!");
+                enabled = false;
+            }
         }
 
         private void OnDestroy()
@@ -48,72 +38,33 @@ namespace Script.Interaction
 
         private void FixedUpdate()
         {
-            Vector3 leftPoint, rightPoint;
-        
-            if (experiment)
+            if (_trigger)
             {
-                leftPoint = leftHandPosition.action.ReadValue<Vector3>();
-                rightPoint = rightHandPosition.action.ReadValue<Vector3>();
-            }
-            else if (_backup)
-            {
-                var leftGlobalPos = leftController.transform.position;
-                var rightGlobalPos = rightController.transform.position;
-                var parent = origin.transform;
-                leftPoint = parent.InverseTransformPoint(leftGlobalPos);
-                rightPoint = parent.InverseTransformPoint(rightGlobalPos);
-            }
-            else
-            {
-                bool success = _leftHand.TryGetFeatureValue(CommonUsages.devicePosition, out leftPoint);
-                success &= _rightHand.TryGetFeatureValue(CommonUsages.devicePosition, out rightPoint);
-
-                if (!success)
+                ApplyMotion();
+                
+                if (triggerButtonValue.action.ReadValue<float>() < 0.1f)
                 {
-                    Debug.LogWarning("Failed to retrieve feature value of an InputDevice.");
-                    return;
+                    _trigger = false;
+                    Debug.Log("Motion detection end.");
                 }
             }
-
-            ApplyMotion(leftPoint, rightPoint);
         }
 
-        private void ApplyMotion(Vector3 leftPoint, Vector3 rightPoint)
+        private void ApplyMotion()
         {
-            // todo method stub
-            Debug.Log(leftPoint);
-        }
-    
-        private void InitInputDevices()
-        {
-            if (experiment)
-            {
-                if (leftHandPosition != null && rightHandPosition != null)
-                    return;
-                
-                Debug.LogWarning("Required components are missing! Reverting to normal mode...");
-                experiment = false;
-            }
+            var leftPoint = inputController.leftHandPosition;
+            var rightPoint = inputController.rightHandPosition;
+            var leftVelocity = inputController.leftHandVelocity;
+            var rightVelocity = inputController.rightHandVelocity;
             
-            _leftHand = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-            _rightHand = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        
-            if (!_leftHand.isValid || !_rightHand.isValid)
-            {
-                Debug.LogWarning("XR hand device not found! Reverting to backup mode...");
-                _backup = true;
-                
-                if (origin == null || leftController == null || rightController == null)
-                {
-                    Debug.LogError("Required components are missing!");
-                    enabled = false;
-                }
-            }
+            // todo method stub
+            
         }
 
         private void OnTrigger(InputAction.CallbackContext context)
         {
-            Debug.Log("Motion button triggered.");
+            _trigger = true;
+            Debug.Log("Motion detection start.");
         }
     }
 }
