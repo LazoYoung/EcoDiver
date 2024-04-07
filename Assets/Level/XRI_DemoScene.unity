@@ -160,6 +160,8 @@ MonoBehaviour:
   rightHandPositionText: {fileID: 691572921}
   leftHandVelocityText: {fileID: 1538688524}
   rightHandVelocityText: {fileID: 845082641}
+  headPositionText: {fileID: 2026440153}
+  headRotationText: {fileID: 1862804736}
 --- !u!4 &68394520
 Transform:
   m_ObjectHideFlags: 0
@@ -9083,6 +9085,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1862804736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2459177387410486303, guid: ead47b69e3e499e4dbb0b27719b04192,
+    type: 3}
+  m_PrefabInstance: {fileID: 1427190474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1880968183
 GameObject:
   m_ObjectHideFlags: 0
@@ -9363,6 +9377,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936063055}
   m_CullTransparentMesh: 1
+--- !u!114 &2026440153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7434004119238891810, guid: ead47b69e3e499e4dbb0b27719b04192,
+    type: 3}
+  m_PrefabInstance: {fileID: 1427190474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &196977305468683332
 GameObject:
   m_ObjectHideFlags: 0
