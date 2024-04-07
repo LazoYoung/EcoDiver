@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 735920209}
   - component: {fileID: 735920211}
   - component: {fileID: 735920210}
+  - component: {fileID: 735920212}
   m_Layer: 0
   m_Name: QuestZone
   m_TagString: Untagged
@@ -423,6 +424,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.075604, y: 5.854697, z: 10.720178}
   m_Center: {x: 1.7914765, y: 5.350638, z: -1.0176864}
+--- !u!114 &735920212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735920207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b3ab6adc17441ef8c8469586f88eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &946944917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170783728641055, guid: 895f6f3c2d334633b5800312285058d2,
