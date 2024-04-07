@@ -24,7 +24,7 @@ namespace Script.Interaction
                 Debug.LogError("Trigger button is missing or inactive!");
                 enabled = false;
             }
-            else if (triggerButtonValue == null || triggerButtonValue.action.enabled)
+            else if (triggerButtonValue == null || !triggerButtonValue.action.enabled)
             {
                 Debug.LogError("Trigger button value is missing or inactive!");
                 enabled = false;
