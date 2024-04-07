@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using CommonUsages = UnityEngine.XR.CommonUsages;
 using InputDevice = UnityEngine.XR.InputDevice;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Script.Interaction
 {
@@ -30,14 +32,25 @@ namespace Script.Interaction
 
         [Tooltip("Text used to show controller velocity")]
         public TMP_Text rightHandVelocityText;
+        
+        [Tooltip("Text used to show head position")]
+        public TMP_Text headPositionText;
+        
+        [Tooltip("Text used to show head rotation")]
+        public TMP_Text headRotationText;
 
+        public Vector3 headPosition { get; private set; } = new(0, 0, 0);
+        public Quaternion headRotation { get; private set; } = Quaternion.Euler(0, 0, 0);
         public Vector3 leftHandPosition { get; private set; } = new(0, 0, 0);
         public Vector3 rightHandPosition { get; private set; } = new(0, 0, 0);
         public Vector3 leftHandVelocity { get; private set; } = new(0, 0, 0);
         public Vector3 rightHandVelocity { get; private set; } = new(0, 0, 0);
         
+        private InputDevice _headDevice;
         private InputDevice _leftHandDevice;
         private InputDevice _rightHandDevice;
+        private InputAction _headPositionAction;
+        private InputAction _headRotationAction;
         private InputAction _leftHandPositionAction;
         private InputAction _rightHandPositionAction;
         private InputAction _leftHandVelocityAction;
@@ -63,25 +76,44 @@ namespace Script.Interaction
             InitDebugStates();
         }
         
+        private Vector3 GetLocalPosition(Vector3 srcPos, Vector3 headPos, Quaternion headRot)
+        {
+            var angle = headRot.eulerAngles.y;
+            var position = srcPos - headPos;
+            var rotation = Quaternion.AngleAxis(-angle, Vector3.up);
+
+            return rotation * position;
+        }
+        
         private void Update()
         {
             if (useReference)
             {
-                leftHandPosition = _leftHandPositionAction.ReadValue<Vector3>();
-                rightHandPosition = _rightHandPositionAction.ReadValue<Vector3>();
+                var leftHandPositionSrc = _leftHandPositionAction.ReadValue<Vector3>();
+                var rightHandPositionSrc = _rightHandPositionAction.ReadValue<Vector3>();
+                headPosition = _headPositionAction.ReadValue<Vector3>();
+                headRotation = _headRotationAction.ReadValue<Quaternion>();
+                leftHandPosition = GetLocalPosition(leftHandPositionSrc, headPosition, headRotation);
+                rightHandPosition = GetLocalPosition(rightHandPositionSrc, headPosition, headRotation);
                 leftHandVelocity = _leftHandVelocityAction.ReadValue<Vector3>();
                 rightHandVelocity = _rightHandVelocityAction.ReadValue<Vector3>();
             }
             else
             {
-                if (_leftHandDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var leftPos))
-                    leftHandPosition = leftPos;
+                if (_headDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var headPos))
+                    headPosition = headPos;
 
-                if (_leftHandDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out var leftVel))
-                    leftHandVelocity = leftVel;
+                if (_headDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out var headRot))
+                    headRotation = headRot;
+                
+                if (_leftHandDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var leftPos))
+                    leftHandPosition = GetLocalPosition(leftPos, headPos, headRot);
 
                 if (_rightHandDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var rightPos))
-                    rightHandPosition = rightPos;
+                    rightHandPosition = GetLocalPosition(rightPos, headPos, headRot);
+                
+                if (_leftHandDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out var leftVel))
+                    leftHandVelocity = leftVel;
 
                 if (_rightHandDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out var rightVel))
                     rightHandVelocity = rightVel;
@@ -102,13 +134,16 @@ namespace Script.Interaction
                     Debug.LogWarning("Required component is missing! Reverting to normal mode...");
                     useReference = false;
                 }
-                
+
                 var leftHand = inputActions.FindActionMap("XRI LeftHand", true);
                 var rightHand = inputActions.FindActionMap("XRI RightHand", true);
+                var head = inputActions.FindActionMap("XRI Head", true);
                 _leftHandPositionAction = leftHand.FindAction("Position", true);
                 _rightHandPositionAction = rightHand.FindAction("Position", true);
                 _leftHandVelocityAction = leftHand.FindAction("Velocity", true);
                 _rightHandVelocityAction = rightHand.FindAction("Velocity", true);
+                _headPositionAction = head.FindAction("Position", true);
+                _headRotationAction = head.FindAction("Rotation", true);
                 
                 if (!_rightHandVelocityAction.enabled)
                 {
@@ -119,8 +154,9 @@ namespace Script.Interaction
             {
                 _leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
                 _rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+                _headDevice = InputDevices.GetDeviceAtXRNode(XRNode.Head);
                 
-                if (!_leftHandDevice.isValid || !_rightHandDevice.isValid)
+                if (!_leftHandDevice.isValid || !_rightHandDevice.isValid || !_headDevice.isValid)
                 {
                     throw new UnityException("XR device not found!");
                 }
@@ -133,7 +169,8 @@ namespace Script.Interaction
                 return;
                 
             if (leftHandPositionText == null || rightHandPositionText == null ||
-                leftHandVelocityText == null || rightHandVelocityText == null)
+                leftHandVelocityText == null || rightHandVelocityText == null ||
+                headPositionText == null || headRotationText == null)
             {
                 debugMode = false;
             }
@@ -143,6 +180,8 @@ namespace Script.Interaction
                 rightHandPositionText.text = "N/A";
                 leftHandVelocityText.text = "N/A";
                 rightHandVelocityText.text = "N/A";
+                headPositionText.text = "N/A";
+                headRotationText.text = "N/A";
             }
         }
         
@@ -152,6 +191,8 @@ namespace Script.Interaction
             rightHandPositionText.text = rightHandPosition.ToString();
             leftHandVelocityText.text = leftHandVelocity.ToString();
             rightHandVelocityText.text = rightHandVelocity.ToString();
+            headPositionText.text = headPosition.ToString();
+            headRotationText.text = headRotation.eulerAngles.ToString();
         }
     }
 }
