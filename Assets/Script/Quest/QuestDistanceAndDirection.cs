@@ -4,7 +4,7 @@ public class QuestDistanceAndDirection : MonoBehaviour
 {
     // The player's Transform. This is set in the Start method by finding the player GameObject.
     private Transform playerTransform;
-
+    public FootprintArrowIndicator footprintArrowIndicator;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class QuestDistanceAndDirection : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (playerTransform != null)
+        if (playerTransform)
         {
             // Calculate the vector from the quest to the player
             Vector3 directionToPlayer = playerTransform.position - transform.position;
@@ -29,6 +29,9 @@ public class QuestDistanceAndDirection : MonoBehaviour
             // Log the distance and direction to the Console for debugging
             Debug.Log($"Distance to Player: {distanceToPlayer}");
             Debug.Log($"Direction to Player: {normalizedDirection}");
+
+            footprintArrowIndicator.UpdateArrow(normalizedDirection, distanceToPlayer);
+
         }
     }
 }
