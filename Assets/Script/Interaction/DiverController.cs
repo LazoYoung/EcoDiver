@@ -47,8 +47,10 @@ namespace Script.Interaction
         [SerializeField] private InputActionReference leftButton;
         [Tooltip("This button maps to the right-hand motion.")]
         [SerializeField] private InputActionReference rightButton;
-        
+
         [Header("Physics")]
+        [Tooltip("Height of the ocean in y-axis.")]
+        [SerializeField] private float seaLevel;
         [Tooltip("Amount of force applied to propel underwater.")]
         [SerializeField] private float swimForce = 3f;
         [FormerlySerializedAs("SpinTorque")]
@@ -97,6 +99,11 @@ namespace Script.Interaction
 
         private void FixedUpdate()
         {
+            if (!forceUnderwater)
+            {
+                _underwater = _rigidbody.position.y < seaLevel;
+            }
+            
             UpdateRigidbody();
             
             if (_timer < cooldown)
