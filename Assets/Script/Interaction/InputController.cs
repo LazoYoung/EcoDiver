@@ -12,39 +12,48 @@ namespace Script.Interaction
 {
     public class InputController : MonoBehaviour
     {
-        [Header("Tracking source")]
-        [Tooltip("Use .inputactions to obtain XR tracking data.")]
-        public bool useReference;
-        
-        public InputActionAsset inputActions;
-
-        [Header("Debug")]
-        public bool debugMode;
-        
-        [Tooltip("Text used to show controller position")]
-        public TMP_Text leftHandPositionText;
-        
-        [Tooltip("Text used to show controller position")]
-        public TMP_Text rightHandPositionText;
-
-        [Tooltip("Text used to show controller velocity")]
-        public TMP_Text leftHandVelocityText;
-
-        [Tooltip("Text used to show controller velocity")]
-        public TMP_Text rightHandVelocityText;
-        
-        [Tooltip("Text used to show head position")]
-        public TMP_Text headPositionText;
-        
-        [Tooltip("Text used to show head rotation")]
-        public TMP_Text headRotationText;
-
         public Vector3 headPosition { get; private set; } = new(0, 0, 0);
         public Quaternion headRotation { get; private set; } = Quaternion.Euler(0, 0, 0);
         public Vector3 leftHandPosition { get; private set; } = new(0, 0, 0);
         public Vector3 rightHandPosition { get; private set; } = new(0, 0, 0);
         public Vector3 leftHandVelocity { get; private set; } = new(0, 0, 0);
         public Vector3 rightHandVelocity { get; private set; } = new(0, 0, 0);
+        
+        [Header("Tracking source")]
+        [SerializeField]
+        [Tooltip("Use .inputactions to obtain XR tracking data.")]
+        private bool useReference;
+        
+        [SerializeField]
+        private InputActionAsset inputActions;
+
+        [SerializeField]
+        [Header("Debug")]
+        private bool debugMode;
+        
+        [SerializeField]
+        [Tooltip("Text used to show controller position")]
+        private TMP_Text leftHandPositionText;
+
+        [SerializeField]
+        [Tooltip("Text used to show controller position")]
+        private TMP_Text rightHandPositionText;
+
+        [SerializeField]
+        [Tooltip("Text used to show controller velocity")]
+        private TMP_Text leftHandVelocityText;
+
+        [SerializeField]
+        [Tooltip("Text used to show controller velocity")]
+        private TMP_Text rightHandVelocityText;
+        
+        [SerializeField]
+        [Tooltip("Text used to show head position")]
+        private TMP_Text headPositionText;
+        
+        [SerializeField]
+        [Tooltip("Text used to show head rotation")]
+        private TMP_Text headRotationText;
         
         private InputDevice _headDevice;
         private InputDevice _leftHandDevice;
@@ -55,6 +64,26 @@ namespace Script.Interaction
         private InputAction _rightHandPositionAction;
         private InputAction _leftHandVelocityAction;
         private InputAction _rightHandVelocityAction;
+        
+        /**
+         * Translate input position to be consistent relative to the player's head
+         */
+        public Vector3 TranslatePosition(Vector3 source)
+        {
+            var angle = headRotation.eulerAngles.y;
+            var position = source - headPosition;
+
+            return Quaternion.AngleAxis(-angle, Vector3.up) * position;
+        }
+
+        /**
+         * Translate input velocity to be consistent relative to where the player is facing
+         */
+        public Vector3 TranslateVelocity(Vector3 source)
+        {
+            var angle = headRotation.eulerAngles.y;
+            return Quaternion.AngleAxis(-angle, Vector3.up) * source;
+        }
         
         private void Awake()
         {
@@ -76,25 +105,14 @@ namespace Script.Interaction
             InitDebugStates();
         }
         
-        private Vector3 GetLocalPosition(Vector3 srcPos, Vector3 headPos, Quaternion headRot)
-        {
-            var angle = headRot.eulerAngles.y;
-            var position = srcPos - headPos;
-            var rotation = Quaternion.AngleAxis(-angle, Vector3.up);
-
-            return rotation * position;
-        }
-        
         private void Update()
         {
             if (useReference)
             {
-                var leftHandPositionSrc = _leftHandPositionAction.ReadValue<Vector3>();
-                var rightHandPositionSrc = _rightHandPositionAction.ReadValue<Vector3>();
                 headPosition = _headPositionAction.ReadValue<Vector3>();
                 headRotation = _headRotationAction.ReadValue<Quaternion>();
-                leftHandPosition = GetLocalPosition(leftHandPositionSrc, headPosition, headRotation);
-                rightHandPosition = GetLocalPosition(rightHandPositionSrc, headPosition, headRotation);
+                leftHandPosition = _leftHandPositionAction.ReadValue<Vector3>();
+                rightHandPosition = _rightHandPositionAction.ReadValue<Vector3>();
                 leftHandVelocity = _leftHandVelocityAction.ReadValue<Vector3>();
                 rightHandVelocity = _rightHandVelocityAction.ReadValue<Vector3>();
             }
@@ -105,12 +123,12 @@ namespace Script.Interaction
 
                 if (_headDevice.TryGetFeatureValue(CommonUsages.deviceRotation, out var headRot))
                     headRotation = headRot;
-                
+
                 if (_leftHandDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var leftPos))
-                    leftHandPosition = GetLocalPosition(leftPos, headPos, headRot);
+                    leftHandPosition = leftPos;
 
                 if (_rightHandDevice.TryGetFeatureValue(CommonUsages.devicePosition, out var rightPos))
-                    rightHandPosition = GetLocalPosition(rightPos, headPos, headRot);
+                    rightHandPosition = rightPos;
                 
                 if (_leftHandDevice.TryGetFeatureValue(CommonUsages.deviceVelocity, out var leftVel))
                     leftHandVelocity = leftVel;
@@ -129,7 +147,7 @@ namespace Script.Interaction
         {
             if (useReference)
             {
-                if (inputActions == null)
+                if (!inputActions)
                 {
                     Debug.LogWarning("Required component is missing! Reverting to normal mode...");
                     useReference = false;
@@ -168,9 +186,9 @@ namespace Script.Interaction
             if (!debugMode)
                 return;
                 
-            if (leftHandPositionText == null || rightHandPositionText == null ||
-                leftHandVelocityText == null || rightHandVelocityText == null ||
-                headPositionText == null || headRotationText == null)
+            if (!leftHandPositionText || !rightHandPositionText ||
+                !leftHandVelocityText || !rightHandVelocityText ||
+                !headPositionText || !headRotationText)
             {
                 debugMode = false;
             }
