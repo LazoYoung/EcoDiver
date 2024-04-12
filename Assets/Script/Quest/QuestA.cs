@@ -1,23 +1,36 @@
 using UnityEngine;
 
-public class QuestA : Quest
+public class QuestA : MonoBehaviour, IQuest
 {
-    private QuestObserver _observer;
-
-    public void Start()
+    private void Start()
     {
-
     }
-    // Concrete implementation of completing the quest
+
+    public Transform GetTransform()
+    {
+        return transform;
+    }
+
+    public void Activate()
+    {
+        Debug.Log("Quest A Activated");
+        gameObject.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        Debug.Log("Quest A Deactivated");
+        gameObject.SetActive(false);
+    }
+
     public void Complete()
     {
-        Debug.Log("Quest A is complete!");
+        Debug.Log("Quest A Completed");
         Notify();
     }
 
-    // Concrete implementation of the Notify method
     public void Notify()
     {
-        _observer.Update(this);
+        QuestObserver.Instance.Update(this);
     }
 }

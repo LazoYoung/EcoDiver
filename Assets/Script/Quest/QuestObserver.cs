@@ -1,11 +1,38 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-public class QuestObserver
+public class QuestObserver: MonoBehaviour
 {
-    private Queue<Quest> _quests = new Queue<Quest>(); //초기화 방법?
+    public static QuestObserver Instance { get; private set; } = null;
+    private Queue<IQuest> _quests = new Queue<IQuest>();
 
-    private Quest peekNextQuest()
+    public QuestArrowIndicator arrowIndicator;
+
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
+    {
+        QuestA questA = FindObjectOfType<QuestA>();
+        Debug.Log("QuestA: " + questA.ToString());
+        questA.Deactivate();
+        _quests.Enqueue(questA);
+
+        StartQuest();
+    }
+
+    private IQuest completeAndPeekNext()
+    {
+        _quests.Peek().Deactivate();
         if (_quests.Count == 0)
         {
             return null;
@@ -13,39 +40,52 @@ public class QuestObserver
         return _quests.Dequeue();
     }
 
-    public void Update(Quest quest)
+    public void Update(IQuest quest)
     {
-        var nextQuest = peekNextQuest();
+        var nextQuest = completeAndPeekNext();
         if (nextQuest == null)
         {
             //ending 처리 or nextQuest가 엔딩인 경우를 만들기.
         }
 
         completeAction();
-
-        updateBackground(nextQuest);
-
-        updateMinimap(nextQuest);
-        updateStatusBar(nextQuest);
-        updateArrow(nextQuest);
+        StartQuest();
     }
 
-    private void updateArrow(Quest nextQuest)
+    private void StartQuest()
+    {
+        if(_quests.Count == 0)
+        {
+            Debug.Log("No Quests");
+            return;
+        }
+        var quest = _quests.Peek();
+        Debug.Log("Starting Quest: " + quest);
+        quest.Activate();
+
+        updateBackground(quest);
+
+        updateMinimap(quest);
+        updateStatusBar(quest);
+        updateArrow(quest);
+    }
+
+    private void updateArrow(IQuest nextQuest)
+    {
+        arrowIndicator.questTransform = nextQuest.GetTransform();
+    }
+
+    private void updateStatusBar(IQuest nextQuest)
     {
         //throw new System.NotImplementedException();
     }
 
-    private void updateStatusBar(Quest nextQuest)
+    private void updateMinimap(IQuest nextQuest)
     {
         //throw new System.NotImplementedException();
     }
 
-    private void updateMinimap(Quest nextQuest)
-    {
-        //throw new System.NotImplementedException();
-    }
-
-    private void updateBackground(Quest nextQuest)
+    private void updateBackground(IQuest nextQuest)
     {
         //throw new System.NotImplementedException();
     }
