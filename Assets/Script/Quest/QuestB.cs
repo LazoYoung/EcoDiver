@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class QuestA : MonoBehaviour, IQuest
+public class QuestB : MonoBehaviour, IQuest
 {
     private void Start()
     {
@@ -9,7 +9,7 @@ public class QuestA : MonoBehaviour, IQuest
     private void Update()
     {
         // Check if the Y key was pressed this frame
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             Complete();
         }
@@ -23,19 +23,19 @@ public class QuestA : MonoBehaviour, IQuest
 
     public void Activate()
     {
-        Debug.Log("Quest A Activated");
+        Debug.Log("Quest B Activated");
         gameObject.SetActive(true);
     }
 
     public void Deactivate()
     {
-        Debug.Log("Quest A Deactivated");
+        Debug.Log("Quest B Deactivated");
         gameObject.SetActive(false);
     }
 
     public void Complete()
     {
-        Debug.Log("Quest A Completed");
+        Debug.Log("Quest B Completed");
         Notify();
     }
 

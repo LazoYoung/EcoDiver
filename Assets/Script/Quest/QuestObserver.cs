@@ -22,12 +22,17 @@ public class QuestObserver: MonoBehaviour
     }
     private void Start()
     {
-        QuestA questA = FindObjectOfType<QuestA>();
-        Debug.Log("QuestA: " + questA.ToString());
-        questA.Deactivate();
-        _quests.Enqueue(questA);
+        registerQuest(FindObjectOfType<QuestA>());
+        registerQuest(FindObjectOfType<QuestB>());
+        registerQuest(FindObjectOfType<QuestC>());
 
         StartQuest();
+    }
+
+    private void registerQuest(IQuest quest)
+    {
+        quest.Deactivate();
+        _quests.Enqueue(quest);
     }
 
     private IQuest completeAndPeekNext()
@@ -40,7 +45,7 @@ public class QuestObserver: MonoBehaviour
         return _quests.Dequeue();
     }
 
-    public void Update(IQuest quest)
+    public void UpdateQuest(IQuest quest)
     {
         var nextQuest = completeAndPeekNext();
         if (nextQuest == null)
@@ -56,7 +61,7 @@ public class QuestObserver: MonoBehaviour
     {
         if(_quests.Count == 0)
         {
-            Debug.Log("No Quests");
+            ending();
             return;
         }
         var quest = _quests.Peek();
@@ -68,6 +73,13 @@ public class QuestObserver: MonoBehaviour
         updateMinimap(quest);
         updateStatusBar(quest);
         updateArrow(quest);
+    }
+
+    private void ending()
+    {
+        Debug.Log("No Quests");
+        arrowIndicator.gameObject.SetActive(false);
+
     }
 
     private void updateArrow(IQuest nextQuest)
