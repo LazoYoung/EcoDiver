@@ -15,7 +15,6 @@ public class QuestC : MonoBehaviour, IQuest
         }
     }
 
-
     public Transform GetTransform()
     {
         return transform;

@@ -22,20 +22,20 @@ public class QuestObserver: MonoBehaviour
     }
     private void Start()
     {
-        registerQuest(FindObjectOfType<QuestA>());
-        registerQuest(FindObjectOfType<QuestB>());
-        registerQuest(FindObjectOfType<QuestC>());
+        RegisterQuest(FindObjectOfType<QuestA>());
+        RegisterQuest(FindObjectOfType<QuestB>());
+        RegisterQuest(FindObjectOfType<QuestC>());
 
         StartQuest();
     }
 
-    private void registerQuest(IQuest quest)
+    private void RegisterQuest(IQuest quest)
     {
         quest.Deactivate();
         _quests.Enqueue(quest);
     }
 
-    private IQuest completeAndPeekNext()
+    private IQuest CompleteAndPeekNext()
     {
         _quests.Peek().Deactivate();
         if (_quests.Count == 0)
@@ -47,13 +47,13 @@ public class QuestObserver: MonoBehaviour
 
     public void UpdateQuest(IQuest quest)
     {
-        var nextQuest = completeAndPeekNext();
+        var nextQuest = CompleteAndPeekNext();
         if (nextQuest == null)
         {
             //ending 처리 or nextQuest가 엔딩인 경우를 만들기.
         }
 
-        completeAction();
+        CompleteAction();
         StartQuest();
     }
 
@@ -61,48 +61,48 @@ public class QuestObserver: MonoBehaviour
     {
         if(_quests.Count == 0)
         {
-            ending();
+            EndingAction();
             return;
         }
         var quest = _quests.Peek();
         Debug.Log("Starting Quest: " + quest);
         quest.Activate();
 
-        updateBackground(quest);
+        UpdateBackground(quest);
 
-        updateMinimap(quest);
-        updateStatusBar(quest);
-        updateArrow(quest);
+        UpdateMinimap(quest);
+        UpdateStatusBar(quest);
+        UpdateArrow(quest);
     }
 
-    private void ending()
+    private void EndingAction()
     {
         Debug.Log("No Quests");
         arrowIndicator.gameObject.SetActive(false);
 
     }
 
-    private void updateArrow(IQuest nextQuest)
+    private void UpdateArrow(IQuest nextQuest)
     {
         arrowIndicator.questTransform = nextQuest.GetTransform();
     }
 
-    private void updateStatusBar(IQuest nextQuest)
+    private void UpdateStatusBar(IQuest nextQuest)
     {
         //throw new System.NotImplementedException();
     }
 
-    private void updateMinimap(IQuest nextQuest)
+    private void UpdateMinimap(IQuest nextQuest)
     {
         //throw new System.NotImplementedException();
     }
 
-    private void updateBackground(IQuest nextQuest)
+    private void UpdateBackground(IQuest nextQuest)
     {
         //throw new System.NotImplementedException();
     }
 
-    private void completeAction()
+    private void CompleteAction()
     {
         //throw new System.NotImplementedException();
     }
