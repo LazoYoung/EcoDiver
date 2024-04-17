@@ -57,6 +57,8 @@ namespace Script.Interaction
         [SerializeField] private float spinTorque = 0.01f;
         [Tooltip("Amount of force to simulate fluid resistance.")]
         [SerializeField] private float dragForce = 0.3f;
+        [Tooltip("Vertical speed sinking underwater.")]
+        [SerializeField] private float sinkSpeed = 1f;
         [Tooltip("Minimum amount of input for controller deadzone.")]
         [SerializeField] private float minInput = 0.5f;
         [Tooltip("Cooldown in seconds before the next input is allowed.")]
@@ -68,6 +70,7 @@ namespace Script.Interaction
         [Tooltip("Print verbose output to Console.")]
         [SerializeField] private bool verbose;
 
+        private const float SinkForce = 0.5f;
         private const float SpinDrag = 1.0f;
         private Rigidbody _rigidbody;
         private RigidbodyState _rstate;
@@ -139,6 +142,11 @@ namespace Script.Interaction
                 _timer = 0;
                 _inPropel = false;
                 _inSpin = false;
+            }
+            else if (_rigidbody.velocity.y < sinkSpeed)
+            {
+                var sinkForce = dragForce + SinkForce;
+                _rigidbody.AddForce(sinkForce * Vector3.down);
             }
         }
 
