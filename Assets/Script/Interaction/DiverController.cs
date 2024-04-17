@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Crest;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using static UnityEngine.RigidbodyConstraints;
 using Vector3 = UnityEngine.Vector3;
 
@@ -10,25 +10,25 @@ namespace Script.Interaction
 {
     internal struct RigidbodyState
     {
-        internal RigidbodyConstraints Constraints;
-        internal bool UseGravity;
-        internal float Drag;
-        internal float AngularDrag;
+        private RigidbodyConstraints _constraints;
+        private bool _useGravity;
+        private float _drag;
+        private float _angularDrag;
 
         internal void Save(Rigidbody body)
         {
-            Constraints = body.constraints;
-            Drag = body.drag;
-            UseGravity = body.useGravity;
-            AngularDrag = body.angularDrag;
+            _constraints = body.constraints;
+            _drag = body.drag;
+            _useGravity = body.useGravity;
+            _angularDrag = body.angularDrag;
         }
         
         internal void Restore(Rigidbody body)
         {
-            body.constraints = Constraints;
-            body.drag = Drag;
-            body.useGravity = UseGravity;
-            body.angularDrag = AngularDrag;
+            body.constraints = _constraints;
+            body.drag = _drag;
+            body.useGravity = _useGravity;
+            body.angularDrag = _angularDrag;
         }
     }
     
@@ -52,7 +52,6 @@ namespace Script.Interaction
         [Header("Physics")]
         [Tooltip("Amount of force applied to propel underwater.")]
         [SerializeField] private float swimForce = 3f;
-        [FormerlySerializedAs("SpinTorque")]
         [Tooltip("Amount of torque applied to spin around underwater.")]
         [SerializeField] private float spinTorque = 0.01f;
         [Tooltip("Amount of force to simulate fluid resistance.")]
@@ -63,12 +62,12 @@ namespace Script.Interaction
         [SerializeField] private float minInput = 0.5f;
         [Tooltip("Cooldown in seconds before the next input is allowed.")]
         [SerializeField] private float cooldown = 0.3f;
-        [Tooltip("Force underwater physics to persist above sea level. Testing purpose only!")]
-        [SerializeField] private bool forceUnderwater;
 
         [Header("Experiment")]
         [Tooltip("Print verbose output to Console.")]
         [SerializeField] private bool verbose;
+        [Tooltip("Force underwater physics to persist above sea level. Testing purpose only!")]
+        [SerializeField] private bool forceUnderwater;
 
         private const float SinkForce = 0.5f;
         private const float SpinDrag = 1.0f;
@@ -99,11 +98,20 @@ namespace Script.Interaction
             _rstate.Restore(_rigidbody);
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            // stop player from spinning due to ground collision
+            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.velocity = Vector3.zero;
+
+            Debug.Log("Collision enter");
+        }
+
         private void FixedUpdate()
         {
             if (!forceUnderwater)
             {
-                _underwater = OceanRenderer.Instance.ViewerHeightAboveWater < 0;
+                _underwater = OceanRenderer.Instance.ViewerHeightAboveWater < 1f;
             }
             
             UpdateRigidbody();
@@ -122,12 +130,13 @@ namespace Script.Interaction
         {
             var leftForce = input.TranslateVelocity(input.leftHandVelocity);
             var rightForce = input.TranslateVelocity(input.rightHandVelocity);
+            var leftPower = IsForceSufficient(leftForce);
+            var rightPower = IsForceSufficient(rightForce);
             var leftTrigger = !triggerMode || leftButton.action.IsPressed();
             var rightTrigger = !triggerMode || rightButton.action.IsPressed();
-            var left = IsForceSufficient(leftForce) && leftTrigger;
-            var right = IsForceSufficient(rightForce) && rightTrigger;
-            var noise = IsForceSufficient(leftForce) ^ leftTrigger;
-            noise |= IsForceSufficient(rightForce) ^ rightTrigger;
+            var left = leftPower && leftTrigger;
+            var right = rightPower && rightTrigger;
+            var noise = (leftPower ^ leftTrigger) | (rightPower ^ rightTrigger);
             
             if (!noise && left && right)
             {
@@ -199,10 +208,17 @@ namespace Script.Interaction
         
         private void UpdateRigidbody()
         {
-            _rigidbody.constraints = FreezeRotationX | FreezeRotationZ;
-            _rigidbody.useGravity = !_underwater && _rstate.UseGravity;
-            _rigidbody.drag = _underwater ? dragForce : _rstate.Drag;
-            _rigidbody.angularDrag = _underwater ? SpinDrag : _rstate.AngularDrag;
+            if (_underwater)
+            {
+                _rigidbody.constraints = FreezeRotationX | FreezeRotationZ;
+                _rigidbody.useGravity = false;
+                _rigidbody.drag = dragForce;
+                _rigidbody.angularDrag = SpinDrag;
+            }
+            else
+            {
+                _rstate.Restore(_rigidbody);
+            }
         }
         
         private bool ValidateComponents()
