@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Crest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -49,8 +50,6 @@ namespace Script.Interaction
         [SerializeField] private InputActionReference rightButton;
 
         [Header("Physics")]
-        [Tooltip("Height of the ocean in y-axis.")]
-        [SerializeField] private float seaLevel;
         [Tooltip("Amount of force applied to propel underwater.")]
         [SerializeField] private float swimForce = 3f;
         [FormerlySerializedAs("SpinTorque")]
@@ -101,7 +100,7 @@ namespace Script.Interaction
         {
             if (!forceUnderwater)
             {
-                _underwater = _rigidbody.position.y < seaLevel;
+                _underwater = OceanRenderer.Instance.ViewerHeightAboveWater < 0;
             }
             
             UpdateRigidbody();
