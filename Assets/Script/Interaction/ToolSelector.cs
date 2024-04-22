@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -69,6 +68,7 @@ namespace Script.Interaction
             {
                 Equip(_pointer.Value);
                 CloseMenu();
+                DisableLocomotion();
             }
             else if (IsTimeOver() || IsButtonPressed())
             {
