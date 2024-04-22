@@ -33,7 +33,7 @@ namespace Script.Collect
 
         public void CollectItem()
         {
-            Interlocked.Increment(ref itemsCollected);
+            ++itemsCollected;
             Debug.Log("Item Collected. Total items: " + itemsCollected);
         }
 
