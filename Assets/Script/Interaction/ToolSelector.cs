@@ -68,7 +68,7 @@ namespace Script.Interaction
             {
                 Equip(_pointer.Value);
                 CloseMenu();
-                DisableLocomotion();
+                EnableLocomotion();
             }
             else if (IsTimeOver() || IsButtonPressed())
             {
