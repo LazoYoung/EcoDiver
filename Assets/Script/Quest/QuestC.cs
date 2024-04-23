@@ -1,45 +1,48 @@
 using UnityEngine;
 
-public class QuestC : MonoBehaviour, IQuest
+namespace Script.Quest
 {
-    private void Start()
+    public class QuestC : MonoBehaviour, IQuest
     {
-    }
-
-    private void Update()
-    {
-        // Check if the Y key was pressed this frame
-        if (Input.GetKeyDown(KeyCode.I))
+        private void Start()
         {
-            Complete();
         }
-    }
 
-    public Transform GetTransform()
-    {
-        return transform;
-    }
+        private void Update()
+        {
+            // Check if the Y key was pressed this frame
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                Complete();
+            }
+        }
 
-    public void Activate()
-    {
-        Debug.Log("Quest C Activated");
-        gameObject.SetActive(true);
-    }
+        public Transform GetTransform()
+        {
+            return transform;
+        }
 
-    public void Deactivate()
-    {
-        Debug.Log("Quest C Deactivated");
-        gameObject.SetActive(false);
-    }
+        public void Activate()
+        {
+            Debug.Log("Quest C Activated");
+            gameObject.SetActive(true);
+        }
 
-    public void Complete()
-    {
-        Debug.Log("Quest C Completed");
-        Notify();
-    }
+        public void Deactivate()
+        {
+            Debug.Log("Quest C Deactivated");
+            gameObject.SetActive(false);
+        }
 
-    public void Notify()
-    {
-        QuestObserver.Instance.UpdateQuest(this);
+        public void Complete()
+        {
+            Debug.Log("Quest C Completed");
+            Notify();
+        }
+
+        public void Notify()
+        {
+            QuestObserver.Instance.UpdateQuest(this);
+        }
     }
 }
