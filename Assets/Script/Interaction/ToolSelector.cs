@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Script.Interaction
@@ -10,7 +11,10 @@ namespace Script.Interaction
 
     public enum Tool
     {
-        Hand, Knife, Headlight, Rope
+        Hand,
+        Knife,
+        Headlight,
+        Rope
     }
 
     public class ToolSelector : MonoBehaviour
@@ -19,12 +23,13 @@ namespace Script.Interaction
 
         [SerializeField] private InputActionReference thumbStick;
 
+        [SerializeField] private LocomotionSystem locomotion;
+
         [SerializeField] private float idleTime = 5;
 
-        private LocomotionSystem _locomotion;
         private LocomotionDummy _locomotionDummy;
         private float _timer;
-        private bool _menuOpened;
+        private bool _isOpen;
         private Tool? _pointer;
 
         private void Start()
@@ -41,19 +46,19 @@ namespace Script.Interaction
                 enabled = false;
             }
 
-            _locomotion = FindObjectOfType<LocomotionSystem>();
+            if (!locomotion)
+                locomotion = FindObjectOfType<LocomotionSystem>();
         }
 
         private void Update()
         {
-            if (!_menuOpened)
+            if (!_isOpen)
             {
-                if (IsButtonPressed())
+                if (IsButtonPressed() && DisableLocomotion())
                 {
                     OpenMenu();
-                    DisableLocomotion();
                 }
-            
+
                 return;
             }
 
@@ -83,7 +88,7 @@ namespace Script.Interaction
             var vector = thumbStick.action.ReadValue<Vector2>();
             var angle = Vector2.SignedAngle(vector, Vector2.up);
             Tool? tool;
-            
+
             if (vector.sqrMagnitude < 0.5)
             {
                 tool = null;
@@ -107,17 +112,17 @@ namespace Script.Interaction
 
             return tool;
         }
-        
+
         private void Equip(Tool tool)
         {
             Debug.Log("Equip: " + tool.ToString());
-            
+
             // todo method stub
         }
 
         private void OpenMenu()
         {
-            _menuOpened = true;
+            _isOpen = true;
 
             Debug.Log("Menu open.");
             // todo method stub
@@ -126,7 +131,7 @@ namespace Script.Interaction
         private void CloseMenu()
         {
             _pointer = null;
-            _menuOpened = false;
+            _isOpen = false;
 
             Debug.Log("Menu close.");
             // todo method stub
@@ -136,10 +141,10 @@ namespace Script.Interaction
         {
             return toggleButton.action.WasPressedThisFrame();
         }
-        
+
         private bool IsTimeOver()
         {
-            return _menuOpened && _timer > idleTime;
+            return _isOpen && _timer > idleTime;
         }
 
         private void ResetTimer()
@@ -147,22 +152,18 @@ namespace Script.Interaction
             _timer = 0;
         }
 
-        private void DisableLocomotion()
+        private bool DisableLocomotion()
         {
-            if (!_locomotion)
-                return;
+            if (!locomotion)
+                return true;
 
-            var result = _locomotion.RequestExclusiveOperation(_locomotionDummy);
-
-            if (result != RequestResult.Success)
-            {
-                // todo: We have to find way to seize control!
-            }
+            var result = locomotion.RequestExclusiveOperation(_locomotionDummy);
+            return result == RequestResult.Success;
         }
 
         private void EnableLocomotion()
         {
-            _locomotion?.FinishExclusiveOperation(_locomotionDummy);
+            locomotion?.FinishExclusiveOperation(_locomotionDummy);
         }
     }
 }
