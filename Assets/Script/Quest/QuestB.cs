@@ -16,6 +16,7 @@ namespace Script.Quest
             {
                 isCompleted = true;
                 Complete();
+                Notify();
             }
         }
 
@@ -45,7 +46,6 @@ namespace Script.Quest
         public void Complete()
         {
             Debug.Log("Quest B Completed");
-            Notify();
         }
 
         public void Notify()
