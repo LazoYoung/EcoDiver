@@ -12,7 +12,7 @@ namespace Script.Quest
 
         private void Update()
         {
-            if (!isCompleted && isCompleteNow())
+            if (!isCompleted && CanComplete())
             {
                 isCompleted = true;
                 Complete();
@@ -20,7 +20,7 @@ namespace Script.Quest
             }
         }
 
-        public bool isCompleteNow()
+        public bool CanComplete()
         {
             return Input.GetKeyDown(KeyCode.U);
         }
