@@ -16,7 +16,7 @@ namespace Script.Quest
             if (!isCompleted && CanComplete())
             {
                 isCompleted = true;
-                Complete();
+                OnComplete();
                 Notify();
             }
         }
@@ -44,7 +44,7 @@ namespace Script.Quest
             gameObject.SetActive(false);
         }
 
-        public void Complete()
+        public void OnComplete()
         {
             Debug.Log("Quest A Completed");
         }

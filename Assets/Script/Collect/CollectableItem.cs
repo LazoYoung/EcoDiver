@@ -34,12 +34,12 @@ namespace Script.Collect
 
                     CollectManager.Instance.CollectItem();
                     gameObject.SetActive(false);
-                    Collect();
+                    OnCollect();
                 }
             }
         }
 
-        private void Collect()
+        private void OnCollect()
         {
             Debug.Log("Held for over one second!");
         }
