@@ -57,7 +57,7 @@ namespace Script.Quest
                 //ending 처리 or nextQuest가 엔딩인 경우를 만들기.
             }
 
-            CompleteAction();
+            OnCompleteQuest();
             StartQuest();
         }
 
@@ -65,7 +65,7 @@ namespace Script.Quest
         {
             if (_quests.Count == 0)
             {
-                EndingAction();
+                OnFinishAllQuests();
                 return;
             }
 
@@ -80,7 +80,7 @@ namespace Script.Quest
             UpdateArrow(quest);
         }
 
-        private void EndingAction()
+        private void OnFinishAllQuests()
         {
             Debug.Log("No Quests");
             arrowIndicator.gameObject.SetActive(false);
@@ -107,7 +107,7 @@ namespace Script.Quest
             //throw new System.NotImplementedException();
         }
 
-        private void CompleteAction()
+        private void OnCompleteQuest()
         {
             //throw new System.NotImplementedException();
         }

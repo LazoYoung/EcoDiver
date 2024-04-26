@@ -4,17 +4,25 @@ namespace Script.Quest
 {
     public class QuestB : MonoBehaviour, IQuest
     {
+        private bool isCompleted = false;
+
         private void Start()
         {
         }
 
         private void Update()
         {
-            // Check if the Y key was pressed this frame
-            if (Input.GetKeyDown(KeyCode.U))
+            if (!isCompleted && CanComplete())
             {
-                Complete();
+                isCompleted = true;
+                OnComplete();
+                Notify();
             }
+        }
+
+        public bool CanComplete()
+        {
+            return Input.GetKeyDown(KeyCode.U);
         }
 
 
@@ -35,10 +43,9 @@ namespace Script.Quest
             gameObject.SetActive(false);
         }
 
-        public void Complete()
+        public void OnComplete()
         {
             Debug.Log("Quest B Completed");
-            Notify();
         }
 
         public void Notify()
