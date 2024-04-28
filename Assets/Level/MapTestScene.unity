@@ -349,17 +349,72 @@ MonoBehaviour:
   objectPrefabsSettings:
   - prefab: {fileID: 8913997720219034739, guid: 3f8dee9a3da4bf943b20075b28346f5a,
       type: 3}
-    number: 1000
-    scaleRange: {x: 100, y: 100}
+    number: 700
+    scaleRange: {x: 70, y: 70}
   - prefab: {fileID: 3516775562349119039, guid: e4eda4f42a0fe634f9833105f5966445,
       type: 3}
-    number: 1000
-    scaleRange: {x: 50, y: 50}
+    number: 700
+    scaleRange: {x: 40, y: 40}
   - prefab: {fileID: 7454046137703704281, guid: c69b12985f3c3f840b03e34238c51006,
       type: 3}
-    number: 1000
-    scaleRange: {x: 1, y: 1}
-  areaSize: {x: 400, y: 0, z: 400}
+    number: 700
+    scaleRange: {x: 1, y: 3}
+  - prefab: {fileID: 7306505533616600277, guid: e88e006413330e24090727f1c40aa062,
+      type: 3}
+    number: 23000
+    scaleRange: {x: 7, y: 3}
+  - prefab: {fileID: 6465243836769977568, guid: ff9a1359999b2914bb4d6bae48ca1814,
+      type: 3}
+    number: 500
+    scaleRange: {x: 1, y: 3}
+  - prefab: {fileID: 7330206020075369016, guid: 582fd8b4385638d42984b776cdc1d2fd,
+      type: 3}
+    number: 2000
+    scaleRange: {x: 1, y: 4}
+  - prefab: {fileID: 5826118201137868251, guid: ea54f979389e30d4c8ee281103b05458,
+      type: 3}
+    number: 500
+    scaleRange: {x: 1, y: 3}
+  - prefab: {fileID: 7931151025542652879, guid: 3272db774a7bb9044a91fe65cd76249c,
+      type: 3}
+    number: 700
+    scaleRange: {x: 5, y: 5}
+  - prefab: {fileID: 1053019670350172160, guid: 6f47f0a9242402a44ac95eec92f02cf7,
+      type: 3}
+    number: 700
+    scaleRange: {x: 5, y: 5}
+  - prefab: {fileID: 2190869548681965456, guid: 77b53b602a664764abc99d7028d1efc5,
+      type: 3}
+    number: 2000
+    scaleRange: {x: 5, y: 5}
+  - prefab: {fileID: 1575280745606962098, guid: 1507c63f222d53441839f0a60c016015,
+      type: 3}
+    number: 100
+    scaleRange: {x: 10, y: 10}
+  - prefab: {fileID: 2353437919735300329, guid: 7e58908450ef99d4ba47273c03cdf0ee,
+      type: 3}
+    number: 100
+    scaleRange: {x: 10, y: 10}
+  - prefab: {fileID: 4827599959721251191, guid: 037301bff9926594aafe16fd87a659a2,
+      type: 3}
+    number: 100
+    scaleRange: {x: 10, y: 10}
+  - prefab: {fileID: 327930924830889070, guid: f699af8202bebe54b8ead615315e9fb3, type: 3}
+    number: 10
+    scaleRange: {x: 1, y: 10}
+  - prefab: {fileID: 3412054125834527897, guid: 80a0aad18b3b0844f892aa1dc2d22646,
+      type: 3}
+    number: 100
+    scaleRange: {x: 5, y: 5}
+  - prefab: {fileID: 1483480196695679743, guid: fcabe913bcf4c8141bf94f5159c8e7dc,
+      type: 3}
+    number: 100
+    scaleRange: {x: 5, y: 5}
+  - prefab: {fileID: 8549979639614491523, guid: bd4accbfc0df2df44a757cbd93f4b9da,
+      type: 3}
+    number: 100
+    scaleRange: {x: 5, y: 5}
+  areaSize: {x: 450, y: 0, z: 450}
   areaPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &1030721467
 PrefabInstance:
@@ -1504,7 +1559,7 @@ MonoBehaviour:
   _mode: 0
   _filterOceanData: 13
   _meniscus: 1
-  _depthFogDensityFactor: 0.101
+  _depthFogDensityFactor: 0.251
   _volumeGeometry: {fileID: 0}
   _invertCulling: 0
   _enableShaderAPI: 0
