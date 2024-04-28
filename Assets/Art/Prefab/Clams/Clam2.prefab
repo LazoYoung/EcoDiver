@@ -1,16 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2480651398078834565
+--- !u!1 &542552491604637340
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2480651398078834565, guid: 5d07b2d932fb71248be064e4d6ae0ace,
+    type: 3}
+  m_PrefabInstance: {fileID: 697774093987490347}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1519892892589266979}
-  - component: {fileID: 4400512578414601800}
-  - component: {fileID: 2504417554504569732}
+  - component: {fileID: 992800978798506693}
+  - component: {fileID: 5947368372700511453}
+  - component: {fileID: 8601551424412678790}
   m_Layer: 0
   m_Name: Clam2
   m_TagString: Untagged
@@ -18,36 +19,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1519892892589266979
+--- !u!4 &992800978798506693
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1519892892589266979, guid: 5d07b2d932fb71248be064e4d6ae0ace,
+    type: 3}
+  m_PrefabInstance: {fileID: 697774093987490347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2480651398078834565}
+  m_GameObject: {fileID: 542552491604637340}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -27.298752, y: -17.638554, z: -39.44373}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 3629121944651315925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4400512578414601800
+--- !u!33 &5947368372700511453
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4400512578414601800, guid: 5d07b2d932fb71248be064e4d6ae0ace,
+    type: 3}
+  m_PrefabInstance: {fileID: 697774093987490347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2480651398078834565}
+  m_GameObject: {fileID: 542552491604637340}
   m_Mesh: {fileID: -286181309242633003, guid: 1627ed5844816e147b9155495e6bae9b, type: 3}
---- !u!23 &2504417554504569732
+--- !u!23 &8601551424412678790
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2504417554504569732, guid: 5d07b2d932fb71248be064e4d6ae0ace,
+    type: 3}
+  m_PrefabInstance: {fileID: 697774093987490347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2480651398078834565}
+  m_GameObject: {fileID: 542552491604637340}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,3 +87,92 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3016676740514457681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3629121944651315925}
+  m_Layer: 0
+  m_Name: Clam2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3629121944651315925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016676740514457681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.960976, y: 7.419438, z: 74.888145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 992800978798506693}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &697774093987490347
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3629121944651315925}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0.1121
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: Clam2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 0}
