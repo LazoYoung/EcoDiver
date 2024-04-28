@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a59275836627d494184e7c1820417403,
         type: 3}
       propertyPath: m_Name
-      value: Floor 1
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91,10 +91,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8304205278606573655}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a59275836627d494184e7c1820417403,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7749183072023198020}
   m_SourcePrefab: {fileID: 100100000, guid: a59275836627d494184e7c1820417403, type: 3}
 --- !u!1 &9161310767612618569 stripped
 GameObject:
@@ -124,41 +120,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3089802480582621648, guid: a59275836627d494184e7c1820417403, type: 3}
---- !u!114 &7749183072023198020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9161310767612618569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6c8c3d3b59ef546852ecff7c0636d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefabsSettings:
-  - prefab: {fileID: 7306505533616600277, guid: e88e006413330e24090727f1c40aa062,
-      type: 3}
-    number: 100000
-    scaleRange: {x: 1, y: 2}
-  - prefab: {fileID: 825759584011787272, guid: 7999ac09cb70933479de587ead3bf834, type: 3}
-    number: 2500
-    scaleRange: {x: 1, y: 2}
-  - prefab: {fileID: 6465243836769977568, guid: ff9a1359999b2914bb4d6bae48ca1814,
-      type: 3}
-    number: 1000
-    scaleRange: {x: 1, y: 5}
-  - prefab: {fileID: 7330206020075369016, guid: 582fd8b4385638d42984b776cdc1d2fd,
-      type: 3}
-    number: 1000
-    scaleRange: {x: 1, y: 5}
-  - prefab: {fileID: 5826118201137868251, guid: ea54f979389e30d4c8ee281103b05458,
-      type: 3}
-    number: 1000
-    scaleRange: {x: 1, y: 5}
-  - prefab: {fileID: 5855920676769770191, guid: ef43868c13617d34eb08265885ce3799,
-      type: 3}
-    number: 1000
-    scaleRange: {x: 1, y: 5}
-  areaSize: {x: 400, y: 0, z: 400}
-  areaPositionOffset: {x: 0, y: 0, z: 0}
