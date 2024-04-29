@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace Script.Display
 {
@@ -78,6 +76,8 @@ namespace Script.Display
             {
                 Debug.Log($"Oxygen level: {_currentOxygen}%");
             }
+
+            DisplayManager.Instance.OxygenRate = _currentOxygen;
         }
 
         private bool doConsumeOxygen()

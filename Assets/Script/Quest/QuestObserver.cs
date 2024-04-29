@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Script.Display;
 using UnityEngine;
 
 namespace Script.Quest
@@ -6,8 +7,8 @@ namespace Script.Quest
     public class QuestObserver : MonoBehaviour
     {
         public static QuestObserver Instance { get; private set; } = null;
-        private Queue<IQuest> _quests = new Queue<IQuest>();
-
+        private readonly Queue<IQuest> _quests = new Queue<IQuest>();
+        private QuestLevel _questLevel;
         public QuestArrowIndicator arrowIndicator;
 
         private void Awake()
@@ -30,6 +31,8 @@ namespace Script.Quest
             RegisterQuest(FindObjectOfType<QuestC>());
 
             StartQuest();
+            _questLevel = new QuestLevel(_quests.Count);
+            DisplayManager.Instance.QuestLevel = _questLevel;
         }
 
         private void RegisterQuest(IQuest quest)
@@ -45,12 +48,15 @@ namespace Script.Quest
             {
                 return null;
             }
-
             return _quests.Dequeue();
         }
 
         public void UpdateQuest(IQuest quest)
         {
+            _questLevel.LevelUp();
+
+            DisplayManager.Instance.QuestLevel = _questLevel;
+
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
             {

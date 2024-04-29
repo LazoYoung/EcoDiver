@@ -29,17 +29,24 @@ namespace Script.Display
         {
             if (playerTransform != null)
             {
-                float currentDepth = _defaultDepthLevel - playerTransform.position.y;
-                // Check if depth is negative; if so, player is above water level
-                if (currentDepth < 0) currentDepth = 0;
-
-                // Check if the depth change is significant enough to log
-                if (Mathf.Abs(_lastLoggedDepth - currentDepth) >= DepthLogInterval)
-                {
-                    _lastLoggedDepth = currentDepth;
-                    Debug.Log($"Water depth changed: {currentDepth:F1} meters");
-                }
+                UpdateWaterDepth();
             }
+        }
+
+        private void UpdateWaterDepth()
+        {
+            float currentDepth = _defaultDepthLevel - playerTransform.position.y;
+            // Check if depth is negative; if so, player is above water level
+            if (currentDepth < 0) currentDepth = 0;
+
+            // Check if the depth change is significant enough to log
+            if (Mathf.Abs(_lastLoggedDepth - currentDepth) >= DepthLogInterval)
+            {
+                _lastLoggedDepth = currentDepth;
+                Debug.Log($"Water depth changed: {currentDepth:F1} meters");
+            }
+
+            DisplayManager.Instance.WaterDepth = _lastLoggedDepth;
         }
     }
 }
