@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -399,6 +399,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &225145579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -835,6 +836,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!1001 &433490876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1145,6 +1147,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &717542545
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1513,6 +1516,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &741162652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1657,6 +1661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f10624c71244fc902173357311683d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRandomSelectMode: 1
   numberOfItemsToActivate: 5
 --- !u!4 &825583384
 Transform:
@@ -2216,6 +2221,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1016061804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2504,6 +2510,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1098382922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2792,6 +2799,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1389756651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3480,6 +3488,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1760698998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3768,6 +3777,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1868097189
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3971,77 +3981,77 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1591645995}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04272969
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.04272969
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.04272969
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.067
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 13167ed3c1b49459caf810300abafaae,
+    - target: {fileID: 919132149155446097, guid: a7cc5de67b830cb459f93f2430952a96,
         type: 3}
       propertyPath: m_Name
       value: Arrow
@@ -4050,10 +4060,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 13167ed3c1b49459caf810300abafaae, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a7cc5de67b830cb459f93f2430952a96, type: 3}
 --- !u!4 &1982608626 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13167ed3c1b49459caf810300abafaae,
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a7cc5de67b830cb459f93f2430952a96,
     type: 3}
   m_PrefabInstance: {fileID: 1982608625}
   m_PrefabAsset: {fileID: 0}
@@ -4230,6 +4240,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &2011807475
 Rigidbody:
   m_ObjectHideFlags: 0
