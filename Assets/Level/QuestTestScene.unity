@@ -399,6 +399,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &225145579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -835,6 +836,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!1001 &433490876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,6 +974,51 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 174933460}
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+--- !u!1 &653815418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653815419}
+  - component: {fileID: 653815420}
+  m_Layer: 0
+  m_Name: WaterDepthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653815419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653815418}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1110434105}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &653815420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653815418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d9fe8a258a54d188ebb63c04db5a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 1654480308}
 --- !u!1 &717542543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1192,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &717542545
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1513,6 +1561,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &741162652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1657,6 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f10624c71244fc902173357311683d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRandomSelectMode: 0
   numberOfItemsToActivate: 5
 --- !u!4 &825583384
 Transform:
@@ -2216,6 +2266,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1016061804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2504,6 +2555,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1098382922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2618,6 +2670,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2119437329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1110434104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110434105}
+  m_Layer: 0
+  m_Name: Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110434105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110434104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.07499981}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 653815419}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389756649
 GameObject:
@@ -2792,6 +2876,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1389756651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3480,6 +3565,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1760698998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3768,6 +3854,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &1868097189
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4230,6 +4317,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+  grabDurationThreshold: 1
 --- !u!54 &2011807475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4440,3 +4528,4 @@ SceneRoots:
   - {fileID: 1014320890}
   - {fileID: 266253181}
   - {fileID: 55083604}
+  - {fileID: 1110434105}
