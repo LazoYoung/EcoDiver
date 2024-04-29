@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 namespace Script.Display
 {
-    public class OxygenManager : MonoBehaviour
+    public class OxygenManager : Global.GameEventSubscriber
     {
         private const float MaxOxygenPercent = 100f; // Maximum oxygen capacity
 
@@ -18,6 +18,7 @@ namespace Script.Display
 
         void Start()
         {
+            OnEnable();
             _currentOxygen = MaxOxygenPercent;
         }
 
@@ -35,8 +36,36 @@ namespace Script.Display
             }
         }
 
+        protected override void HandleGameEvent(Global.GameEventType eGameEventType)
+        {
+            switch (eGameEventType)
+            {
+                case Global.GameEventType.PAUSE:
+                    Pause();
+                    break;
+                case Global.GameEventType.RESUME:
+                    Resume();
+                    break;
+            }
+        }
 
-        public void ConsumeOxygen(float amount)
+        private void Pause()
+        {
+            enabled = false;
+        }
+
+        private void Resume()
+        {
+            enabled = true;
+        }
+
+        public void FulfillOxygen()
+        {
+            _currentOxygen = MaxOxygenPercent;
+            _oxygenTimer = 0;
+        }
+
+        private void ConsumeOxygen(float amount)
         {
             _currentOxygen -= amount;
             if (_currentOxygen <= 0)
@@ -49,12 +78,6 @@ namespace Script.Display
             {
                 Debug.Log($"Oxygen level: {_currentOxygen}%");
             }
-        }
-
-        public void FulfillOxygen()
-        {
-            _currentOxygen = MaxOxygenPercent;
-            _oxygenTimer = 0;
         }
 
         private bool doConsumeOxygen()
