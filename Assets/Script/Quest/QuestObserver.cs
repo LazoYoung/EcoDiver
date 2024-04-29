@@ -51,12 +51,20 @@ namespace Script.Quest
 
         public void UpdateQuest(IQuest quest)
         {
+            if (quest != _quests.Peek())
+            {
+                Debug.LogError("Updated quest is not the current quest.");
+                return;
+            }
+
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
             {
-                //ending 처리 or nextQuest가 엔딩인 경우를 만들기.
+                // 모든 퀘스트를 완료한 경우의 처리
+                OnFinishAllQuests();
+                return;
             }
-
+            
             OnCompleteQuest();
             StartQuest();
         }
@@ -84,7 +92,6 @@ namespace Script.Quest
         {
             Debug.Log("No Quests");
             arrowIndicator.gameObject.SetActive(false);
-
         }
 
         private void UpdateArrow(IQuest nextQuest)
