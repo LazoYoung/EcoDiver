@@ -3,20 +3,21 @@ using Crest;
 
 public class WaterSoundManager : MonoBehaviour
 {
-    public OceanRenderer oceanRenderer; // Crest의 OceanRenderer 컴포넌트를 할당
-    public AudioSource audioSource; // AudioSource 컴포넌트를 할당
-    public AudioClip divingSound; // 다이빙 사운드
-    public AudioClip cameOutSound; // 물에서 나오는 사운드
-    public AudioClip underwaterLoopSound; // 물속 루프 사운드
-    public AudioClip surfaceLoopSound; // 물 위 루프 사운드
+    public OceanRenderer oceanRenderer; // Assign the OceanRenderer component from Crest
+    public AudioSource audioSource; // Assign the AudioSource component
+    public AudioClip divingSound; // Diving sound
+    public AudioClip cameOutSound; // Sound for coming out of the water
+    public AudioClip underwaterLoopSound; // Underwater loop sound
+    public AudioClip surfaceLoopSound; // Surface loop sound
 
-    private bool isUnderwater = false; // 현재 물속인지 여부
-    private SampleHeightHelper _sampleHeightHelper; // 높이 샘플링을 위한 헬퍼
+    private bool isUnderwater = false; // Whether the player is currently underwater
+    private SampleHeightHelper _sampleHeightHelper; // Helper for sampling height
 
     private void Start()
     {
         _sampleHeightHelper = new SampleHeightHelper();
         audioSource.clip = surfaceLoopSound;
+        audioSource.loop = true; // Set the audio source to loop
         audioSource.Play();
     }
 
@@ -36,14 +37,16 @@ public class WaterSoundManager : MonoBehaviour
                 if (isUnderwater)
                 {
                     audioSource.PlayOneShot(divingSound);
-                    audioSource.clip = underwaterLoopSound; // 루프 사운드를 물속 사운드로 변경
+                    audioSource.clip = underwaterLoopSound; // Change the loop sound to underwater sound
+                    audioSource.loop = true; // Ensure the sound loops
                 }
                 else
                 {
                     audioSource.PlayOneShot(cameOutSound);
-                    audioSource.clip = surfaceLoopSound; // 루프 사운드를 물 위 사운드로 변경
+                    audioSource.clip = surfaceLoopSound; // Change the loop sound to surface sound
+                    audioSource.loop = true; // Ensure the sound loops
                 }
-                audioSource.Play(); // 새로운 루프 사운드 재생
+                audioSource.Play(); // Play the new loop sound
             }
         }
     }
