@@ -30,20 +30,26 @@ namespace Script.Display
             }
         }
 
-
         public void Update()
         {
             //Test) If press M key, show the display
             if (Input.GetKeyDown(KeyCode.M))
             {
-                Debug.Log("Displaying data:" +  $"Water depth: {WaterDepth:F2} | " +
-                          $"Oxygen rate: {OxygenRate:F1} | " +
-                          $"Quest level: {QuestLevel}\n");
+                Debug.Log("Displaying data:" + DisplayManager.Instance.GetDisplayResult());
             }
         }
 
-        public float WaterDepth;
-        public float OxygenRate;
-        public QuestLevel QuestLevel = QuestLevel.Empty;
+        private DisplayResult _displayResult = new DisplayResult();
+
+        public float WaterDepth { get => _displayResult.WaterDepth; set => _displayResult.WaterDepth = value; }
+        public float OxygenRate { get => _displayResult.OxygenRate; set => _displayResult.OxygenRate = value;}
+        public QuestLevel QuestLevel { get => _displayResult.QuestLevel; set => _displayResult.QuestLevel = value;}
+        public string QuestName { get => _displayResult.QuestName; set => _displayResult.QuestName = value;}
+        public string QuestDescription { get => _displayResult.QuestDescription; set => _displayResult.QuestDescription = value;}
+
+        public DisplayResult GetDisplayResult()
+        {
+            return _displayResult;
+        }
     }
 }

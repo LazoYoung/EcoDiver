@@ -9,6 +9,7 @@ namespace Script.Quest
         public static QuestObserver Instance { get; private set; } = null;
         private readonly Queue<IQuest> _quests = new Queue<IQuest>();
         private QuestLevel _questLevel;
+        private IQuest _currentQuest;
         public QuestArrowIndicator arrowIndicator;
 
         private void Awake()
@@ -32,7 +33,7 @@ namespace Script.Quest
 
             StartQuest();
             _questLevel = new QuestLevel(_quests.Count);
-            DisplayManager.Instance.QuestLevel = _questLevel;
+            updateDisplay();
         }
 
         private void RegisterQuest(IQuest quest)
@@ -56,6 +57,8 @@ namespace Script.Quest
             _questLevel.LevelUp();
 
             DisplayManager.Instance.QuestLevel = _questLevel;
+            DisplayManager.Instance.QuestName = _currentQuest.GetQuestName();
+            DisplayManager.Instance.QuestDescription = _currentQuest.GetQuestDescription();
 
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
@@ -75,15 +78,16 @@ namespace Script.Quest
                 return;
             }
 
-            var quest = _quests.Peek();
-            Debug.Log("Starting Quest: " + quest);
-            quest.Activate();
+            _currentQuest = _quests.Peek();
 
-            UpdateBackground(quest);
+            Debug.Log("Starting Quest: " + _currentQuest);
+            _currentQuest.Activate();
 
-            UpdateMinimap(quest);
-            UpdateStatusBar(quest);
-            UpdateArrow(quest);
+            UpdateBackground(_currentQuest);
+
+            UpdateMinimap(_currentQuest);
+            UpdateStatusBar(_currentQuest);
+            UpdateArrow(_currentQuest);
         }
 
         private void OnFinishAllQuests()
@@ -116,6 +120,13 @@ namespace Script.Quest
         private void OnCompleteQuest()
         {
             //throw new System.NotImplementedException();
+        }
+
+        private void updateDisplay()
+        {
+            DisplayManager.Instance.QuestLevel = _questLevel;
+            DisplayManager.Instance.QuestName = _currentQuest.GetQuestName();
+            DisplayManager.Instance.QuestDescription = _currentQuest.GetQuestDescription();
         }
     }
 }
