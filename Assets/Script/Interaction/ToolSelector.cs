@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using Image = UnityEngine.UI.Image;
@@ -9,14 +8,6 @@ namespace Script.Interaction
 {
     public class LocomotionDummy : LocomotionProvider
     {
-    }
-
-    public enum Tool
-    {
-        Hand,
-        Knife,
-        Headlight,
-        Rope
     }
 
     public class ToolSelector : MonoBehaviour
