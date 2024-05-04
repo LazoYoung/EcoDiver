@@ -1,33 +1,37 @@
 using System;
 using UnityEngine;
 
-public class QuestArrowIndicator : MonoBehaviour
+namespace Script.Quest
 {
-    public Transform questTransform;
-    public void UpdateArrow(Vector3 direction, float distance)
+    public class QuestArrowIndicator : MonoBehaviour
     {
-        direction.y = 0; // Ignore the y component of the direction
-        // Rotate the arrow to match the direction to the quest
-        transform.rotation = Quaternion.LookRotation(direction);
+        public Transform questTransform;
 
-        // Adjust the arrow's width (x scale) based on the distance
-        // You might want to clamp the distance to avoid overly wide arrows
-        // float clampedDistance = Mathf.Clamp(distance, 1f, 10f); // Example clamping
-        // transform.localScale = new Vector3( transform.localScale.x, transform.localScale.y, transform.localScale.z);
-    }
-
-    private void FixedUpdate()
-    {
-        if (questTransform)
+        public void UpdateArrow(Vector3 direction, float distance)
         {
-            Vector3 directionToQuest = questTransform.position - transform.position;
-            float distanceToQuest = directionToQuest.magnitude;
-            Vector3 normalizedDirection = directionToQuest.normalized;
+            direction.y = 0; // Ignore the y component of the direction
+            // Rotate the arrow to match the direction to the quest
+            transform.rotation = Quaternion.LookRotation(direction);
 
-            // Debug.Log($"Distance to Quest: {distanceToQuest}");
-            // Debug.Log($"Direction to Quest: {normalizedDirection}");
+            // Adjust the arrow's width (x scale) based on the distance
+            // You might want to clamp the distance to avoid overly wide arrows
+            // float clampedDistance = Mathf.Clamp(distance, 1f, 10f); // Example clamping
+            // transform.localScale = new Vector3( transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
 
-            UpdateArrow(normalizedDirection, distanceToQuest);
+        private void FixedUpdate()
+        {
+            if (questTransform)
+            {
+                Vector3 directionToQuest = questTransform.position - transform.position;
+                float distanceToQuest = directionToQuest.magnitude;
+                Vector3 normalizedDirection = directionToQuest.normalized;
+
+                // Debug.Log($"Distance to Quest: {distanceToQuest}");
+                // Debug.Log($"Direction to Quest: {normalizedDirection}");
+
+                UpdateArrow(normalizedDirection, distanceToQuest);
+            }
         }
     }
 }
