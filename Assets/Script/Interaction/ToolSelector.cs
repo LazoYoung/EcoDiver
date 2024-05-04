@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
+using Image = UnityEngine.UI.Image;
+using InputDevice = UnityEngine.XR.InputDevice;
 
 namespace Script.Interaction
 {
@@ -19,14 +21,25 @@ namespace Script.Interaction
 
     public class ToolSelector : MonoBehaviour
     {
+        [SerializeField] private LocomotionSystem locomotion;
+
         [SerializeField] private InputActionReference toggleButton;
 
-        [SerializeField] private InputActionReference thumbStick;
+        [SerializeField] private InputActionReference thumbstickAxis;
+        
+        [SerializeField] private Canvas canvas;
 
-        [SerializeField] private LocomotionSystem locomotion;
+        [SerializeField] private Image imageHand;
+
+        [SerializeField] private Image imageHeadlight;
+
+        [SerializeField] private Image imageKnife;
+
+        [SerializeField] private Image imageRope;
 
         [SerializeField] private float idleTime = 5;
 
+        private InputDevice _inputDevice;
         private LocomotionDummy _locomotionDummy;
         private float _timer;
         private bool _isOpen;
@@ -34,34 +47,34 @@ namespace Script.Interaction
 
         private void Start()
         {
-            if (!toggleButton)
-            {
-                Debug.LogError("Toggle button action not assigned!");
-                enabled = false;
-            }
-
-            if (!thumbStick)
-            {
-                Debug.LogError("Thumbstick action not assigned!");
-                enabled = false;
-            }
-
-            if (!locomotion)
+            _locomotionDummy = gameObject.AddComponent<LocomotionDummy>();
+            _locomotionDummy.hideFlags = HideFlags.HideAndDontSave;
+            
+            if (locomotion == null)
                 locomotion = FindObjectOfType<LocomotionSystem>();
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(_locomotionDummy);
         }
 
         private void Update()
         {
-            if (!_isOpen)
+            if (_isOpen)
             {
-                if (IsButtonPressed() && DisableLocomotion())
-                {
-                    OpenMenu();
-                }
-
-                return;
+                UpdateMenu();
+            }
+            else if (IsMenuToggled() && DisableLocomotion())
+            {
+                _isOpen = true;
             }
 
+            UpdateUI();
+        }
+
+        private void UpdateMenu()
+        {
             _timer += Time.deltaTime;
             var temp = GetTemporalSelect();
 
@@ -75,7 +88,7 @@ namespace Script.Interaction
                 CloseMenu();
                 EnableLocomotion();
             }
-            else if (IsTimeOver() || IsButtonPressed())
+            else if (IsTimeOver() || IsMenuToggled())
             {
                 CloseMenu();
                 ResetTimer();
@@ -83,9 +96,38 @@ namespace Script.Interaction
             }
         }
 
+        private void UpdateUI()
+        {
+            canvas.enabled = _isOpen;
+
+            if (_isOpen)
+            {
+                imageHand.enabled = false;
+                imageHeadlight.enabled = false;
+                imageKnife.enabled = false;
+                imageRope.enabled = false;
+
+                switch (_pointer)
+                {
+                    case Tool.Hand:
+                        imageHand.enabled = true;
+                        break;
+                    case Tool.Headlight:
+                        imageHeadlight.enabled = true;
+                        break;
+                    case Tool.Knife:
+                        imageKnife.enabled = true;
+                        break;
+                    case Tool.Rope:
+                        imageRope.enabled = true;
+                        break;
+                }
+            }
+        }
+
         private Tool? GetTemporalSelect()
         {
-            var vector = thumbStick.action.ReadValue<Vector2>();
+            var vector = GetThumbstickAxis();
             var angle = Vector2.SignedAngle(vector, Vector2.up);
             Tool? tool;
 
@@ -99,7 +141,7 @@ namespace Script.Interaction
             }
             else if (angle is > 45 and <= 135)
             {
-                tool = Tool.Knife;
+                tool = Tool.Rope;
             }
             else if (angle is > 135 or < -135)
             {
@@ -107,7 +149,7 @@ namespace Script.Interaction
             }
             else
             {
-                tool = Tool.Rope;
+                tool = Tool.Knife;
             }
 
             return tool;
@@ -120,26 +162,20 @@ namespace Script.Interaction
             // todo method stub
         }
 
-        private void OpenMenu()
-        {
-            _isOpen = true;
-
-            Debug.Log("Menu open.");
-            // todo method stub
-        }
-
         private void CloseMenu()
         {
             _pointer = null;
             _isOpen = false;
-
-            Debug.Log("Menu close.");
-            // todo method stub
         }
 
-        private bool IsButtonPressed()
+        private bool IsMenuToggled()
         {
             return toggleButton.action.WasPressedThisFrame();
+        }
+
+        private Vector2 GetThumbstickAxis()
+        {
+            return thumbstickAxis.action.ReadValue<Vector2>();
         }
 
         private bool IsTimeOver()
@@ -154,10 +190,12 @@ namespace Script.Interaction
 
         private bool DisableLocomotion()
         {
-            if (!locomotion)
-                return true;
-
             var result = locomotion.RequestExclusiveOperation(_locomotionDummy);
+
+            if (result != RequestResult.Success)
+            {
+                Debug.Log($"Locomotion request failed: {result}");
+            }
             return result == RequestResult.Success;
         }
 
