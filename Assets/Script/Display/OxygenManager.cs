@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Script.Display
 {
-    public class OxygenManager : Global.GameEventSubscriber
+    public class OxygenManager : MonoBehaviour
     {
         private const float MaxOxygenPercent = 100f; // Maximum oxygen capacity
 
@@ -16,7 +16,6 @@ namespace Script.Display
 
         void Start()
         {
-            OnEnable();
             _currentOxygen = MaxOxygenPercent;
         }
 
@@ -31,19 +30,6 @@ namespace Script.Display
                     ConsumeOxygen(0.1f);
                     _oxygenTimer = 0; // Reset timer after consuming oxygen
                 }
-            }
-        }
-
-        protected override void HandleGameEvent(Global.GameEventType eGameEventType)
-        {
-            switch (eGameEventType)
-            {
-                case Global.GameEventType.PAUSE:
-                    Pause();
-                    break;
-                case Global.GameEventType.RESUME:
-                    Resume();
-                    break;
             }
         }
 
