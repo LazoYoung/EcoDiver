@@ -87,8 +87,8 @@ namespace Script.Display
                 return true;
             }
 
-            // TODO 바다 닿는지 여부에 따라 달라지도록.
-            return false;
+            // TODO #46 바다 닿는지 여부에 따라 달라지도록.
+            return DisplayManager.Instance.WaterDepth > 0;
         }
     }
 }

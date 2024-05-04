@@ -1,3 +1,4 @@
+using Crest;
 using UnityEngine;
 
 namespace Script.Display
@@ -27,7 +28,8 @@ namespace Script.Display
 
         void Update()
         {
-            if (playerTransform != null)
+            //TODO #46 바닷물 조절
+            if (OceanRenderer.Instance != null)
             {
                 UpdateWaterDepth();
             }
@@ -35,7 +37,7 @@ namespace Script.Display
 
         private void UpdateWaterDepth()
         {
-            float currentDepth = _defaultDepthLevel - playerTransform.position.y;
+            float currentDepth = OceanRenderer.Instance.ViewerHeightAboveWater;
             // Check if depth is negative; if so, player is above water level
             if (currentDepth < 0) currentDepth = 0;
 
@@ -43,10 +45,10 @@ namespace Script.Display
             if (Mathf.Abs(_lastLoggedDepth - currentDepth) >= DepthLogInterval)
             {
                 _lastLoggedDepth = currentDepth;
-                Debug.Log($"Water depth changed: {currentDepth:F1} meters");
-            }
 
-            DisplayManager.Instance.WaterDepth = _lastLoggedDepth;
+                Debug.Log($"Water depth changed: {currentDepth:F1} meters");
+                DisplayManager.Instance.WaterDepth = _lastLoggedDepth;
+            }
         }
     }
 }
