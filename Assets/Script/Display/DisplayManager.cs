@@ -8,6 +8,7 @@ namespace Script.Display
     {
         // Singleton instance
         private static DisplayManager _instance;
+
         public static DisplayManager Instance
         {
             get
@@ -24,59 +25,25 @@ namespace Script.Display
                         _instance = obj.AddComponent<DisplayManager>();
                     }
                 }
+
                 return _instance;
             }
         }
-        // Private fields
-        private float waterDepth = 0.0f;
-        private float oxygenRate = 100.0f;
-        private QuestLevel questLevel = QuestLevel.Empty;
 
-        private string _text;
 
         public void Update()
         {
             //Test) If press M key, show the display
             if (Input.GetKeyDown(KeyCode.M))
             {
-                Debug.Log("Displaying data:" + _text);
+                Debug.Log("Displaying data:" +  $"Water depth: {WaterDepth:F2} | " +
+                          $"Oxygen rate: {OxygenRate:F1} | " +
+                          $"Quest level: {QuestLevel}\n");
             }
         }
 
-        public float WaterDepth
-        {
-            set
-            {
-                waterDepth = value;
-                UpdateText();
-            }
-        }
-
-        public float OxygenRate
-        {
-            set
-            {
-                oxygenRate = value;
-                UpdateText();
-            }
-        }
-
-        public QuestLevel QuestLevel
-        {
-            set
-            {
-                questLevel = value;
-                UpdateText();
-            }
-        }
-
-        // Method to update the text UI components with the current data
-
-        private void UpdateText()
-        {
-            _text = $"Water depth: {waterDepth:F2} | " +
-             $"Oxygen rate: {oxygenRate:F1} | " +
-             $"Quest level: {questLevel}\n";
-        }
+        public float WaterDepth;
+        public float OxygenRate;
+        public QuestLevel QuestLevel = QuestLevel.Empty;
     }
 }
