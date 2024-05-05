@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Crest;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -98,20 +97,18 @@ namespace Script.Interaction
             _rstate.Restore(_rigidbody);
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnCollisionEnter()
         {
-            // stop player from spinning due to ground collision
+            // stop player from spinning after ground collision
             _rigidbody.angularVelocity = Vector3.zero;
             _rigidbody.velocity = Vector3.zero;
-
-            Debug.Log("Collision enter");
         }
 
         private void FixedUpdate()
         {
             if (!forceUnderwater)
             {
-                _underwater = OceanRenderer.Instance.ViewerHeightAboveWater < 1f;
+                _underwater = OceanRenderer.Instance && OceanRenderer.Instance.ViewerHeightAboveWater < 1f;
             }
             
             UpdateRigidbody();
@@ -210,6 +207,7 @@ namespace Script.Interaction
         {
             if (_underwater)
             {
+                // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
                 _rigidbody.constraints = FreezeRotationX | FreezeRotationZ;
                 _rigidbody.useGravity = false;
                 _rigidbody.drag = dragForce;
