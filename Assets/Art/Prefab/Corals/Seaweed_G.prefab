@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7385776960839116747}
   - component: {fileID: 1742732514309978253}
   - component: {fileID: 5217213736628404524}
+  - component: {fileID: 2629291352345136984}
   m_Layer: 0
   m_Name: Seaweed_G
   m_TagString: Untagged
@@ -83,3 +84,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &2629291352345136984
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306505533616600277}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.14703634
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5217213736628404524}
+  - screenRelativeHeight: 0.14703634
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5217213736628404524}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
