@@ -37,7 +37,7 @@ namespace Script.Display
 
         private void UpdateWaterDepth()
         {
-            float currentDepth = OceanRenderer.Instance.ViewerHeightAboveWater;
+            float currentDepth = -OceanRenderer.Instance.ViewerHeightAboveWater;
             // Check if depth is negative; if so, player is above water level
             if (currentDepth < 0) currentDepth = 0;
 
