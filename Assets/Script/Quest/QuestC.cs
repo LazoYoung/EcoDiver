@@ -5,9 +5,21 @@ namespace Script.Quest
     public class QuestC : MonoBehaviour, IQuest
     {
         private bool isCompleted = false;
+        private readonly string _questName = "Quest C";
+        private readonly string _questDescription = "Press I to complete Quest C";
 
         private void Start()
         {
+        }
+
+        public string GetQuestName()
+        {
+            return _questName;
+        }
+
+        public string GetQuestDescription()
+        {
+            return _questDescription;
         }
 
         private void Update()

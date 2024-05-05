@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Script.Display;
 using UnityEngine;
 
 namespace Script.Quest
@@ -6,8 +7,9 @@ namespace Script.Quest
     public class QuestObserver : MonoBehaviour
     {
         public static QuestObserver Instance { get; private set; } = null;
-        private Queue<IQuest> _quests = new Queue<IQuest>();
-
+        private readonly Queue<IQuest> _quests = new Queue<IQuest>();
+        private QuestLevel _questLevel;
+        private IQuest _currentQuest;
         public QuestArrowIndicator arrowIndicator;
 
         private void Awake()
@@ -30,6 +32,8 @@ namespace Script.Quest
             RegisterQuest(FindObjectOfType<QuestC>());
 
             StartQuest();
+            _questLevel = new QuestLevel(_quests.Count);
+            updateDisplay();
         }
 
         private void RegisterQuest(IQuest quest)
@@ -45,12 +49,17 @@ namespace Script.Quest
             {
                 return null;
             }
-
             return _quests.Dequeue();
         }
 
         public void UpdateQuest(IQuest quest)
         {
+            _questLevel.LevelUp();
+
+            DisplayManager.Instance.QuestLevel = _questLevel;
+            DisplayManager.Instance.QuestName = _currentQuest.GetQuestName();
+            DisplayManager.Instance.QuestDescription = _currentQuest.GetQuestDescription();
+
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
             {
@@ -69,15 +78,16 @@ namespace Script.Quest
                 return;
             }
 
-            var quest = _quests.Peek();
-            Debug.Log("Starting Quest: " + quest);
-            quest.Activate();
+            _currentQuest = _quests.Peek();
 
-            UpdateBackground(quest);
+            Debug.Log("Starting Quest: " + _currentQuest);
+            _currentQuest.Activate();
 
-            UpdateMinimap(quest);
-            UpdateStatusBar(quest);
-            UpdateArrow(quest);
+            UpdateBackground(_currentQuest);
+
+            UpdateMinimap(_currentQuest);
+            UpdateStatusBar(_currentQuest);
+            UpdateArrow(_currentQuest);
         }
 
         private void OnFinishAllQuests()
@@ -110,6 +120,13 @@ namespace Script.Quest
         private void OnCompleteQuest()
         {
             //throw new System.NotImplementedException();
+        }
+
+        private void updateDisplay()
+        {
+            DisplayManager.Instance.QuestLevel = _questLevel;
+            DisplayManager.Instance.QuestName = _currentQuest.GetQuestName();
+            DisplayManager.Instance.QuestDescription = _currentQuest.GetQuestDescription();
         }
     }
 }

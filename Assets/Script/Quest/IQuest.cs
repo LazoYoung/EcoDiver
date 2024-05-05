@@ -17,5 +17,8 @@ namespace Script.Quest
         void Deactivate();
 
         Transform GetTransform();
+
+        string GetQuestName();
+        string GetQuestDescription();
     }
 }
