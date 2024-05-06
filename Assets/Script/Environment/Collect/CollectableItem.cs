@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace Script.Collect
+namespace Script.Environment.Collect
 {
     public class CollectableItem : XRGrabInteractable
     {
@@ -13,7 +13,7 @@ namespace Script.Collect
 
         [SerializeField]
         [Tooltip("Sound to play when the item is collected.")]
-        private AudioClip collectSound; // 수집될 때 재생할 소리
+        private AudioClip collectSound;
 
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
@@ -52,7 +52,6 @@ namespace Script.Collect
 
         private void PlayCollectSound()
         {
-            // 메인 카메라에서 AudioSource 컴포넌트를 찾음
             AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
             if (audioSource != null && collectSound != null)
             {

@@ -1,8 +1,7 @@
-using System;
 using Dreamteck.Splines;
 using UnityEngine;
 
-namespace Script.Environment
+namespace Script.Environment.Controller
 {
     [RequireComponent(typeof(ObjectController))]
     public class FishController : MonoBehaviour
