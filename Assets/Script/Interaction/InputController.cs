@@ -165,7 +165,7 @@ namespace Script.Interaction
                 
                 if (!_rightHandVelocityAction.enabled)
                 {
-                    Debug.LogWarning("Failed to obtain device velocity! Confirm XR Device Simulator is OFF?");
+                    Debug.LogWarning("Device velocity not available. Dependent functions may not work!");
                 }
             }
             else
