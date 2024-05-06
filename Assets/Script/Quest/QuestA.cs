@@ -6,6 +6,8 @@ namespace Script.Quest
     public class QuestA : MonoBehaviour, IQuest
     {
         private bool isCompleted = false;
+        private readonly string _questName = "Quest A";
+        private readonly string _questDescription = "Press Y to complete Quest A";
 
         // 그룹 A의 요구 아이템 수
         private int requiredItemsInGroupA = 2;
@@ -15,6 +17,16 @@ namespace Script.Quest
 
         private void Start()
         {
+        }
+
+        public string GetQuestName()
+        {
+            return _questName;
+        }
+
+        public string GetQuestDescription()
+        {
+            return _questDescription;
         }
 
         private void Update()
