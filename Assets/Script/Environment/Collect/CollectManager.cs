@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Script.Collect
+namespace Script.Environment.Collect
 {
     public class CollectManager : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-using Script.Collect;
+using Script.Environment.Collect;
 using UnityEngine;
 
 namespace Script.Quest
@@ -9,15 +9,9 @@ namespace Script.Quest
         private readonly string _questName = "Quest A";
         private readonly string _questDescription = "Press Y to complete Quest A";
 
-        // 그룹 A의 요구 아이템 수
         private int requiredItemsInGroupA = 2;
 
-        // 퀘스트 완료 시 재생될 사운드 클립
         public AudioClip completionSound;
-
-        private void Start()
-        {
-        }
 
         public string GetQuestName()
         {
@@ -41,7 +35,6 @@ namespace Script.Quest
 
         public bool CanComplete()
         {
-            // 그룹 A의 아이템 수집 여부 확인
             return CollectManager.Instance.GetTotalCollectedItems() >= requiredItemsInGroupA;
         }
 
@@ -75,7 +68,6 @@ namespace Script.Quest
 
         private void PlayCompletionSound()
         {
-            // 메인 카메라에서 AudioSource 컴포넌트를 찾음
             AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
             if (audioSource != null && completionSound != null)
             {
