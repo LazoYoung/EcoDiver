@@ -55,10 +55,7 @@ namespace Script.Quest
         public void UpdateQuest(IQuest quest)
         {
             _questLevel.LevelUp();
-
-            DisplayManager.Instance.QuestLevel = _questLevel;
-            DisplayManager.Instance.QuestName = _currentQuest.GetQuestName();
-            DisplayManager.Instance.QuestDescription = _currentQuest.GetQuestDescription();
+            updateDisplay();
 
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
@@ -94,7 +91,6 @@ namespace Script.Quest
         {
             Debug.Log("No Quests");
             arrowIndicator.gameObject.SetActive(false);
-
         }
 
         private void UpdateArrow(IQuest nextQuest)
