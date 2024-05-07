@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Environment.Optimizer
 {
     public class CullingOptimizer : MonoBehaviour
     {
-        [Header("Requirements")]
+        [Header("Culling options")]
         [SerializeField]
         [Tooltip("A camera that represents the player's POV.")]
         private new Camera camera;
@@ -14,6 +15,11 @@ namespace Script.Environment.Optimizer
         [SerializeField]
         [Tooltip("Culling targets that contain objects to be optimized.")]
         private List<CullingTarget> targets;
+
+        [SerializeField]
+        [Tooltip("Maximum rendering distance.")]
+        [Range(0, 500)]
+        private float renderingDistance = 100f;
 
         [Header("Experimental options")]
         [SerializeField]
@@ -25,6 +31,7 @@ namespace Script.Environment.Optimizer
         private CullingObject[] _objects;
         private MarkerObject[] _markers;
         private bool _markerMode;
+        private float _renderingDistance;
 
         private void OnEnable()
         {
@@ -37,6 +44,7 @@ namespace Script.Environment.Optimizer
             _markers = GetMarkers(_objects);
             var count = _boundingSpheres.Length;
             
+            _group.SetBoundingDistances(new [] {renderingDistance});
             _group.SetBoundingSpheres(_boundingSpheres);
             _group.SetBoundingSphereCount(count);
             Debug.Log($"CullingOptimizer is tracking {count} objects.");
@@ -46,17 +54,31 @@ namespace Script.Environment.Optimizer
             _group.enabled = true;
             
             UpdateObjects(!_markerMode);
-
         }
 
         private void LateUpdate()
         {
-            if (_markerMode != displayMarkers)
-            {
-                _markerMode = displayMarkers;
-                UpdateObjects(!_markerMode);
-                ResetMarkers(_markerMode);
-            }
+            UpdateMarkerMode();
+            UpdateRenderDistance();
+        }
+
+        private void UpdateRenderDistance()
+        {
+            if (Mathf.Approximately(_renderingDistance, renderingDistance))
+                return;
+
+            _renderingDistance = renderingDistance;
+            _group.SetBoundingDistances(new [] {renderingDistance});
+        }
+
+        private void UpdateMarkerMode()
+        {
+            if (_markerMode == displayMarkers)
+                return;
+            
+            _markerMode = displayMarkers;
+            UpdateObjects(!_markerMode);
+            ResetMarkers(_markerMode);
         }
         
         private void ResetMarkers(bool display)
@@ -143,20 +165,21 @@ namespace Script.Environment.Optimizer
                 var color = sphere.isVisible ? Color.red : Color.gray;
                 var rend = _markers[sphere.index].Renderer;
                 rend.material.color = color;
+                return;
+            }
+
+            if (sphere.isVisible)
+            {
+                cullingObj.SetActive(sphere.currentDistance == 0);
             }
             else
             {
-                cullingObj.SetActive(sphere.isVisible);
+                cullingObj.SetActive(false);
             }
         }
 
         private void OnDisable()
         {
-            foreach (var cullingObj in _objects)
-            {
-                cullingObj.SetActive(true);
-            }
-            
             _group.enabled = false;
             _group.Dispose();
             _group = null;
