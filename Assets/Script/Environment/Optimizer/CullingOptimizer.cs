@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Script.Environment.Optimizer
 {
@@ -64,11 +63,13 @@ namespace Script.Environment.Optimizer
 
         private void UpdateRenderDistance()
         {
-            if (Mathf.Approximately(_renderingDistance, renderingDistance))
-                return;
+            _group.SetDistanceReferencePoint(camera.transform);
 
-            _renderingDistance = renderingDistance;
-            _group.SetBoundingDistances(new [] {renderingDistance});
+            if (!Mathf.Approximately(_renderingDistance, renderingDistance))
+            {
+                _renderingDistance = renderingDistance;
+                _group.SetBoundingDistances(new [] {renderingDistance});
+            }
         }
 
         private void UpdateMarkerMode()
