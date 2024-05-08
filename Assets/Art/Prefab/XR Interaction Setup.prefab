@@ -2377,7 +2377,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5003155064436526503}
   - component: {fileID: 4819494831667792933}
-  - component: {fileID: 344113519471808275}
   - component: {fileID: 344113519471808278}
   - component: {fileID: 172243110645606584}
   - component: {fileID: 7564094617371952129}
@@ -2425,32 +2424,6 @@ MonoBehaviour:
   m_CameraFloorOffsetObject: {fileID: 5960973255904626907}
   m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.36144
---- !u!143 &344113519471808275
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5003155064436526500}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Height: 1.36144
-  m_Radius: 0.1
-  m_SlopeLimit: 45
-  m_StepOffset: 0.5
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.76072, z: 0}
 --- !u!114 &344113519471808278
 MonoBehaviour:
   m_ObjectHideFlags: 0
