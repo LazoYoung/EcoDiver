@@ -3,12 +3,107 @@ guid: fa7c004f354b9b2458ccca17596dc00c
 SketchUpImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2
+    second: {fileID: 2100000, guid: 7201235bc63709c48a5b5021c346c07c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 20837946824
+    second: {fileID: 2100000, guid: 167bbdeacb81ef54f99754402890d12f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 37948397
+    second: {fileID: 2100000, guid: 7c3547dce34a81e40b0260c9d5ff0fb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 728-500-296
+    second: {fileID: 2100000, guid: cffe2eceb2484964e9e691186de5d228, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsMetalBig0010_thumblarge
+    second: {fileID: 2100000, guid: 29cb60b010a875146850d8cce72a6911, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsRollup0004_thumblarge
+    second: {fileID: 2100000, guid: 734127462696c934fa4e22c0bdf5efac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FabricPlain0020_thumblarge
+    second: {fileID: 2100000, guid: c87e4a0829238554fb802835b2997b67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Google Earth Snapshot1
+    second: {fileID: 2100000, guid: efd35a3a542412a40b4042a75771d2a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mangrove 01
+    second: {fileID: 2100000, guid: e2bc004ee744e7e4d9d147cc759c3ca9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0014_thumblarge
+    second: {fileID: 2100000, guid: 0cee6aaf3238ac249a3e2c31470b7ffa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0044_1_thumblarge
+    second: {fileID: 2100000, guid: 26fef0c1db510e1428e60b757f1bb220, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0007_2_thumblarge
+    second: {fileID: 2100000, guid: d260fec4f86179a4080446cbf74c7c93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0050_1_thumblarge
+    second: {fileID: 2100000, guid: e91ecd45764e95849817b0d3be644ddd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0057_2_thumblarge
+    second: {fileID: 2100000, guid: 969059c28abe5e4499beb34b4d2c0a22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0078_1_thumblarge
+    second: {fileID: 2100000, guid: 1f2e2a5e7601eb54281e918dbabf2573, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0266_1_thumblarge
+    second: {fileID: 2100000, guid: b5c73a5f3a2709f4cb9964bf25eb3826, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Concrete_Aggregate_Smoke]'
+    second: {fileID: 2100000, guid: 08d239b36fc13c64a834977a3ef36d1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal_Seamed]'
+    second: {fileID: 2100000, guid: 85d3fd78ff91e804cabb0967e2b27e9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 17e4e2c1a49a0654a8693395edaa5dbc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 2
-    materialSearch: 0
-    materialLocation: 0
+    materialSearch: 2
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -112,5 +207,5 @@ SketchUpImporter:
   selectedNodes: 00000000010000000200000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d000000
   assetHash:
     serializedVersion: 2
-    Hash: 6681b4e887f4bbc4130cf3134d79700c
+    Hash: 135fad71b4adc4db2a703af814dc7cf1
   fileUnit: 0
