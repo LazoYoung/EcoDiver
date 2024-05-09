@@ -3,7 +3,427 @@ guid: cd94f172bcd84e347ade44abb032bcb4
 SketchUpImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2702846353
+    second: {fileID: 2100000, guid: 2907fb0c86983da46bdc11ae3262f44a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 309837456
+    second: {fileID: 2100000, guid: 5d00a874f97965442a90d6e14c12c1f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 37892734
+    second: {fileID: 2100000, guid: 1ee8724e8c31f8641bb2b2148223ffe3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrickLargeBare0052_thumblarge
+    second: {fileID: 2100000, guid: 9bd359642424e8c4392ef52b057b525f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConcreteBare0231_1_thumblarge
+    second: {fileID: 2100000, guid: 8af6e5cddce10e344822836c9bd6d78a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsMetalSingle0040_thumblarge
+    second: {fileID: 2100000, guid: d45261d982d29bc49b02115f6366550e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsRollup0041_thumblarge
+    second: {fileID: 2100000, guid: af71d770fdc633d4197de8a3a460464e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eucalyptus_02
+    second: {fileID: 2100000, guid: 7e0410b7dea747147897c75fce2c11b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Google Earth Snapshot1
+    second: {fileID: 2100000, guid: b5710bd50db4dcd4090ba1da7cea76f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0038_9_thumblarge
+    second: {fileID: 2100000, guid: ef55817df4a5e444f8973eea0f87741c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0047_11_thumblarge
+    second: {fileID: 2100000, guid: 9cb1f53929cca7a4dbea4186f5caed42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0048_1_thumblarge
+    second: {fileID: 2100000, guid: a2494ea4c76a2ee4ba5cbaad5fd6dade, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0012_thumblarge
+    second: {fileID: 2100000, guid: f372dde9c8aface49bb555c37216bbe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0022_7_thumblarge
+    second: {fileID: 2100000, guid: f43f62b291c87b0468612ac038900992, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0034_1_thumblarge
+    second: {fileID: 2100000, guid: 71c75cdaa46ba104ab911026da03cbac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0037_3_thumblarge
+    second: {fileID: 2100000, guid: d8032958c94bd0d439ca0732d93c52ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0033_1_thumblarge
+    second: {fileID: 2100000, guid: 15fe1f4271157444bbb0714918f81b0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0044_1_thumblarge
+    second: {fileID: 2100000, guid: a7c9283c9519a36459414001b3dc68df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0007_2_thumblarge
+    second: {fileID: 2100000, guid: cacb86db5f8d39f4c938acb6c1a086ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0040_thumblarge
+    second: {fileID: 2100000, guid: a6c39a5fc2c474c43831495375693878, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0040_thumblarge1
+    second: {fileID: 2100000, guid: f651d16ce5da1ec4fa0864d9ca6137a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0057_2_thumblarge
+    second: {fileID: 2100000, guid: 121464a46c6f565479282ca2f5ab3881, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0078_1_thumblarge
+    second: {fileID: 2100000, guid: 4b34be16d07560a4b96bd6214145901a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesDirty0015_1_thumblarge
+    second: {fileID: 2100000, guid: 4cc0ae47167df6244928ad78f5e3c4e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesDirty0051_1_thumblarge
+    second: {fileID: 2100000, guid: dcee97342b6a8f64fb130b23c2e9cfd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesRusted0022_1_thumblarge
+    second: {fileID: 2100000, guid: 998b62d770342ac48b68aa113afb1cbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesRusted0035_1_thumblarge
+    second: {fileID: 2100000, guid: 724ae672822f70a489f1a8b20208039f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesRusted0042_thumblarge
+    second: {fileID: 2100000, guid: 48841f3f327ed494787fa25384e85a75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesVarious0054_1_thumblarge
+    second: {fileID: 2100000, guid: df9c607a6841aa44b8b4422c7f66f782, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesVarious0055_1_thumblarge
+    second: {fileID: 2100000, guid: aaabb87edd74f724996c694629e7a453, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesVarious0056_1_thumblarge
+    second: {fileID: 2100000, guid: f2491c24c7517c94bb880d80d499c94b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoofingInside0001_1_thumblarge
+    second: {fileID: 2100000, guid: d04d818f53cd92c4da2a3bed64577382, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rust0131_2_thumblarge
+    second: {fileID: 2100000, guid: b21b484e70fe1f1498b758105e31f299, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RustLeak0016_1_thumblarge
+    second: {fileID: 2100000, guid: e14cf835992e09548bc0bb5e951c234c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RustPaint0169_2_thumblarge
+    second: {fileID: 2100000, guid: a7794787f20da46429e5847ebc4db797, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stripes0009_thumblarge
+    second: {fileID: 2100000, guid: dd66c875dfbcf5e4493ebef0f7303b32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stripes0043_thumblarge
+    second: {fileID: 2100000, guid: f6aa376362d5b6d40b203fc9275cd22a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree 09
+    second: {fileID: 2100000, guid: 203944d46d7331543b5e25737d741dbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0202_thumblarge
+    second: {fileID: 2100000, guid: 0f5be5c7e6a67c64ea421c669930e40d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0266_1_thumblarge
+    second: {fileID: 2100000, guid: 2c93ccd73b8415945ab6de82d4093eb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: b0b800f28f72f534496f419218c87e41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_005
+    second: {fileID: 2100000, guid: 7bc04d7e85c6c3248ab6986fbf2cee9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_3
+    second: {fileID: 2100000, guid: 9694c6cb4e297144397269597c6ca049, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 2702846353
+    second: {fileID: 2800000, guid: 3e7920e0c97e6e84384abe1ead885e0c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 309837456
+    second: {fileID: 2800000, guid: 54b97e335e50b324eae8c631abf2b8ad, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 37892734
+    second: {fileID: 2800000, guid: a38e6d9057a00c24caf33b129a605f8d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BrickLargeBare0052_thumblarge
+    second: {fileID: 2800000, guid: 0c5a6cebf15aeff42af39a34e87d4f8b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ConcreteBare0231_1_thumblarge
+    second: {fileID: 2800000, guid: 62d0cbb3e1a3cdd458df8838adf69fc0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DoorsMetalSingle0040_thumblarge
+    second: {fileID: 2800000, guid: 61f12ebdb2fef414b8e369ff647ab674, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DoorsRollup0041_thumblarge
+    second: {fileID: 2800000, guid: b9c0cfb96eea5bc44a4bdd737a173287, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Eucalyptus_02
+    second: {fileID: 2800000, guid: e1ac844089c82504ea90fdf2ebf57f14, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0038_9_thumblarge
+    second: {fileID: 2800000, guid: f30e3efbb3b36604a92bcc4ef9d96fcb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0047_11_thumblarge
+    second: {fileID: 2800000, guid: 82f58a43788376b48b25c97adec15a1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0048_1_thumblarge
+    second: {fileID: 2800000, guid: 3a40c428a40b03345ba540e18ad8fecb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0012_thumblarge
+    second: {fileID: 2800000, guid: 30f03c90a4ac74849a5c9bccb2836995, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0022_7_thumblarge
+    second: {fileID: 2800000, guid: a20e44644ae35e24d9cf2c8b1fe7bae0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0034_1_thumblarge
+    second: {fileID: 2800000, guid: 7b09d8144ab9b374593dcea4bb9ebf2b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0037_3_thumblarge
+    second: {fileID: 2800000, guid: 30710840924944c45a8ed9e30d474dff, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0033_1_thumblarge
+    second: {fileID: 2800000, guid: d88a9c2db36536044bb64443511ca662, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0044_1_thumblarge
+    second: {fileID: 2800000, guid: 7c9c986edd50696428f2f88f536dce4a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0007_2_thumblarge
+    second: {fileID: 2800000, guid: c0b7c5fbf9c7f3942871634ba1c1743b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0040_thumblarge
+    second: {fileID: 2800000, guid: a16dd1871baeef84e8880e2c888310a2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0057_2_thumblarge
+    second: {fileID: 2800000, guid: b78d6f3392577c1489b5aea6b6afb462, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0078_1_thumblarge
+    second: {fileID: 2800000, guid: 112a1cadb7850664c95bd89e314c6df3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesDirty0015_1_thumblarge
+    second: {fileID: 2800000, guid: 542af9febdf6db2488388f3b7198ee80, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesDirty0051_1_thumblarge
+    second: {fileID: 2800000, guid: f557b6bba8a6d834d9d460d234cce649, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesRusted0022_1_thumblarge
+    second: {fileID: 2800000, guid: 06b1fc9b77e69e44b87529d41eb1bd6d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesRusted0035_1_thumblarge
+    second: {fileID: 2800000, guid: 4b5608aa942008f479c177075b91e4c1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesRusted0042_thumblarge
+    second: {fileID: 2800000, guid: b45983de58af83c4d8d4c55beb7c0d14, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesVarious0054_1_thumblarge
+    second: {fileID: 2800000, guid: 5eb4b03c77ec1e34399a92660a8d1ae4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesVarious0055_1_thumblarge
+    second: {fileID: 2800000, guid: 6b0929b985fdab14d81da4a77052365a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesVarious0056_1_thumblarge_tint0xCCC9BAFF
+    second: {fileID: 2800000, guid: 72c61db193019eb4bb1eea9ca71c3b1f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RoofingInside0001_1_thumblarge
+    second: {fileID: 2800000, guid: 66a55e13de419774f948e35e08a56a1a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rust0131_2_thumblarge
+    second: {fileID: 2800000, guid: e40598a1097cb70459076d23b4296bf0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RustLeak0016_1_thumblarge
+    second: {fileID: 2800000, guid: 3d952c40c30c93e44aff76b2bcdcd215, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RustPaint0169_2_thumblarge
+    second: {fileID: 2800000, guid: 9d4eb550b2f8ee84c84fa63c420daa79, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Stripes0009_thumblarge
+    second: {fileID: 2800000, guid: 496a908ce89450940b82ca3af78bb5ec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Stripes0043_thumblarge
+    second: {fileID: 2800000, guid: 3feb72ba76786b54cb39ee082cfcb00c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tree 09
+    second: {fileID: 2800000, guid: 853830fa60be4594fa8d6c2be7c89282, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0202_thumblarge
+    second: {fileID: 2800000, guid: 816f47b84bd3f854b831e30928122ad8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0266_1_thumblarge
+    second: {fileID: 2800000, guid: ab06fdf2f85ae07468602a6c58aaa053, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ge
+    second: {fileID: 2800000, guid: 54d4cc844342d2c4ca7657ed5ceb3f61, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_005
+    second: {fileID: 2800000, guid: e060e1cc3b431ec4699c05ea73b2405e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_016
+    second: {fileID: 2800000, guid: c07e356d4749cc74eb725adb86455685, type: 3}
   materials:
     materialImportMode: 2
     materialName: 2
