@@ -7,7 +7,6 @@ namespace Script.Interaction
      * BodyController takes control of the player's capsule collider.
      * </summary>
      */
-    [RequireComponent(typeof(CapsuleCollider))]
     public class BodyController : MonoBehaviour
     {
         [SerializeField]
@@ -21,7 +20,8 @@ namespace Script.Interaction
         [Range(0, 3)]
         private float maxHeight = 2f;
 
-        private CapsuleCollider _collider;
+        [SerializeField]
+        private CapsuleCollider bodyCollider;
 
         private void Start()
         {
@@ -32,17 +32,22 @@ namespace Script.Interaction
                 return;
             }
 
-            _collider = GetComponent<CapsuleCollider>();
-            _collider.radius = 0.1f;
-            _collider.hideFlags = HideFlags.NotEditable;
+            if (bodyCollider == null)
+            {
+                Debug.LogError("Body collider is required to drive BodyController!");
+                enabled = false;
+                return;
+            }
+
+            bodyCollider.hideFlags = HideFlags.NotEditable;
         }
 
         private void FixedUpdate()
         {
             var pos = cameraTransform.localPosition;
             float bodyHeight = Mathf.Clamp(pos.y, minHeight, maxHeight);
-            _collider.height = bodyHeight;
-            _collider.center = new Vector3(pos.x, bodyHeight / 2, pos.z);
+            bodyCollider.height = bodyHeight;
+            bodyCollider.center = new Vector3(pos.x, bodyHeight / 2, pos.z);
         }
     }
 }

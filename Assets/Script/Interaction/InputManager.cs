@@ -10,7 +10,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace Script.Interaction
 {
-    public class InputController : MonoBehaviour
+    public class InputManager : MonoBehaviour
     {
         public Vector3 headPosition { get; private set; } = new(0, 0, 0);
         public Quaternion headRotation { get; private set; } = Quaternion.Euler(0, 0, 0);
