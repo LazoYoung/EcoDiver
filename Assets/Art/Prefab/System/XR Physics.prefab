@@ -479,9 +479,10 @@ GameObject:
   - component: {fileID: 4114789819225782259}
   - component: {fileID: 3200673826156070615}
   - component: {fileID: 9027176947837841135}
-  m_Layer: 0
+  - component: {fileID: 2951137299389930979}
+  m_Layer: 7
   m_Name: Right Controller
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,6 +817,27 @@ MonoBehaviour:
   - groupMember: {fileID: 1925658790764041237}
     overrideGroupMembers:
     - {fileID: 7492500898525483998}
+--- !u!65 &2951137299389930979
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868486157649202214}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.12, y: 0.15, z: 0.5}
+  m_Center: {x: 0.01, y: 0, z: -0.1}
 --- !u!1 &905161169906914900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838630999789969691}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1207,7 +1229,7 @@ Transform:
   - {fileID: 3867833023792993691}
   - {fileID: 2935379697490771935}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1237873406708235273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,13 +1245,13 @@ MonoBehaviour:
   input: {fileID: 3683916490831866579}
   forwardReference: {fileID: 8771755050146189614}
   rigidBody: {fileID: 4407862817285000659}
-  triggerMode: 0
+  triggerMode: 1
   leftButton: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   rightButton: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   swimForce: 4
-  spinTorque: 0.01
+  spinSpeed: 30
   dragForce: 0.2
   sinkSpeed: 0.1
   minInput: 0.5
@@ -4912,9 +4934,10 @@ GameObject:
   - component: {fileID: 5396844334476648293}
   - component: {fileID: 476993759969482063}
   - component: {fileID: 5044505657455650041}
-  m_Layer: 0
+  - component: {fileID: 5199512323592127583}
+  m_Layer: 7
   m_Name: Left Controller
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5249,6 +5272,27 @@ MonoBehaviour:
   - groupMember: {fileID: 315565175044638549}
     overrideGroupMembers:
     - {fileID: 2392618114423088096}
+--- !u!65 &5199512323592127583
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495971822765313906}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.12, y: 0.15, z: 0.5}
+  m_Center: {x: 0.01, y: 0, z: -0.1}
 --- !u!1 &7882189304310407096
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,7 +5373,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &8036848897712765066
 GameObject:
   m_ObjectHideFlags: 0
