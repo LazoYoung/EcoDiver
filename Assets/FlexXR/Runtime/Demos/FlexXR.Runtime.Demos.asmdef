@@ -1,0 +1,30 @@
+{
+    "name": "FlexXR.Runtime.Demos",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:e74d25a81857e9c4da6acd62a94fc709",
+        "GUID:e40ba710768534012815d3193fa296cb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.interaction.toolkit",
+            "expression": "",
+            "define": "XRI_EXISTS"
+        },
+        {
+            "name": "com.unity.xr.management",
+            "expression": "",
+            "define": "XRM_EXISTS"
+        }
+    ],
+    "noEngineReferences": false
+}

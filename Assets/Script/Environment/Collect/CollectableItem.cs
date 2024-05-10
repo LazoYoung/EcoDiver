@@ -15,34 +15,45 @@ namespace Script.Environment.Collect
         [Tooltip("Sound to play when the item is collected.")]
         private AudioClip collectSound;
 
-        protected override void OnSelectEntered(SelectEnterEventArgs args)
-        {
-            base.OnSelectEntered(args);
-            grabTimer = 0.0f;
-            timerActive = true;
-        }
 
-        protected override void OnSelectExited(SelectExitEventArgs args)
-        {
-            base.OnSelectExited(args);
-            timerActive = false;
-        }
 
-        private void FixedUpdate()
+
+        void OnTriggerEnter(Collider other)
         {
-            if (timerActive)
+            Debug.Log("collider: " + other);
+            Debug.Log("collider: " + other.tag);
+
+            // Check if the interacting collider is a hand
+            if (other.CompareTag("Hand"))
             {
-                grabTimer += Time.deltaTime;
-                if (grabTimer >= grabDurationThreshold)
-                {
-                    timerActive = false; // Prevent multiple logs
-
-                    CollectManager.Instance.CollectItem();
-                    gameObject.SetActive(false);
-                    OnCollect();
-                }
+                CollectManager.Instance.CollectItem();
+                gameObject.SetActive(false);
+                OnCollect();
             }
         }
+        // protected void OnSelectEntered()
+        // {
+        //     grabTimer = 0.0f;
+        //     timerActive = true;
+        // }
+        //
+        // protected void OnSelectExited()
+        // {
+        //     timerActive = false;
+        // }
+        //
+        // private void FixedUpdate()
+        // {
+        //     if (timerActive)
+        //     {
+        //         grabTimer += Time.deltaTime;
+        //         if (grabTimer >= grabDurationThreshold)
+        //         {
+        //             timerActive = false; // Prevent multiple logs
+        //
+        //         }
+        //     }
+        // }
 
         private void OnCollect()
         {
