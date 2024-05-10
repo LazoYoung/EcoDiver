@@ -1,0 +1,42 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/FlexXR/Scenes/Demo%200/flexxr-demo-styles.uss?fileID=7433441132597879392&amp;guid=27d95b6aa2853f448b30e08690d91b5d&amp;type=3#flexxr-demo-styles" />
+    <Style src="project://database/Assets/FlexXR/Scenes/Demo%200/unity-root-styles-overrides.uss?fileID=7433441132597879392&amp;guid=c4c497b636654d4abdfbbd1547ca9de0&amp;type=3#unity-root-styles-overrides" />
+    <FlexXR.Runtime.FlexXRPanel.FlexXRContainer name="FlexXRContent" class="dp04-solid" style="-unity-background-scale-mode: scale-to-fit; width: 465px;">
+        <ui:VisualElement name="VisualElement" style="width: 465px;">
+            <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; margin-bottom: 10px;">
+                <ui:Label tabindex="-1" text="FlexXR: UIElements in World Space and Mixed Reality" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 10px;" />
+            </ui:VisualElement>
+            <ui:Foldout text="Intro" name="Intro" class="foldout-toggle-panel" style="margin-bottom: 10px; margin-top: 0; margin-right: 5px;">
+                <ui:Label text="As of the 2021 LTS release, Unity supports runtime UIElements; but there is no world-space support out-of-the-box and it is especially difficult to integrate with mixed reality pointers. \n\nFlexXR is a general solution to using UIElements in world space and supports mixed reality interaction via Unity&apos;s XR Interaction Toolkit." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 0;" />
+            </ui:Foldout>
+            <ui:Foldout text="Control this demo using FlexXR" name="DemoControls" class="foldout-toggle-panel" style="margin-top: 0; margin-right: 5px;">
+                <ui:VisualElement style="margin-left: 10px; width: auto; margin-right: 5px;">
+                    <ui:VisualElement style="margin-bottom: 5px;">
+                        <ui:Slider picking-mode="Ignore" label="Panel Scale" value="1" high-value="2" low-value="1" name="PanelScaleSlider" class="slider" style="margin-bottom: 5px; margin-top: 5px; flex-grow: 0; width: 90%; margin-left: 0;" />
+                        <ui:Label text="This slider is bound to each panel&apos;s scale setting." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 0; margin-left: 10px; margin-top: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement>
+                        <ui:DropdownField label="Demo Mode" index="0" choices="Screen,World,MixedReality" name="DemoModeDropdownField" class="unity-base-field" style="margin-bottom: 5px; margin-top: 5px; width: 375px; margin-left: 0;" />
+                        <ui:VisualElement style="margin-left: 10px;">
+                            <ui:Label text="This dropdown is bound to each panel&apos;s interaction mode and shape settings." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 0; margin-left: 0; margin-top: 0;" />
+                            <ui:VisualElement name="ScreenDemoModeInfo" style="display: flex; margin-bottom: 5px;">
+                                <ui:Label text="In the Screen demo mode you can interact with the GUI as usual with keyboard and mouse. There are no camera controls. Select the World or MixedReality demo mode to learn more about FlexXR&apos;s capabilities." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 10px; margin-left: 0; margin-top: 0; margin-right: 5px;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="WorldDemoModeInfo" style="display: none; margin-bottom: 5px;">
+                                <ui:Label text="In the World demo mode each FlexXR panel is set to World interaction mode and the FlyCamera is enabled. " display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 5px; margin-left: 0; margin-top: 5px; margin-right: 5px;" />
+                                <ui:Label text="World demo mode controls" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-top: 0;" />
+                                <ui:Label text="Keyboard WASD to move the camera." display-tooltip-when-elided="true" style="margin-left: 0;" />
+                                <ui:Label text="Mouse hold right-click and drag to rotate the camera." display-tooltip-when-elided="true" style="margin-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="MixedRealityDemoModeInfo" style="margin-right: 5px; display: none; margin-bottom: 5px;">
+                                <ui:Label text="MixedReality demo mode activates curved world panels and the XR Device Simulator." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 5px; margin-left: 0; margin-top: 5px;" />
+                                <ui:Label text="XR Device Simulator controls" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-right: 5px; white-space: normal;" />
+                                <ui:Label text="Hold Keyboard Left-Shift or Space respectively to activate the left or right controllers. Hold mouse right-click to activate the camera. Drag the mouse to move active devices. Hold the mouse wheel while dragging to rotate." display-tooltip-when-elided="true" style="white-space: normal;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:Foldout>
+        </ui:VisualElement>
+    </FlexXR.Runtime.FlexXRPanel.FlexXRContainer>
+</ui:UXML>
