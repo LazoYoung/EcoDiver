@@ -10,6 +10,9 @@ namespace Script.Quest
         
         [SerializeField]
         private QuestArrowIndicator arrowIndicator;
+
+        [SerializeField]
+        private List<Quest> quests;
         
         private readonly Queue<Quest> _quests = new Queue<Quest>();
         private QuestLevel _questLevel;
@@ -30,9 +33,12 @@ namespace Script.Quest
 
         private void Start()
         {
-            foreach (var quest in FindObjectsOfType<Quest>())
+            foreach (var quest in quests)
             {
-                RegisterQuest(quest);
+                if (quest != null)
+                {
+                    RegisterQuest(quest);
+                }
             }
 
             StartQuest();
@@ -59,16 +65,17 @@ namespace Script.Quest
         public void UpdateQuest(Quest quest)
         {
             _questLevel.LevelUp();
-            UpdateDisplay();
 
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
             {
                 // todo: finale if required
+                UpdateDisplay();
             }
 
             OnCompleteQuest();
             StartQuest();
+            UpdateDisplay();
         }
 
         private void StartQuest()

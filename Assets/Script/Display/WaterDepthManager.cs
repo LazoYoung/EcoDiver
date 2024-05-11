@@ -46,7 +46,6 @@ namespace Script.Display
             {
                 _lastLoggedDepth = currentDepth;
 
-                Debug.Log($"Water depth changed: {currentDepth:F1} meters");
                 DisplayManager.Instance.WaterDepth = _lastLoggedDepth;
             }
         }

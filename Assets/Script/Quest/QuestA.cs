@@ -1,10 +1,12 @@
 using Script.Environment.Collect;
+using UnityEngine;
 
 namespace Script.Quest
 {
     public class QuestA : Quest
     {
-        private readonly int _requiredItemsInGroupA = 5;
+        [SerializeField] private int requiredItems;
+        private int RequiredItems => requiredItems;
         private bool _isCompleted;
 
         public override string GetQuestName()
@@ -14,12 +16,12 @@ namespace Script.Quest
 
         public override string GetQuestDescription()
         {
-            return "Collect the trash";
+            return "Collect the trash from site A.";
         }
 
         public override bool CanComplete()
         {
-            return CollectManager.Instance.GetTotalCollectedItems() >= _requiredItemsInGroupA;
+            return CollectManager.Instance.GetTotalCollectedItems() >= RequiredItems;
         }
 
         private void Update()

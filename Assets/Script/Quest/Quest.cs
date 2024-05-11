@@ -1,3 +1,4 @@
+using Script.Environment.Collect;
 using UnityEngine;
 
 
@@ -14,6 +15,7 @@ namespace Script.Quest
         {
             Debug.Log($"{GetQuestName()} Completed");
             PlayCompletionSound();
+            CollectManager.Instance.ResetCount();
         }
 
         public void Notify()

@@ -5,7 +5,8 @@ namespace Script.Quest
 {
     public class QuestB : Quest
     {
-        private readonly int _requiredItemsInGroupB = 4;
+        [SerializeField] private int requiredItems;
+        private int RequiredItems => requiredItems;
         private bool _isCompleted;
         
         public override string GetQuestName()
@@ -15,12 +16,12 @@ namespace Script.Quest
 
         public override string GetQuestDescription()
         {
-            return "Press U to complete Quest B";
+            return "Collect the trash from site B.";
         }
 
         public override bool CanComplete()
         {
-            return CollectManager.Instance.GetTotalCollectedItems() >= _requiredItemsInGroupB;
+            return CollectManager.Instance.GetTotalCollectedItems() >= RequiredItems;
         }
         
         private void Update()

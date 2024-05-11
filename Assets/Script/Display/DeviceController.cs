@@ -33,9 +33,7 @@ namespace Script.Display
             int oxygen = Mathf.RoundToInt(_displayManager.OxygenRate);
             barometerText.text = $"{Math.Clamp(oxygen, 0, 100)}%";
             objectiveText.text = _displayManager.QuestDescription ?? "N/A";
-            int currentLevel = _displayManager.QuestLevel.CurrentLevel;
-            int maxLevel = _displayManager.QuestLevel.MaxLevel;
-            progressText.text = $"{currentLevel} / {maxLevel}";
+            progressText.text = _displayManager.QuestLevel.ToString();
             depthSlider.value = maxDepth - _displayManager.WaterDepth;
         }
     }
