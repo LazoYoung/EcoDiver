@@ -30,7 +30,7 @@ namespace Script.Display
 
         private void Update()
         {
-            int oxygen = Mathf.RoundToInt(_displayManager.OxygenRate * 100f);
+            int oxygen = Mathf.RoundToInt(_displayManager.OxygenRate);
             barometerText.text = $"{Math.Clamp(oxygen, 0, 100)}%";
             objectiveText.text = _displayManager.QuestDescription ?? "N/A";
             int currentLevel = _displayManager.QuestLevel.CurrentLevel;
