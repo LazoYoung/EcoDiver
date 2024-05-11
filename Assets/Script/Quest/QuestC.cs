@@ -1,77 +1,34 @@
 using Script.Environment.Collect;
-using UnityEngine;
 
 namespace Script.Quest
 {
-    public class QuestC : MonoBehaviour, IQuest
+    public class QuestC : Quest
     {
-        private bool isCompleted = false;
-        private readonly string _questName = "Quest C";
-        private readonly string _questDescription = "Press I to complete Quest C";
-
-        private int requiredItemsInGroupC = 5;
-
-        public AudioClip completionSound;
-
-        public string GetQuestName()
+        private readonly int _requiredItemsInGroupC = 5;
+        private bool _isCompleted;
+        
+        public override string GetQuestName()
         {
-            return _questName;
+            return "Quest C";
         }
 
-        public string GetQuestDescription()
+        public override string GetQuestDescription()
         {
-            return _questDescription;
+            return "Press I to complete Quest C";
+        }
+        
+        public override bool CanComplete()
+        {
+            return CollectManager.Instance.GetTotalCollectedItems() >= _requiredItemsInGroupC;
         }
 
         private void Update()
         {
-            if (!isCompleted && CanComplete())
+            if (!_isCompleted && CanComplete())
             {
-                isCompleted = true;
+                _isCompleted = true;
                 OnComplete();
                 Notify();
-            }
-        }
-
-        public bool CanComplete()
-        {
-            return CollectManager.Instance.GetTotalCollectedItems() >= requiredItemsInGroupC;
-        }
-
-        public Transform GetTransform()
-        {
-            return transform;
-        }
-
-        public void Activate()
-        {
-            Debug.Log("Quest C Activated");
-            gameObject.SetActive(true);
-        }
-
-        public void Deactivate()
-        {
-            Debug.Log("Quest C Deactivated");
-            gameObject.SetActive(false);
-        }
-
-        public void OnComplete()
-        {
-            Debug.Log("Quest C Completed");
-            PlayCompletionSound();
-        }
-
-        public void Notify()
-        {
-            QuestObserver.Instance.UpdateQuest(this);
-        }
-
-        private void PlayCompletionSound()
-        {
-            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
-            if (audioSource != null && completionSound != null)
-            {
-                audioSource.PlayOneShot(completionSound);
             }
         }
     }
