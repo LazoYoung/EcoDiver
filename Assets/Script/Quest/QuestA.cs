@@ -4,7 +4,7 @@ namespace Script.Quest
 {
     public class QuestA : Quest
     {
-        private readonly int _requiredItemsInGroupA = 2;
+        private readonly int _requiredItemsInGroupA = 5;
         private bool _isCompleted;
 
         public override string GetQuestName()
@@ -14,7 +14,7 @@ namespace Script.Quest
 
         public override string GetQuestDescription()
         {
-            return "Press Y to complete Quest A";
+            return "Collect the trash";
         }
 
         public override bool CanComplete()
