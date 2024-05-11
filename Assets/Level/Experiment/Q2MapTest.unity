@@ -14125,10 +14125,89 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefabsSettings:
-  - prefab: {fileID: 5915894882103534459, guid: a47f89c1ef07891459bfb527ffe2c409,
+  - prefab: {fileID: 5467253167472686393, guid: 8b8e95e238eaf6140b6898cd1cec387d,
       type: 3}
-    number: 10
-    scaleRange: {x: 5, y: 5}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 2852534546323410507, guid: 565695a84147c93448566f9377e6c569,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 7584051449714294524, guid: ee85e17b3353b8849a31c1bd46955d31,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 6262642407659813450, guid: 80136acc6e5b7f445bccb147732b7f0c,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 1053019670350172160, guid: 6f47f0a9242402a44ac95eec92f02cf7,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 2964803879186027369, guid: 3056d2ba5a9711b4792a7c806c858e86,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 8752086275462475582, guid: dbd101fa26375b146ad734b2f3f41805,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 6673986751476693879, guid: 424edfb61bdcdc540abcbc787a4f03d4,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 3875564680800788186, guid: 366eb187ce65aaf40beb1a727f60161e,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 6787915855403861759, guid: 1b0836a5ddbafa840b9778276f8ddf0b,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 6958251103928451642, guid: 22ff5977d3aa4514696101c6fc2c55d0,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 5487162458062761580, guid: b9592af05750f8c4ab1c9717cbde819a,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 1331553858597219921, guid: 8b0b5eb6c5ce94547acf0a0c44ed12ae,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 1230034575688497415, guid: f8d359bdee68f0b41bb86337c71513ae,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 3122837433281438465, guid: 97141ebc35af0754a8f9b0ee137696b3,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 1959838305261104225, guid: 9ebfa639c45a2164e8a43a6055e22e44,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 7967493960868720431, guid: 1e11493eebbc19144aa0852677526335,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 7058925250425738986, guid: fabcf3ffbc024c7409d6d29974994ea5,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 3395262875572256096, guid: f2bff607bdebb6a448e0ddcd2da7ebd5,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 250327060157664249, guid: f80fba7800f03c04ab66fa910d29e9f2, type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
+  - prefab: {fileID: 7306505533616600277, guid: e88e006413330e24090727f1c40aa062,
+      type: 3}
+    number: 150
+    scaleRange: {x: 7, y: 7}
   areaSize: {x: 120, y: 0, z: 120}
   areaPositionOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1913587294
