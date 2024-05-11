@@ -2,6 +2,7 @@
 using Crest;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using static UnityEngine.RigidbodyConstraints;
 using Vector3 = UnityEngine.Vector3;
 
@@ -52,8 +53,9 @@ namespace Script.Interaction
         [Header("Physics")]
         [Tooltip("Amount of force applied to propel underwater.")]
         [SerializeField] private float swimForce = 4f;
-        [Tooltip("Amount of torque applied to spin around underwater.")]
-        [SerializeField] private float spinTorque = 0.01f;
+        [FormerlySerializedAs("spinTorque")]
+        [Tooltip("Angular speed applied to spin underwater.")]
+        [SerializeField] private int spinSpeed = 30;
         [Tooltip("Amount of force to simulate fluid resistance.")]
         [SerializeField] private float dragForce = 0.2f;
         [Tooltip("Vertical speed sinking underwater.")]
@@ -70,8 +72,8 @@ namespace Script.Interaction
         [SerializeField] private bool forceUnderwater;
 
         private const float SinkForce = 0.3f;
-        private const float SpinDrag = 1.0f;
         private RigidbodyState _rstate;
+        private Vector3 _spinVelocity;
         private float _timer;
         private bool _inPropel;
         private bool _inSpin;
@@ -86,6 +88,8 @@ namespace Script.Interaction
             }
 
             _underwater = forceUnderwater;
+            _spinVelocity = new Vector3(0, spinSpeed, 0);
+            rigidBody.automaticCenterOfMass = false;
             _rstate.Save(rigidBody);
             UpdateRigidbody();
         }
@@ -164,9 +168,8 @@ namespace Script.Interaction
             if (_inPropel || Mathf.Abs(factor) < 0.2f)
                 return;
 
-            var torque = factor * spinTorque * forwardReference.up;
-                
-            rigidBody.AddTorque(torque, ForceMode.Force);
+            var delta = Quaternion.Euler(_spinVelocity * (factor * Time.fixedDeltaTime));
+            rigidBody.MoveRotation(rigidBody.rotation * delta);
             _inSpin = true;
 
             if (verbose)
@@ -207,10 +210,9 @@ namespace Script.Interaction
             if (_underwater)
             {
                 // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
-                rigidBody.constraints = FreezeRotationX | FreezeRotationZ;
+                rigidBody.constraints = FreezeRotation;
                 rigidBody.useGravity = false;
                 rigidBody.drag = dragForce;
-                rigidBody.angularDrag = SpinDrag;
             }
             else
             {
