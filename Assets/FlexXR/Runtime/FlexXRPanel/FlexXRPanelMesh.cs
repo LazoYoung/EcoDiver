@@ -51,7 +51,10 @@ namespace FlexXR.Runtime.FlexXRPanel
             if (!_vertexDependentsAreStale) return;
             Mesh.RecalculateNormals();
             Mesh.RecalculateBounds();
-            _collider.sharedMesh      = Mesh; // ! Otherwise somehow the vertices aren't shared.
+            if (_collider != null)
+            {
+                _collider.sharedMesh      = Mesh; // ! Otherwise somehow the vertices aren't shared.
+            }
             _vertexDependentsAreStale = false;
         }
 

@@ -125,8 +125,8 @@ namespace Script.Quest
         {
             var display = DisplayManager.Instance;
             display.QuestLevel = _questLevel;
-            display.QuestName = _currentQuest?.GetQuestName() ?? "N/A";
-            display.QuestDescription = _currentQuest?.GetQuestDescription() ?? "N/A";
+            display.QuestName = _currentQuest?.GetQuestName();
+            display.QuestDescription = _currentQuest?.GetQuestDescription();
         }
     }
 }
