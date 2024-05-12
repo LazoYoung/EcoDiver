@@ -182,10 +182,10 @@ namespace FlexXR.Runtime.FlexXRPanel
             }
 
             _worldMeshCollider = _worldMeshRenderer.GetComponent<MeshCollider>();
-            if (_worldMeshCollider is null)
-            {
-                throw new Exception("FlexXRPanelManager failed to find its Flex Mesh game object's Mesh Collider. Disabling.");
-            }
+            // if (_worldMeshCollider is null)
+            // {
+            //     throw new Exception("FlexXRPanelManager failed to find its Flex Mesh game object's Mesh Collider. Disabling.");
+            // }
             
             _cursor = new VisualElement
             {
@@ -459,7 +459,7 @@ namespace FlexXR.Runtime.FlexXRPanel
                 out _raycastHit,
                 maxDistance: _rayMaxDistance);
 
-            PointerRaycastIsHitting = hitAPanel && _raycastHit.collider == _worldMeshCollider;
+            PointerRaycastIsHitting = hitAPanel && _worldMeshCollider && _raycastHit.collider == _worldMeshCollider;
         }
         
         #endregion

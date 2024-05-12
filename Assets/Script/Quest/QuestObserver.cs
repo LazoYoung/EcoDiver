@@ -6,11 +6,17 @@ namespace Script.Quest
 {
     public class QuestObserver : MonoBehaviour
     {
-        public static QuestObserver Instance { get; private set; } = null;
-        private readonly Queue<IQuest> _quests = new Queue<IQuest>();
+        public static QuestObserver Instance { get; private set; }
+        
+        [SerializeField]
+        private QuestArrowIndicator arrowIndicator;
+
+        [SerializeField]
+        private List<Quest> quests;
+        
+        private readonly Queue<Quest> _quests = new Queue<Quest>();
         private QuestLevel _questLevel;
-        private IQuest _currentQuest;
-        public QuestArrowIndicator arrowIndicator;
+        private Quest _currentQuest;
 
         private void Awake()
         {
@@ -27,22 +33,26 @@ namespace Script.Quest
 
         private void Start()
         {
-            RegisterQuest(FindObjectOfType<QuestA>());
-            RegisterQuest(FindObjectOfType<QuestB>());
-            RegisterQuest(FindObjectOfType<QuestC>());
+            foreach (var quest in quests)
+            {
+                if (quest != null)
+                {
+                    RegisterQuest(quest);
+                }
+            }
 
             StartQuest();
             _questLevel = new QuestLevel(_quests.Count);
-            updateDisplay();
+            UpdateDisplay();
         }
 
-        private void RegisterQuest(IQuest quest)
+        private void RegisterQuest(Quest quest)
         {
             quest.Deactivate();
             _quests.Enqueue(quest);
         }
 
-        private IQuest CompleteAndPeekNext()
+        private Quest CompleteAndPeekNext()
         {
             _quests.Peek().Deactivate();
             if (_quests.Count == 0)
@@ -52,19 +62,20 @@ namespace Script.Quest
             return _quests.Dequeue();
         }
 
-        public void UpdateQuest(IQuest quest)
+        public void UpdateQuest(Quest quest)
         {
             _questLevel.LevelUp();
-            updateDisplay();
 
             var nextQuest = CompleteAndPeekNext();
             if (nextQuest == null)
             {
-                //ending 처리 or nextQuest가 엔딩인 경우를 만들기.
+                // todo: finale if required
+                UpdateDisplay();
             }
 
             OnCompleteQuest();
             StartQuest();
+            UpdateDisplay();
         }
 
         private void StartQuest()
@@ -81,7 +92,6 @@ namespace Script.Quest
             _currentQuest.Activate();
 
             UpdateBackground(_currentQuest);
-
             UpdateMinimap(_currentQuest);
             UpdateStatusBar(_currentQuest);
             UpdateArrow(_currentQuest);
@@ -89,40 +99,41 @@ namespace Script.Quest
 
         private void OnFinishAllQuests()
         {
-            Debug.Log("No Quests");
+            Debug.Log("All Quests Complete");
             arrowIndicator.gameObject.SetActive(false);
         }
 
-        private void UpdateArrow(IQuest nextQuest)
+        private void UpdateArrow(Quest nextQuest)
         {
             arrowIndicator.questTransform = nextQuest.GetTransform();
         }
 
-        private void UpdateStatusBar(IQuest nextQuest)
+        private void UpdateStatusBar(Quest nextQuest)
         {
-            //throw new System.NotImplementedException();
+            // todo: method stub
         }
 
-        private void UpdateMinimap(IQuest nextQuest)
+        private void UpdateMinimap(Quest nextQuest)
         {
-            //throw new System.NotImplementedException();
+            // todo: implement if required
         }
 
-        private void UpdateBackground(IQuest nextQuest)
+        private void UpdateBackground(Quest nextQuest)
         {
-            //throw new System.NotImplementedException();
+            // todo: implement if required
         }
 
         private void OnCompleteQuest()
         {
-            //throw new System.NotImplementedException();
+            // todo: implement if required
         }
 
-        private void updateDisplay()
+        private void UpdateDisplay()
         {
-            DisplayManager.Instance.QuestLevel = _questLevel;
-            DisplayManager.Instance.QuestName = _currentQuest.GetQuestName();
-            DisplayManager.Instance.QuestDescription = _currentQuest.GetQuestDescription();
+            var display = DisplayManager.Instance;
+            display.QuestLevel = _questLevel;
+            display.QuestName = _currentQuest?.GetQuestName();
+            display.QuestDescription = _currentQuest?.GetQuestDescription();
         }
     }
 }

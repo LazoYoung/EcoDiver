@@ -15,12 +15,13 @@ namespace FlexXR.Runtime.FlexXRPanel
 
         private void AwakeMixedReality()
         {
-            var interactable = info.worldMesh.gameObject.AddComponent<XRSimpleInteractable>();
+            _interactable = info.worldMesh.gameObject.AddComponent<XRSimpleInteractable>();
+            _interactionManager = _interactable.interactionManager;
             
-            interactable.hoverEntered.AddListener(OnHoverEntered);
-            interactable.hoverExited.AddListener(OnHoverExited);
-            interactable.activated.AddListener(OnActivated);
-            interactable.deactivated.AddListener(OnDeactivated);
+            _interactable.hoverEntered.AddListener(OnHoverEntered);
+            _interactable.hoverExited.AddListener(OnHoverExited);
+            _interactable.activated.AddListener(OnActivated);
+            _interactable.deactivated.AddListener(OnDeactivated);
         }
 
         private void UpdateMixedReality()
@@ -41,7 +42,9 @@ namespace FlexXR.Runtime.FlexXRPanel
         }
         private readonly Dictionary<XRRayInteractor,XRRayInteractorStateOnHoverExit> _xrRayInteractorStatesOnHoverExit = new();
         private readonly List<XRRayInteractor>                                 _xrRayInteractors         = new();
-        
+        private XRInteractionManager _interactionManager;
+        private XRSimpleInteractable _interactable;
+
         private XRRayInteractor ActiveInteractor => _xrRayInteractors.Count > 0 ? _xrRayInteractors[0] : null;
 
         private void OnHoverEntered(HoverEnterEventArgs args)
@@ -78,7 +81,12 @@ namespace FlexXR.Runtime.FlexXRPanel
                         _xrRayInteractorStatesOnHoverExit.Remove(xrRayInteractor);
                     }
 
-                    if (ActiveInteractor is {  })
+                    // Bypass unity null check
+                    if (ActiveInteractor is null)
+                    {
+                        _interactionManager.CancelInteractableSelection(_interactable as IXRSelectInteractable);
+                    }
+                    else
                     {
                         ActiveInteractor.xrController.SendHapticImpulse(1.5f*runtimeSettings.mixedReality.controller.hapticAmplitude, 1.5f*runtimeSettings.mixedReality.controller.hapticDuration);  // Stronger and longer here so that it's more clear which controller is still active on the panel.
                         ActiveInteractor.hoverToSelect = true;
@@ -111,8 +119,7 @@ namespace FlexXR.Runtime.FlexXRPanel
             }
         }
         #endregion
-
-
+        
     }    
 }
 #endif

@@ -58,10 +58,6 @@ namespace Script.Display
                 Debug.Log("Oxygen depleted!");
                 // Implement death or severe consequence logic here
             }
-            else
-            {
-                Debug.Log($"Oxygen level: {_currentOxygen}%");
-            }
 
             DisplayManager.Instance.OxygenRate = _currentOxygen;
         }

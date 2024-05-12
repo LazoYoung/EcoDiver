@@ -44,6 +44,11 @@ namespace Script.Environment.Collect
         {
             return itemsCollected;
         }
+        
+        public void ResetCount()
+        {
+            itemsCollected = 0;
+        }
 
         private void ManageCollectables()
         {
