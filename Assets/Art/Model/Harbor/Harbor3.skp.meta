@@ -1,0 +1,476 @@
+fileFormatVersion: 2
+guid: f5ff519ba1d37d54e88a889de7de358d
+SketchUpImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 20837946824
+    second: {fileID: 2100000, guid: b9734dc6a8566e246ad401e5c1917d53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2702846353
+    second: {fileID: 2100000, guid: 414179037b8405f4ebc209b75743186b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2702846353 red
+    second: {fileID: 2100000, guid: 7d06e828f7441374daf23d687270fb37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 2898937
+    second: {fileID: 2100000, guid: 1ec5b5b6474dff346897f7cd5d602749, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingsHighRise0071_4_thumblarge
+    second: {fileID: 2100000, guid: 357dca07f714bfc4192402f8892dc7fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cable01
+    second: {fileID: 2100000, guid: e25e4f5c583af2445a7f1e586862f8db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cable02
+    second: {fileID: 2100000, guid: f41e5d2a86eebc94b98a10d6908fe13c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsMetalSingle0114_thumblarge
+    second: {fileID: 2100000, guid: 8d8329d50eaf9cd4b8f00eff3ce5c292, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsRollup0044_thumblarge
+    second: {fileID: 2100000, guid: 2bc942d18067bcf458ad069fc468315d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorsRollup0044_thumblarge1
+    second: {fileID: 2100000, guid: 10460bd024a77214d8c34ae4fea7b32f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eucalyptus_02
+    second: {fileID: 2100000, guid: 9da510bd21898344595a7cf76d7c5966, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Google Earth Snapshot1
+    second: {fileID: 2100000, guid: 686ca2df7b4466b45bb381d84ec86ab0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light0003
+    second: {fileID: 2100000, guid: c35d3ab8c4e058f438327c4f95abf32c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0016_1_thumblarge
+    second: {fileID: 2100000, guid: 8fd463f0199ee884cb55f056fea747b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0022_5_thumblarge
+    second: {fileID: 2100000, guid: 12d2de1c52714af4f9170aff22969808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0025_1_thumblarge
+    second: {fileID: 2100000, guid: 3ab548fd89b442148af23d7b9dd34381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0034_1_thumblarge
+    second: {fileID: 2100000, guid: 0be875d4d86277641a37841e22a8fb2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0033_1_thumblarge
+    second: {fileID: 2100000, guid: acf00b9675ee3344f88bbffa73c2a112, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0007_2_thumblarge
+    second: {fileID: 2100000, guid: b4ba2d036be4ef8448a1c8ac58a7c7a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0018_2_thumblarge
+    second: {fileID: 2100000, guid: 244611f9338ff6e458013b3473abf3a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0078_1_thumblarge
+    second: {fileID: 2100000, guid: 9772a964f73388941bfb73da5e3be678, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0078_1_thumblarge1
+    second: {fileID: 2100000, guid: 962aaeb897c153f439a95303e455ad2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalRollup0041_thumblarge
+    second: {fileID: 2100000, guid: 077a93f36cdd1874a9531fc0b1f2f568, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalRollup0041_thumblarge1
+    second: {fileID: 2100000, guid: 595dbfb7dad0db14fbaa2460d2d40e29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Treadplate0087_1_thumblarge
+    second: {fileID: 2100000, guid: 171a6ff874d59cb49acfcad18902c0f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree 05
+    second: {fileID: 2100000, guid: afffdef6c5f785b4b9f44f63f415977c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree 09
+    second: {fileID: 2100000, guid: 203944d46d7331543b5e25737d741dbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0117_thumblarge
+    second: {fileID: 2100000, guid: 7eb432c0f7d247f428bb3b55a96a34f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0269_1_thumblarge
+    second: {fileID: 2100000, guid: 1d0eb22fccd01b3438ecf614dede8d2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Fencing_Diamond_Mesh]'
+    second: {fileID: 2100000, guid: 0d71815e1ecdf8f4f804476896c2b6a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: '[Metal_Aluminum_Anodized]'
+    second: {fileID: 2100000, guid: 6420501ed77c9a148bef2b5e0dd27cc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 9b00f09b2cad80d4180ffbbf93c78d89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: australian flag flying
+    second: {fileID: 2100000, guid: 43e4f6b1ba2406043b37d5dd456cd347, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grid crossing
+    second: {fileID: 2100000, guid: d266caf7e263b58479b19e2ca27d42e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_005
+    second: {fileID: 2100000, guid: fd07e99411e43ff4d8e692cbfa8cea48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_3
+    second: {fileID: 2100000, guid: 6d74992df5dd7d840ba128aff05f45a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: steel004
+    second: {fileID: 2100000, guid: 21f39b51cd6224f4ebbb5f82a0793229, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tissu001
+    second: {fileID: 2100000, guid: fea3ea60cd97a9047a1afda6db884ee7, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 20837946824
+    second: {fileID: 2800000, guid: c9218be782806aa40bad38f7e53d8693, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 2702846353_tint0xAD2425FF
+    second: {fileID: 2800000, guid: f9cac13af77c28245bcb99d5010d7e3e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 2702846353_tint0xFFFFFFFF
+    second: {fileID: 2800000, guid: a0ec55c9354388346b6a0dccb184409c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 2898937
+    second: {fileID: 2800000, guid: d483ba56bb9ca694eab2e4bc3b40e4c8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BuildingsHighRise0071_4_thumblarge
+    second: {fileID: 2800000, guid: 7a3073be9d48a4e41b5b529864b824ab, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cable01
+    second: {fileID: 2800000, guid: 1cc238c2369d9c64d9351d095ce1a0ba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cable02_tint0xBCBCBCFF
+    second: {fileID: 2800000, guid: 4179baeb61c7dda42b5913e2dc6cc13f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DoorsMetalSingle0114_thumblarge
+    second: {fileID: 2800000, guid: 4e9f64ba1d717fd46940fe702973970b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DoorsRollup0044_thumblarge
+    second: {fileID: 2800000, guid: 599fa2dfbf2aa0a49b41e358beff0011, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Eucalyptus_02
+    second: {fileID: 2800000, guid: 110021a018c83b74ba6c60470ecff263, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Fencing_Diamond_Mesh
+    second: {fileID: 2800000, guid: 14fe729d903c0d64d830f944b3f9c287, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Light0003
+    second: {fileID: 2800000, guid: 543b5c70e74a2eb409059436c08fa976, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0016_1_thumblarge
+    second: {fileID: 2800000, guid: 087649cc101abdd4cb63cd59ef36f201, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalBulkheads0022_5_thumblarge
+    second: {fileID: 2800000, guid: 70ce1cb1cfe1ea044bfedcafd74ac85c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0025_1_thumblarge
+    second: {fileID: 2800000, guid: 9dc74dd059525684da79b7a4fc3dacf9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalGalvanized0034_1_thumblarge
+    second: {fileID: 2800000, guid: c9b3caf5823e5f94d8b4c268a148a388, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalLeaking0033_1_thumblarge
+    second: {fileID: 2800000, guid: 29cf4ced57285494bb7ba8e081324cd8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0007_2_thumblarge
+    second: {fileID: 2800000, guid: ba1e86b1750a2644d88f89b66beb3614, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0018_2_thumblarge_tint0x262A43FF
+    second: {fileID: 2800000, guid: 7ea4fdea21c359549b4288b8fd7d9d98, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalPlatesClean0078_1_thumblarge
+    second: {fileID: 2800000, guid: 6d2124493b3275e4c80e736d7dd2dc3f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalRollup0041_thumblarge
+    second: {fileID: 2800000, guid: 63dcbb706fae1f9428cee7f7484aa2eb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metal_Aluminum_Anodized
+    second: {fileID: 2800000, guid: 4aa41eb590d11d34dbc5acafe0a56509, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Treadplate0087_1_thumblarge
+    second: {fileID: 2800000, guid: 60ecfb8e8021bda4880a8917ce5969ac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tree 05
+    second: {fileID: 2800000, guid: ccc3d58bead858449a20e4186379a649, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Tree 09
+    second: {fileID: 2800000, guid: 362c63c7aaa3ead499f664cfd039fc74, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0117_thumblarge
+    second: {fileID: 2800000, guid: 7365f1e71164c694d85a68485a64f09c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WindowsIndustrial0269_1_thumblarge
+    second: {fileID: 2800000, guid: 161ac171caeb01a43aea85ba4b9710d9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: australian flag flying
+    second: {fileID: 2800000, guid: 4243edb181f0d8f43b92d0d004ba1c60, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ge
+    second: {fileID: 2800000, guid: 8b7ba8f112983dd49986e7a9c8e01466, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: grid crossing
+    second: {fileID: 2800000, guid: 3114a7f8909736f4eb9d4433f04eeec9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_005_tint0xFFFFFFFF
+    second: {fileID: 2800000, guid: 3581caa88c8de3f41b3d6baf18735d92, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: prakashambarragePS_016
+    second: {fileID: 2800000, guid: 40bd3f9203b7b3d4b8854274a03eb81f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: steel004
+    second: {fileID: 2800000, guid: 3c39f40f5636a8d4dba36d49e506446e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tissu001
+    second: {fileID: 2800000, guid: 8f69922e9d0aad141941963c65dfd236, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 2
+    materialSearch: 2
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.0254
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  generateBackFace: 1
+  mergeCoplanarFaces: 0
+  selectedNodes: 00000000010000000200000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000ad000000ae000000af000000b0000000b1000000b2000000b3000000b4000000b5000000b6000000b7000000b8000000b9000000ba000000bb000000bc000000bd000000be000000bf000000c0000000c1000000c2000000c3000000c4000000c5000000c6000000c7000000c8000000c9000000ca000000cb000000cc000000cd000000ce000000cf000000d0000000d1000000d2000000d3000000d4000000d5000000d6000000d7000000d8000000d9000000da000000db000000dc000000dd000000de000000df000000e0000000e1000000e2000000e3000000e4000000e5000000e6000000e7000000e8000000e9000000ea000000eb000000ec000000ed000000ee000000ef000000f0000000f1000000f2000000f3000000f4000000f5000000f6000000f7000000f8000000f9000000fa000000fb000000fc000000fd000000fe000000ff000000000100000101000002010000030100000401000005010000060100000701000008010000090100000a0100000b0100000c0100000d0100000e0100000f010000100100001101000012010000130100001401000015010000160100001701000018010000190100001a0100001b0100001c0100001d0100001e0100001f010000
+  assetHash:
+    serializedVersion: 2
+    Hash: a14e534280b683436d56ec3df64edcec
+  fileUnit: 0

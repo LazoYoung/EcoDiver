@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/FlexXR/Resources/flexxr-demo-styles.uss?fileID=7433441132597879392&amp;guid=27d95b6aa2853f448b30e08690d91b5d&amp;type=3#flexxr-demo-styles" />
+    <Style src="project://database/Assets/FlexXR/Resources/flexxr-demo-unity-root-styles-overrides.uss?fileID=7433441132597879392&amp;guid=c4c497b636654d4abdfbbd1547ca9de0&amp;type=3#flexxr-demo-unity-root-styles-overrides" />
+    <FlexXR.Runtime.FlexXRPanel.FlexXRContainer name="FlexXRContent" class="dp04-solid" style="-unity-background-scale-mode: scale-to-fit; width: 465px;">
+        <ui:VisualElement name="VisualElement" style="width: 465px;">
+            <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; margin-bottom: 10px;">
+                <ui:Label tabindex="-1" text="FlexXR: UIElements in World Space and Mixed Reality" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 10px;" />
+            </ui:VisualElement>
+            <ui:Foldout text="Intro" name="Intro" class="foldout-toggle-panel" style="margin-bottom: 10px; margin-top: 0; margin-right: 5px;">
+                <ui:Label text="As of the 2021 LTS release, Unity supports runtime UIElements; but there is no world-space support out-of-the-box and it is especially difficult to integrate with mixed reality pointers. \n\nFlexXR is a general solution to using UIElements in world space and supports mixed reality interaction via Unity&apos;s XR Interaction Toolkit." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 0;" />
+            </ui:Foldout>
+            <ui:Foldout text="About this Demo" name="ThisDemo" class="foldout-toggle-panel" style="margin-bottom: 10px; margin-top: 0; margin-right: 5px;">
+                <ui:Label text="This demo shows two separate FlexXR Panels\n\nEach panels&apos; sections are UIElements Foldouts, so they can be opened and closed with the toggles on the left.\n\nSee the other demos for more features." display-tooltip-when-elided="true" style="white-space: normal; margin-bottom: 0;" />
+            </ui:Foldout>
+            <ui:Foldout text="Controlling the Fly Camera" name="FlyCameraControls" class="foldout-toggle-panel" style="margin-top: 0; margin-right: 5px; margin-bottom: 5px;">
+                <ui:VisualElement style="margin-right: 5px; margin-bottom: 5px;">
+                    <ui:Label text="Keyboard WASD to move the camera." display-tooltip-when-elided="true" style="margin-left: 0;" />
+                    <ui:Label text="Mouse hold right-click and drag to rotate the camera." display-tooltip-when-elided="true" style="margin-left: 0;" />
+                </ui:VisualElement>
+            </ui:Foldout>
+        </ui:VisualElement>
+    </FlexXR.Runtime.FlexXRPanel.FlexXRContainer>
+</ui:UXML>

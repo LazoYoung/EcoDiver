@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Crest;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using static UnityEngine.RigidbodyConstraints;
 using Vector3 = UnityEngine.Vector3;
 
@@ -32,14 +32,15 @@ namespace Script.Interaction
         }
     }
     
-    [RequireComponent(typeof(Rigidbody))]
     public class DiverController : MonoBehaviour
     {
         [Header("Components")]
         [Tooltip("Access to controller input manager.")]
-        [SerializeField] private InputController input;
+        [SerializeField] private InputManager input;
         [Tooltip("Defines the forward direction to propel. Recommended: Main Camera")]
         [SerializeField] private Transform forwardReference;
+        [Tooltip("Rigidbody of this player.")]
+        [SerializeField] private Rigidbody rigidBody;
         
         [Header("Controls")]
         [Tooltip("Player should press and hold the buttons to swim.")]
@@ -51,13 +52,14 @@ namespace Script.Interaction
 
         [Header("Physics")]
         [Tooltip("Amount of force applied to propel underwater.")]
-        [SerializeField] private float swimForce = 3f;
-        [Tooltip("Amount of torque applied to spin around underwater.")]
-        [SerializeField] private float spinTorque = 0.01f;
+        [SerializeField] private float swimForce = 4f;
+        [FormerlySerializedAs("spinTorque")]
+        [Tooltip("Angular speed applied to spin underwater.")]
+        [SerializeField] private int spinSpeed = 30;
         [Tooltip("Amount of force to simulate fluid resistance.")]
-        [SerializeField] private float dragForce = 0.3f;
+        [SerializeField] private float dragForce = 0.2f;
         [Tooltip("Vertical speed sinking underwater.")]
-        [SerializeField] private float sinkSpeed = 1f;
+        [SerializeField] private float sinkSpeed = 0.1f;
         [Tooltip("Minimum amount of input for controller deadzone.")]
         [SerializeField] private float minInput = 0.5f;
         [Tooltip("Cooldown in seconds before the next input is allowed.")]
@@ -69,10 +71,9 @@ namespace Script.Interaction
         [Tooltip("Force underwater physics to persist above sea level. Testing purpose only!")]
         [SerializeField] private bool forceUnderwater;
 
-        private const float SinkForce = 0.5f;
-        private const float SpinDrag = 1.0f;
-        private Rigidbody _rigidbody;
+        private const float SinkForce = 0.3f;
         private RigidbodyState _rstate;
+        private Vector3 _spinVelocity;
         private float _timer;
         private bool _inPropel;
         private bool _inSpin;
@@ -87,31 +88,30 @@ namespace Script.Interaction
             }
 
             _underwater = forceUnderwater;
-            _rigidbody = GetComponent<Rigidbody>();
-            _rstate.Save(_rigidbody);
+            _spinVelocity = new Vector3(0, spinSpeed, 0);
+            rigidBody.automaticCenterOfMass = false;
+            _rstate.Save(rigidBody);
             UpdateRigidbody();
         }
 
         private void OnDestroy()
         {
             _underwater = false;
-            _rstate.Restore(_rigidbody);
+            _rstate.Restore(rigidBody);
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnCollisionEnter()
         {
-            // stop player from spinning due to ground collision
-            _rigidbody.angularVelocity = Vector3.zero;
-            _rigidbody.velocity = Vector3.zero;
-
-            Debug.Log("Collision enter");
+            // stop player from spinning after ground collision
+            rigidBody.angularVelocity = Vector3.zero;
+            rigidBody.velocity = Vector3.zero;
         }
 
         private void FixedUpdate()
         {
             if (!forceUnderwater)
             {
-                _underwater = OceanRenderer.Instance.ViewerHeightAboveWater < 1f;
+                _underwater = OceanRenderer.Instance && OceanRenderer.Instance.ViewerHeightAboveWater < 1f;
             }
             
             UpdateRigidbody();
@@ -130,13 +130,13 @@ namespace Script.Interaction
         {
             var leftForce = input.TranslateVelocity(input.leftHandVelocity);
             var rightForce = input.TranslateVelocity(input.rightHandVelocity);
-            var leftPower = IsForceSufficient(leftForce);
-            var rightPower = IsForceSufficient(rightForce);
-            var leftTrigger = !triggerMode || leftButton.action.IsPressed();
-            var rightTrigger = !triggerMode || rightButton.action.IsPressed();
-            var left = leftPower && leftTrigger;
-            var right = rightPower && rightTrigger;
-            var noise = (leftPower ^ leftTrigger) | (rightPower ^ rightTrigger);
+            bool leftPower = IsForceSufficient(leftForce);
+            bool rightPower = IsForceSufficient(rightForce);
+            bool leftTrigger = !triggerMode || leftButton.action.IsPressed();
+            bool rightTrigger = !triggerMode || rightButton.action.IsPressed();
+            bool left = leftPower && leftTrigger;
+            bool right = rightPower && rightTrigger;
+            bool noise = (leftPower ^ leftTrigger) | (rightPower ^ rightTrigger);
             
             if (!noise && left && right)
             {
@@ -152,10 +152,10 @@ namespace Script.Interaction
                 _inPropel = false;
                 _inSpin = false;
             }
-            else if (_rigidbody.velocity.y < sinkSpeed)
+            else if (rigidBody.velocity.y < sinkSpeed)
             {
-                var sinkForce = dragForce + SinkForce;
-                _rigidbody.AddForce(sinkForce * Vector3.down);
+                float sinkForce = dragForce + SinkForce;
+                rigidBody.AddForce(sinkForce * Vector3.down);
             }
         }
 
@@ -163,14 +163,13 @@ namespace Script.Interaction
         {
             var localInputForce = force;
             var unitXZ = Vector3.ProjectOnPlane(localInputForce, Vector3.up).normalized;
-            var factor = Vector3.Dot(unitXZ, Vector3.left);
+            float factor = Vector3.Dot(unitXZ, Vector3.left);
 
             if (_inPropel || Mathf.Abs(factor) < 0.2f)
                 return;
 
-            var torque = factor * spinTorque * forwardReference.up;
-                
-            _rigidbody.AddTorque(torque, ForceMode.Force);
+            var delta = Quaternion.Euler(_spinVelocity * (factor * Time.fixedDeltaTime));
+            rigidBody.MoveRotation(rigidBody.rotation * delta);
             _inSpin = true;
 
             if (verbose)
@@ -184,7 +183,7 @@ namespace Script.Interaction
         {
             var localInputForce = leftForce + rightForce;
             var unitXZ = Vector3.ProjectOnPlane(localInputForce, Vector3.up).normalized;
-            var factor = Mathf.Max(0, Vector3.Dot(unitXZ, Vector3.back));
+            float factor = Mathf.Max(0, Vector3.Dot(unitXZ, Vector3.back));
 
             if (_inSpin || factor < 0.2f)
                 return;
@@ -194,7 +193,7 @@ namespace Script.Interaction
             var facing = forwardReference.forward;
             var force = factor * swimForce * Vector3.Slerp(stroke, facing, 0.5f);
                     
-            _rigidbody.AddForce(force, ForceMode.Force);
+            rigidBody.AddForce(force, ForceMode.Force);
             _inPropel = true;
                     
             if (verbose)
@@ -210,14 +209,14 @@ namespace Script.Interaction
         {
             if (_underwater)
             {
-                _rigidbody.constraints = FreezeRotationX | FreezeRotationZ;
-                _rigidbody.useGravity = false;
-                _rigidbody.drag = dragForce;
-                _rigidbody.angularDrag = SpinDrag;
+                // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
+                rigidBody.constraints = FreezeRotation;
+                rigidBody.useGravity = false;
+                rigidBody.drag = dragForce;
             }
             else
             {
-                _rstate.Restore(_rigidbody);
+                _rstate.Restore(rigidBody);
             }
         }
         
@@ -225,19 +224,22 @@ namespace Script.Interaction
         {
             var blame = new List<string>();
 
-            if (!input || !input.enabled)
+            if (rigidBody == null)
+                blame.Add("RigidBody");
+            
+            if (input == null || !input.enabled)
                 blame.Add("InputController");
 
-            if (!forwardReference)
+            if (forwardReference == null)
                 blame.Add("ForwardReference");
             
-            if (triggerMode && !leftButton)
+            if (triggerMode && leftButton == null)
                 blame.Add("LeftButton");
             
-            if (triggerMode && !rightButton)
+            if (triggerMode && rightButton == null)
                 blame.Add("RightButton");
             
-            foreach (var item in blame)
+            foreach (string item in blame)
                 Debug.LogError("DiverController found a component missing: " + item);
 
             return blame.Count == 0;

@@ -1,85 +1,36 @@
-using Script.Collect;
+using Script.Environment.Collect;
 using UnityEngine;
 
 namespace Script.Quest
 {
-    public class QuestC : MonoBehaviour, IQuest
+    public class QuestC : Quest
     {
-        private bool isCompleted = false;
-        private readonly string _questName = "Quest C";
-        private readonly string _questDescription = "Press I to complete Quest C";
-
-        // 그룹 C의 요구 아이템 수
-        private int requiredItemsInGroupC = 5;
-
-        // 퀘스트 완료 시 재생될 사운드 클립
-        public AudioClip completionSound;
-
-        private void Start()
+        [SerializeField] private int requiredItems;
+        private int RequiredItems => requiredItems;
+        private bool _isCompleted;
+        
+        public override string GetQuestName()
         {
+            return "Quest C";
         }
 
-        public string GetQuestName()
+        public override string GetQuestDescription()
         {
-            return _questName;
+            return "Collect the trash from site C.";
         }
-
-        public string GetQuestDescription()
+        
+        public override bool CanComplete()
         {
-            return _questDescription;
+            return CollectManager.Instance.GetTotalCollectedItems() >= RequiredItems;
         }
 
         private void Update()
         {
-            if (!isCompleted && CanComplete())
+            if (!_isCompleted && CanComplete())
             {
-                isCompleted = true;
+                _isCompleted = true;
                 OnComplete();
                 Notify();
-            }
-        }
-
-        public bool CanComplete()
-        {
-            // 그룹 C의 아이템 수집 여부 확인
-            return CollectManager.Instance.GetTotalCollectedItems() >= requiredItemsInGroupC;
-        }
-
-        public Transform GetTransform()
-        {
-            return transform;
-        }
-
-        public void Activate()
-        {
-            Debug.Log("Quest C Activated");
-            gameObject.SetActive(true);
-        }
-
-        public void Deactivate()
-        {
-            Debug.Log("Quest C Deactivated");
-            gameObject.SetActive(false);
-        }
-
-        public void OnComplete()
-        {
-            Debug.Log("Quest C Completed");
-            PlayCompletionSound();
-        }
-
-        public void Notify()
-        {
-            QuestObserver.Instance.UpdateQuest(this);
-        }
-
-        private void PlayCompletionSound()
-        {
-            // 메인 카메라에서 AudioSource 컴포넌트를 찾음
-            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
-            if (audioSource != null && completionSound != null)
-            {
-                audioSource.PlayOneShot(completionSound);
             }
         }
     }
