@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -7,32 +8,50 @@ namespace Script.Interaction
 {
     public class RayToggleController : MonoBehaviour
     {
-        [SerializeField]
-        private List<XRRayInteractor> rayInteractables;
+        [SerializeField] private XRRayInteractor rayInteractor;
 
-        [SerializeField] private InputActionReference toggleActionReference; // Input Action for toggling
-
-        private void OnEnable()
+        void Awake()
         {
-            toggleActionReference.action.Enable();
-            toggleActionReference.action.performed += HandleToggle;
-        }
-
-        private void OnDisable()
-        {
-            toggleActionReference.action.Disable();
-            toggleActionReference.action.performed -= HandleToggle;
-        }
-
-        private void HandleToggle(InputAction.CallbackContext context)
-        {
-            foreach (var interactable in rayInteractables)
+            if (rayInteractor == null)
             {
-                if (interactable != null)
-                {
-                    interactable.enabled = !interactable.enabled;  // Toggle the state
-                    Debug.Log($"{interactable.gameObject.name} is now {(interactable.enabled ? "enabled" : "disabled")}");
-                }
+                Debug.LogError("RayToggleOnHover: No XRBaseInteractor found on the GameObject.");
+                return;
+            }
+            if (rayInteractor is XRRayInteractor ray)
+            {
+                ray.enabled = false;
+            }
+
+            // Subscribe to hover events
+            rayInteractor.hoverEntered.AddListener(OnHoverEntered);
+            rayInteractor.hoverExited.AddListener(OnHoverExited);
+        }
+
+        private void OnDestroy()
+        {
+            // Unsubscribe to avoid memory leaks
+            if (rayInteractor != null)
+            {
+                rayInteractor.hoverEntered.RemoveListener(OnHoverEntered);
+                rayInteractor.hoverExited.RemoveListener(OnHoverExited);
+            }
+        }
+
+        private void OnHoverEntered(HoverEnterEventArgs args)
+        {
+            // Enable the ray when hovering over an interactable
+            if (rayInteractor is XRRayInteractor ray)
+            {
+                ray.enabled = true;
+            }
+        }
+
+        private void OnHoverExited(HoverExitEventArgs args)
+        {
+            // Disable the ray when not hovering over any interactable
+            if (rayInteractor is XRRayInteractor ray)
+            {
+                ray.enabled = false;
             }
         }
     }
