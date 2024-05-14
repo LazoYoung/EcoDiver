@@ -5,8 +5,8 @@ namespace Script.Interaction
 {
     public class ObjectToggleTrigger : MonoBehaviour
     {
-        [SerializeField] [Tooltip("Array of GameObjects To Toggle.")]
-        private GameObject[] rayObjects; // Array of ray GameObjects
+        [FormerlySerializedAs("rayObjects")] [SerializeField] [Tooltip("Array of GameObjects To Toggle.")]
+        private GameObject[] toggleObjects; // Array of ray GameObjects
 
         [SerializeField] [Header("Debug")] private bool debugMode;
 
@@ -63,7 +63,7 @@ namespace Script.Interaction
 
         private void enableObjects()
         {
-            foreach (var rayObject in rayObjects)
+            foreach (var rayObject in toggleObjects)
             {
                 if (rayObject != null)
                 {
@@ -79,7 +79,7 @@ namespace Script.Interaction
 
         private void disableObjects()
         {
-            foreach (var rayObject in rayObjects)
+            foreach (var rayObject in toggleObjects)
             {
                 if (rayObject != null)
                 {
