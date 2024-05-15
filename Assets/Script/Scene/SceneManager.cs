@@ -53,7 +53,7 @@ namespace Scene
             }
             else
             {
-                Debug.LogError("Selected Scene is not exist in scenario");
+                Debug.LogWarning("Selected Scene is not exist in scenario");
                 enabled = false;
             }
             if (fadeScreen == null)
