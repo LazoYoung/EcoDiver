@@ -9,8 +9,7 @@ namespace Scene
     {
         private List<SceneDeatil> selectedScenario;
 
-        private string loadingText = "Loading...";
-        [SerializeField] [Tooltip("Fade Screen Object")]
+        [SerializeField] [Tooltip("Fade Screen")]
         private FadeScreen fadeScreen;
 
         private readonly List<SceneDeatil> ProductionScenes = new List<SceneDeatil>
@@ -51,6 +50,14 @@ namespace Scene
             {
                 Debug.LogError("Selected Scene is not exist in scenario");
                 enabled = false;
+            }
+            if (fadeScreen == null)
+            {
+                Debug.LogWarning("Fade Screen is not set.");
+            }
+            else
+            {
+                fadeScreen.gameObject.SetActive(true);
             }
         }
 
