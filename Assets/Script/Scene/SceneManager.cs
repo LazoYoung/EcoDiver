@@ -1,37 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Scene
 {
     public class SceneLoader : MonoBehaviour
     {
-        private List<SceneDeatil> selectedScenario;
+        private List<SceneDetail> selectedScenario;
+
+        [SerializeField] [Tooltip("temporary button for loading scene")]
+        private InputActionReference loadButton;
 
         [SerializeField] [Tooltip("Fade Screen")]
         private FadeScreen fadeScreen;
 
-        private readonly List<SceneDeatil> ProductionScenes = new List<SceneDeatil>
+        private readonly List<SceneDetail> ProductionScenes = new List<SceneDetail>
         {
-            SceneDeatil.StartScene, SceneDeatil.MainScene, SceneDeatil.EndScene
+            //Example
+            SceneDetail.StartScene, SceneDetail.MainScene, SceneDetail.EndScene
         };
 
-        private readonly List<SceneDeatil> TestScenes = new List<SceneDeatil>
+        private readonly List<SceneDetail> TestScenes = new List<SceneDetail>
         {
-            SceneDeatil.TestStartScene, SceneDeatil.TestMainScene, SceneDeatil.TestEndScene
+            SceneDetail.TestStartScene, SceneDetail.TestMainScene, SceneDetail.TestEndScene
         };
 
-        private static int FindSceneIndex(List<SceneDeatil> sceneDeatils,
+        private static int FindSceneIndex(List<SceneDetail> sceneDetails,
             UnityEngine.SceneManagement.Scene currentScene)
         {
-            return sceneDeatils.FindIndex(scene => currentScene.path.Contains(scene.Name));
+            return sceneDetails.FindIndex(scene => currentScene.path.Contains(scene.Name));
         }
 
-        private static bool IsExistInScenario(List<SceneDeatil> sceneDeatils,
+        private static bool IsExistInScenario(List<SceneDetail> sceneDetails,
             UnityEngine.SceneManagement.Scene currentScene)
         {
-            return FindSceneIndex(sceneDeatils, currentScene) != -1;
+            return FindSceneIndex(sceneDetails, currentScene) != -1;
         }
 
         void Awake()
@@ -88,23 +93,16 @@ namespace Scene
         private void Update()
         {
             //테스트 용도 실 사용 계획 X
-            if (Input.GetKeyDown(KeyCode.H))
+            if (loadButton && loadButton.action.WasPressedThisFrame())
             {
-                //메인씬 로딩 시간 4초
-                Debug.Log("Loading Scene H ");
-                LoadNewScene("Level/Production/MainScene");
-            }
-
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                Debug.Log("Loading Scene J");
+                Debug.Log("Loading Scene Triggered by Button Pressed");
                 LoadNextScene();
             }
         }
 
         private IEnumerator LoadSceneAsync(string sceneName)
         {
-            Debug.Log("Load Scene Async: " + sceneName);
+            Debug.Log("To Load Scene's name : " + sceneName);
             if (fadeScreen == null)
             {
                 Debug.LogWarning("Fade Screen is not set.");
