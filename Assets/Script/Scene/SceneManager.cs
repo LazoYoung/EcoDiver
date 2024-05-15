@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 namespace Scene
 {
     public class SceneLoader : MonoBehaviour
@@ -9,6 +10,8 @@ namespace Scene
         private List<SceneDeatil> selectedScenario;
 
         private string loadingText = "Loading...";
+        [SerializeField] [Tooltip("Fade Screen Object")]
+        private FadeScreen fadeScreen;
 
         private readonly List<SceneDeatil> ProductionScenes = new List<SceneDeatil>
         {
@@ -20,12 +23,14 @@ namespace Scene
             SceneDeatil.TestStartScene, SceneDeatil.TestMainScene, SceneDeatil.TestEndScene
         };
 
-        private static int FindSceneIndex(List<SceneDeatil> sceneDeatils, UnityEngine.SceneManagement.Scene currentScene)
+        private static int FindSceneIndex(List<SceneDeatil> sceneDeatils,
+            UnityEngine.SceneManagement.Scene currentScene)
         {
-            return sceneDeatils.FindIndex(scene =>  currentScene.path.Contains(scene.Name));
+            return sceneDeatils.FindIndex(scene => currentScene.path.Contains(scene.Name));
         }
 
-        private static bool IsExistInScenario(List<SceneDeatil> sceneDeatils, UnityEngine.SceneManagement.Scene currentScene)
+        private static bool IsExistInScenario(List<SceneDeatil> sceneDeatils,
+            UnityEngine.SceneManagement.Scene currentScene)
         {
             return FindSceneIndex(sceneDeatils, currentScene) != -1;
         }
@@ -55,11 +60,12 @@ namespace Scene
             if (currentSceneIndex == -1)
             {
                 Debug.LogError("Current scene is not exist in scenario");
+                return;
             }
-
-            if (selectedScenario.Count >= currentSceneIndex + 1)
+            if (selectedScenario.Count <= currentSceneIndex + 1)
             {
                 Debug.LogError("Next scene is not exist.");
+                return;
             }
 
             LoadNewScene(selectedScenario[currentSceneIndex + 1].Name);
@@ -91,15 +97,25 @@ namespace Scene
 
         private IEnumerator LoadSceneAsync(string sceneName)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-
-            while (!asyncLoad.isDone)
+            Debug.Log("Load Scene Async: " + sceneName);
+            if (fadeScreen == null)
             {
-                //float progress = asyncLoad.progress / 0.9f; // Divide by 0.9 because LoadSceneAsync progress goes only up to 0.9
-                // loadingText = "Loading... " + (int)(progress * 100) + "%";
-                Debug.Log("LOADING: " + asyncLoad.progress);
+                Debug.LogWarning("Fade Screen is not set.");
+            } else
+            {
+                fadeScreen.FadeOut();
+            }
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+            asyncLoad.allowSceneActivation = false;
+
+            float timer = 0;
+            while ((fadeScreen != null && timer <= fadeScreen.FadeDuration) && !asyncLoad.isDone)
+            {
+                timer += Time.deltaTime;
                 yield return null;
             }
+
+            asyncLoad.allowSceneActivation = true;
         }
     }
 }
