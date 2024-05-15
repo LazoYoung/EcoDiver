@@ -69,7 +69,7 @@ namespace Script.Interaction
                 {
                     if (debugMode)
                     {
-                        Debug.Log("RayZoneTrigger: Enable ray");
+                        Debug.Log("ObjectToggleTrigger "+ this +": Enable");
                     }
 
                     rayObject.SetActive(true); // Enable all rays
@@ -85,7 +85,7 @@ namespace Script.Interaction
                 {
                     if (debugMode)
                     {
-                        Debug.Log("RayZoneTrigger: Disabling ray");
+                        Debug.Log("ObjectToggleTrigger "+ this +": Disabling ");
                     }
 
                     rayObject.SetActive(false); // Disable all rays
