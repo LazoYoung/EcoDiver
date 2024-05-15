@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,6 +16,11 @@ namespace Script.Interaction
         private bool isDefaultDisabled = true;
 
         private void Start()
+        {
+            Reset();
+        }
+
+        private void OnDisable()
         {
             Reset();
         }
