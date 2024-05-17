@@ -36,7 +36,7 @@ namespace Script.Quest
 
         public override string ToString()
         {
-            return _currentLevel + "/" + _maxLevel;
+            return _currentLevel + " / " + _maxLevel;
         }
     }
 }

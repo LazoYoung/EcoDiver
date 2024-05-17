@@ -32,7 +32,7 @@ namespace Script.Display
          * 0.0 ~ 100.0
          *
          */
-        public float OxygenRate;
+        public float OxygenRate = 100f;
         /*
          * QuestLevel {CurrentLevel, MaxLevel}
          *
