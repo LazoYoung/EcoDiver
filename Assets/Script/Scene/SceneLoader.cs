@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using zScene;
 
 namespace Script.Scene
 {
@@ -15,6 +16,36 @@ namespace Script.Scene
 
         [SerializeField] [Tooltip("Fade Screen")]
         private FadeScreen fadeScreen;
+
+        [SerializeField] [Tooltip("Verbose Mode")]
+        private bool verbose = false;
+
+        private static SceneLoader instance;
+
+        public static SceneLoader Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    SetupInstance();
+                }
+
+                return instance;
+            }
+        }
+
+        private static void SetupInstance()
+        {
+            instance = FindObjectOfType<SceneLoader>();
+            if (instance == null)
+            {
+                GameObject gameObj = new GameObject();
+                gameObj.name = "SceneLoader";
+                instance = gameObj.AddComponent<SceneLoader>();
+                DontDestroyOnLoad(gameObj);
+            }
+        }
 
         private readonly List<SceneDetail> ProductionScenes = new List<SceneDetail>
         {
@@ -41,27 +72,77 @@ namespace Script.Scene
 
         void Awake()
         {
+            LoadInstance();
+            LoadScene();
+        }
+
+        private void LoadInstance()
+        {
+            if (verbose)
+            {
+                Debug.Log("Awake Singleton");
+            }
+            if (instance == null)
+            {
+                if (verbose)
+                {
+                    Debug.Log("Instance is null");
+                }
+                instance = this;
+                DontDestroyOnLoad(this.gameObject);
+            }
+            else
+            {
+                if (verbose)
+                {
+                    Debug.Log("Instance is not null");
+                }
+
+                Destroy(gameObject);
+            }
+        }
+
+        private void LoadScene()
+        {
             if (DoExistInScenario(TestScenes, SceneManager.GetActiveScene()))
             {
                 selectedScenario = TestScenes;
-                Debug.Log("Selected Scene is Test Scene");
+                if (verbose)
+                {
+                    Debug.Log("Selected Scene is Test Scene");
+                }
             }
             else if (DoExistInScenario(ProductionScenes, SceneManager.GetActiveScene()))
             {
                 selectedScenario = ProductionScenes;
-                Debug.Log("Selected Scene is Production Scene");
+                if (verbose)
+                {
+                    Debug.Log("Selected Scene is Production Scene");
+                }
             }
             else
             {
-                Debug.LogWarning("Selected Scene doesn't exist in scenario");
+                if (verbose)
+                {
+                    Debug.LogWarning("Selected Scene doesn't exist in scenario");
+                }
                 enabled = false;
             }
+
             if (fadeScreen == null)
             {
-                Debug.LogWarning("Fade Screen is not set.");
+                if (verbose)
+                {
+                    Debug.LogWarning("Fade Screen is not set.");
+                }
             }
             else
             {
+                if (verbose)
+                {
+                    Debug.Log("Fade screen found.");
+                }
+
                 fadeScreen.gameObject.SetActive(true);
             }
         }
@@ -102,7 +183,11 @@ namespace Script.Scene
 
         private IEnumerator LoadSceneAsync(string sceneName)
         {
-            Debug.Log("To Load Scene's name : " + sceneName);
+            if (verbose)
+            {
+                Debug.Log("To Load Scene's name : " + sceneName);
+            }
+
             if (fadeScreen == null)
             {
                 Debug.LogWarning("Fade Screen is not set.");
