@@ -2015,6 +2015,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 291810335}
   m_SourcePrefab: {fileID: 100100000, guid: e6eac72d215bb884fbcb42514c974466, type: 3}
+--- !u!114 &252514262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8216630046303842048, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+    type: 3}
+  m_PrefabInstance: {fileID: 571307636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121712f3074c459ea053cfe072afacd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &254201081
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,6 +8633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 3654540592063542841, guid: 48d440c31b6802c4f94f365f8f5f12e4,
+        type: 3}
+      propertyPath: arrowIndicator
+      value: 
+      objectReference: {fileID: 252514262}
     - target: {fileID: 8155230527457408333, guid: 48d440c31b6802c4f94f365f8f5f12e4,
         type: 3}
       propertyPath: m_LocalPosition.x
