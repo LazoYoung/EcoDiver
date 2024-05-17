@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Scene
+namespace Script.Scene
 {
     public struct SceneDetail
     {

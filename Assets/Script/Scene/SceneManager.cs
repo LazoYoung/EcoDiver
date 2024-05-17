@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-namespace Scene
+namespace Script.Scene
 {
     public class SceneLoader : MonoBehaviour
     {

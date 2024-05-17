@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Scene
+namespace Script.Scene
 {
     public class FadeScreen : MonoBehaviour
     {
