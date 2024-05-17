@@ -9,12 +9,17 @@ namespace Script.Equipment
         [SerializeField] private Tool defaultTool;
         private Tool _activeTool;
 
+        public Tool GetActiveTool()
+        {
+            return _activeTool;
+        }
+        
         public void Equip(Tool tool)
         {
             _activeTool = tool;
             DetachModel();
             AttachModel();
-            Debug.Log($"Equip: {tool.Name}");
+            Debug.Log($"Equip: {tool.Identifier}");
         }
 
         private void AttachModel()

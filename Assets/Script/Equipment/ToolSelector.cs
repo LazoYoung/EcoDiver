@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -30,6 +29,7 @@ namespace Script.Equipment
         private LocomotionDummy _locomotionDummy;
         private float _timer;
         private bool _isOpen;
+        private bool _incline;
         private Tool _selected;
         private int _selectedIdx;
 
@@ -56,12 +56,30 @@ namespace Script.Equipment
             {
                 UpdateMenu();
             }
-            else if (IsMenuToggled() && DisableLocomotion())
+            else if (IsTogglePressed() && DisableLocomotion())
             {
-                _isOpen = true;
+                OpenMenu();
             }
 
-            UpdateUI();
+            UpdateCanvas();
+        }
+
+        private void OpenMenu()
+        {
+            var tool = equipment.GetActiveTool();
+                
+            for (var idx = 0; idx < 4; ++idx)
+            {
+                if (tools[idx] == tool)
+                {
+                    _selected = tool;
+                    _selectedIdx = idx;
+                    break;
+                }
+            }
+
+            _incline = false;
+            _isOpen = true;
         }
 
         private void UpdateMenu()
@@ -73,14 +91,15 @@ namespace Script.Equipment
             {
                 _selectedIdx = index;
                 _selected = tools[index];
+                _incline = true;
             }
-            else if (_selected)
+            else if (_incline)
             {
                 equipment.Equip(_selected);
                 CloseMenu();
                 EnableLocomotion();
             }
-            else if (IsTimeOver() || IsMenuToggled())
+            else if (IsTimeOver() || IsTogglePressed())
             {
                 CloseMenu();
                 ResetTimer();
@@ -88,7 +107,7 @@ namespace Script.Equipment
             }
         }
 
-        private void UpdateUI()
+        private void UpdateCanvas()
         {
             canvas.enabled = _isOpen;
 
@@ -101,6 +120,28 @@ namespace Script.Equipment
                     ActivateButton();
                 }
             }
+        }
+
+        private void CloseMenu()
+        {
+            _selected = null;
+            _selectedIdx = 0;
+            _isOpen = false;
+        }
+
+        private bool IsTogglePressed()
+        {
+            return toggleButton.action.WasPressedThisFrame();
+        }
+        
+        private bool IsTimeOver()
+        {
+            return _isOpen && _timer > idleTime;
+        }
+
+        private Vector2 GetThumbstickAxis()
+        {
+            return thumbstickAxis.action.ReadValue<Vector2>();
         }
         
         private int GetTemporalSelect()
@@ -128,28 +169,6 @@ namespace Script.Equipment
             {
                 return 3;
             }
-        }
-
-        private void CloseMenu()
-        {
-            _selected = null;
-            _selectedIdx = 0;
-            _isOpen = false;
-        }
-
-        private bool IsMenuToggled()
-        {
-            return toggleButton.action.WasPressedThisFrame();
-        }
-
-        private Vector2 GetThumbstickAxis()
-        {
-            return thumbstickAxis.action.ReadValue<Vector2>();
-        }
-
-        private bool IsTimeOver()
-        {
-            return _isOpen && _timer > idleTime;
         }
 
         private void ResetTimer()

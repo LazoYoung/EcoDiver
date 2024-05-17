@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9642035aa4764b309f608613f071fb3d, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  toolName: Knife
+  id: Knife
   forearmPrefab: {fileID: 5856190595485376556, guid: 2ed0d93fe764edc44b4f8814301640e3,
     type: 3}
-  canvasButtonImage: {fileID: 0}

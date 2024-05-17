@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9642035aa4764b309f608613f071fb3d, type: 3}
   m_Name: Hand
   m_EditorClassIdentifier: 
-  toolName: Hand
+  id: Hand
   forearmPrefab: {fileID: 536820308681588539, guid: e361b9e3106bb2c4ba2b2bf1f2ab800a,
     type: 3}
-  canvasButtonImage: {fileID: 0}
