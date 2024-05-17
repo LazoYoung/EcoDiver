@@ -33,7 +33,7 @@ namespace Script.Scene
             return sceneDetails.FindIndex(scene => currentScene.path.Contains(scene.Name));
         }
 
-        private static bool IsExistInScenario(List<SceneDetail> sceneDetails,
+        private static bool DoExistInScenario(List<SceneDetail> sceneDetails,
             UnityEngine.SceneManagement.Scene currentScene)
         {
             return FindSceneIndex(sceneDetails, currentScene) != -1;
@@ -41,12 +41,12 @@ namespace Script.Scene
 
         void Awake()
         {
-            if (IsExistInScenario(TestScenes, SceneManager.GetActiveScene()))
+            if (DoExistInScenario(TestScenes, SceneManager.GetActiveScene()))
             {
                 selectedScenario = TestScenes;
                 Debug.Log("Selected Scene is Test Scene");
             }
-            else if (IsExistInScenario(ProductionScenes, SceneManager.GetActiveScene()))
+            else if (DoExistInScenario(ProductionScenes, SceneManager.GetActiveScene()))
             {
                 selectedScenario = ProductionScenes;
                 Debug.Log("Selected Scene is Production Scene");
