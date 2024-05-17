@@ -210,13 +210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046678590}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -9.9, y: 34.8, z: -31.8}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.03, y: 32.18, z: 3.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 180}
 --- !u!1001 &1655403546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,8 +283,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7360534077967642557, guid: bad62a84195969e44b59215705b5e066,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1882540655}
   m_SourcePrefab: {fileID: 100100000, guid: bad62a84195969e44b59215705b5e066, type: 3}
+--- !u!1 &1882540651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7360534077967642557, guid: bad62a84195969e44b59215705b5e066,
+    type: 3}
+  m_PrefabInstance: {fileID: 1655403546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1882540655
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882540651}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 3f2a21d1ca41d934da9191b43653897a, type: 3}
 --- !u!4 &9501662137966713
 Transform:
   m_ObjectHideFlags: 0
@@ -1483,7 +1515,7 @@ MonoBehaviour:
   rightButton: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   swimForce: 4
-  spinTorque: 0.01
+  spinSpeed: 0
   dragForce: 0.2
   sinkSpeed: 0.1
   minInput: 0.5
