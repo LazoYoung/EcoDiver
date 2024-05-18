@@ -6632,10 +6632,9 @@ MonoBehaviour:
   thumbstickAxis: {fileID: -7909307222782261502, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   canvas: {fileID: 4785123340718720954}
-  imageHand: {fileID: 1557630008112093334}
-  imageHeadlight: {fileID: 5125244621396373197}
-  imageKnife: {fileID: 7522957771111002253}
-  imageRope: {fileID: 7463503667575904346}
+  buttonImages: []
+  equipment: {fileID: 0}
+  tools: []
   idleTime: 5
 --- !u!1 &9018444366999733918
 GameObject:
