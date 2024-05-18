@@ -3,35 +3,30 @@ using UnityEngine;
 
 namespace Script.Quest
 {
-    public class QuestB : Quest
+    public class Quest1A : Quest
     {
         [SerializeField] private int requiredItems;
         private int RequiredItems => requiredItems;
-        private bool _isCompleted;
-        
+
         public override string GetQuestName()
         {
-            return "Quest B";
+            return "Quest 1A";
         }
 
         public override string GetQuestDescription()
         {
-            return "Collect the trash from site B.";
+            return "Collect the trash from site A.";
         }
 
-        public override bool CanComplete()
+        protected override bool CanComplete()
         {
             return CollectManager.Instance.GetTotalCollectedItems() >= RequiredItems;
         }
-        
-        private void Update()
+
+        protected override void OnComplete()
         {
-            if (!_isCompleted && CanComplete())
-            {
-                _isCompleted = true;
-                OnComplete();
-                Notify();
-            }
+            base.OnComplete();
+            CollectManager.Instance.ResetCount();
         }
     }
 }
