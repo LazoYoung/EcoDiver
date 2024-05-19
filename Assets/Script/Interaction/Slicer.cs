@@ -50,6 +50,7 @@ namespace Script.Interaction
             }
             else
             {
+                target.Notify(this);
                 StartCoroutine(CreateSlicedObjects(slicedHull, clothColliders, targetObject, target.gameObject));
             }
         }
@@ -106,10 +107,9 @@ namespace Script.Interaction
         {
             if (Physics.Linecast(startPoint.position, endPoint.position, out var hitInfo))
             {
-                if (hitInfo.transform.TryGetComponent(out Sliceable target))
+                if (hitInfo.transform.gameObject.TryGetComponent(out Sliceable target))
                 {
                     Slice(target);
-                    target.Notify(this);
                 }
             }
         }
@@ -127,6 +127,7 @@ namespace Script.Interaction
             cloth.useGravity = true;
             cloth.capsuleColliders = clothColliders.CapsuleColliders;
             cloth.sphereColliders = clothColliders.SphereColliders;
+            MakeSliceable(hull, 2);
         }
 
         private void ComposeSlicedObject(GameObject hull)
@@ -136,6 +137,20 @@ namespace Script.Interaction
             slicedBody.useGravity = true;
             meshCollider.convex = true;
             slicedBody.AddExplosionForce(100f, hull.transform.position, 1f);
+            MakeSliceable(hull, 1);
+        }
+
+        private void MakeSliceable(GameObject obj, int delayInSeconds)
+        {
+            StartCoroutine(MakeSliceableCoroutine(obj, delayInSeconds));
+        }
+        
+        private IEnumerator MakeSliceableCoroutine(GameObject obj, int seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            obj.AddComponent<Rigidbody>();
+            obj.AddComponent<BoxCollider>();
+            obj.AddComponent<Sliceable>();
         }
 
         private Vector3 GetVelocityEstimate()
