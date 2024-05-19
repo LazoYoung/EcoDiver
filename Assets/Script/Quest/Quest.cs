@@ -1,6 +1,4 @@
-using Script.Environment.Collect;
 using UnityEngine;
-
 
 namespace Script.Quest
 {
@@ -8,28 +6,23 @@ namespace Script.Quest
     {
         [SerializeField] private AudioClip completionSound;
         [SerializeField] private AudioSource audioSource;
-        
-        public abstract bool CanComplete();
+        private bool _isCompleted;
 
-        public virtual void OnComplete()
+        protected abstract bool CanComplete();
+
+        protected virtual void OnComplete()
         {
             Debug.Log($"{GetQuestName()} Completed");
             PlayCompletionSound();
-            CollectManager.Instance.ResetCount();
         }
 
-        public void Notify()
-        {
-            QuestObserver.Instance.UpdateQuest(this);
-        }
-
-        public virtual void Activate()
+        public void Activate()
         {
             Debug.Log($"{GetQuestName()} Activated");
             gameObject.SetActive(true);
         }
 
-        public virtual void Deactivate()
+        public void Deactivate()
         {
             Debug.Log($"{GetQuestName()} Deactivated");
             gameObject.SetActive(false);
@@ -50,6 +43,21 @@ namespace Script.Quest
             {
                 audioSource = Camera.main?.GetComponent<AudioSource>();
             }
+        }
+        
+        protected virtual void Update()
+        {
+            if (!_isCompleted && CanComplete())
+            {
+                _isCompleted = true;
+                OnComplete();
+                Notify();
+            }
+        }
+        
+        private void Notify()
+        {
+            QuestObserver.Instance.UpdateQuest(this);
         }
 
         private void PlayCompletionSound()
