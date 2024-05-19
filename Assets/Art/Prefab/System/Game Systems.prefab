@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5857795617305576851}
   - component: {fileID: 1281177318716639418}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: SceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   loadButton: {fileID: -2295303568239890232, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   fadeScreen: {fileID: 0}
+  verbose: 0
 --- !u!1 &3544610265212258995
 GameObject:
   m_ObjectHideFlags: 0
