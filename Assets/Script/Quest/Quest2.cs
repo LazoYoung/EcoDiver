@@ -38,7 +38,7 @@ namespace Script.Quest
             }
             else
             {
-                _sliceable.onSlice += OnSlice;
+                _sliceable.OnSlice += OnSlice;
             }
         }
 

@@ -1,48 +1,92 @@
 ﻿using System.Collections;
 using EzySlice;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Interaction
 {
+    internal record ClothColliders
+    {
+        internal CapsuleCollider[] CapsuleColliders;
+        internal ClothSphereColliderPair[] SphereColliders;
+    }
+
     public class Slicer : MonoBehaviour
     {
         public Transform startPoint;
         public Transform endPoint;
         private readonly int _velocityFrames = 5;
+        private readonly float _tearDistance = 0.05f;
         private int _sampleCount;
         private Coroutine _routine;
         private Vector3[] _velocitySamples;
 
         public void Slice(Sliceable target)
         {
-            var targetObject = target.gameObject;
+            var targetObject = Instantiate(target.gameObject, target.transform.parent);
             var bladeVector = endPoint.position - startPoint.position;
             var sliceNormal = Vector3.Cross(bladeVector, GetVelocityEstimate()).normalized;
-            
-            if (target.TryGetComponent(out Cloth cloth))
+            ClothColliders clothColliders = null;
+
+            if (targetObject.TryGetComponent(out Cloth cloth))
             {
-                var skinnedMeshRenderer = target.GetComponent<SkinnedMeshRenderer>();
+                clothColliders = new ClothColliders()
+                {
+                    CapsuleColliders = cloth.capsuleColliders,
+                    SphereColliders = cloth.sphereColliders
+                };
+                var skinnedMeshRenderer = targetObject.GetComponent<SkinnedMeshRenderer>();
                 var material = skinnedMeshRenderer.material;
-                Destroy(cloth);
-                Destroy(skinnedMeshRenderer);
-                var meshRenderer = target.AddComponent<MeshRenderer>();
+                DestroyImmediate(cloth);
+                DestroyImmediate(skinnedMeshRenderer);
+                var meshRenderer = targetObject.AddComponent<MeshRenderer>();
                 meshRenderer.material = material;
             }
 
             var slicedHull = targetObject.Slice(endPoint.position, sliceNormal);
-            
-            if (slicedHull != null)
+
+            if (slicedHull == null)
             {
-                var upperHull = slicedHull.CreateUpperHull(targetObject);
-                var lowerHull = slicedHull.CreateLowerHull(targetObject);
-            
-                ComposeSlicedObject(targetObject, upperHull, true);
-                ComposeSlicedObject(targetObject, lowerHull, false);
-                Destroy(targetObject); 
+                Destroy(targetObject);
+            }
+            else
+            {
+                StartCoroutine(CreateSlicedObjects(slicedHull, clothColliders, targetObject, target.gameObject));
             }
         }
-        
+
+        private IEnumerator CreateSlicedObjects(SlicedHull slicedHull, ClothColliders clothColliders, GameObject target,
+            GameObject original)
+        {
+            yield return new WaitForFixedUpdate();
+            var material = target.GetComponent<Renderer>().material;
+            var xsMaterial = Instantiate(material);
+            xsMaterial.color = Color.clear;
+            var upperHull = slicedHull.CreateUpperHull(target, xsMaterial);
+            var lowerHull = slicedHull.CreateLowerHull(target, xsMaterial);
+
+            if (lowerHull && upperHull)
+            {
+                if (clothColliders != null)
+                {
+                    ComposeSlicedCloth(upperHull, clothColliders, target.transform, material, true);
+                    ComposeSlicedCloth(lowerHull, clothColliders, target.transform, material, false);
+                }
+                else
+                {
+                    ComposeSlicedObject(upperHull);
+                    ComposeSlicedObject(lowerHull);
+                }
+
+                Destroy(target);
+                Destroy(original);
+            }
+            else
+            {
+                Debug.LogWarning("Failed to create sliced object.");
+                Destroy(target);
+            }
+        }
+
         private void Start()
         {
             _velocitySamples = new Vector3[_velocityFrames];
@@ -65,35 +109,33 @@ namespace Script.Interaction
                 if (hitInfo.transform.TryGetComponent(out Sliceable target))
                 {
                     Slice(target);
-                    target.Notify(this);                    
+                    target.Notify(this);
                 }
             }
         }
 
-        private void ComposeSlicedObject(GameObject target, GameObject hull, bool upper)
+        private void ComposeSlicedCloth(GameObject hull, ClothColliders clothColliders, Transform tf, Material material,
+            bool upper)
         {
-            if (target.TryGetComponent(out Cloth _))
-            {
-                var tf = hull.transform;
-                var pos = tf.position;
-                var meshRenderer = hull.GetComponent<MeshRenderer>();
-                var material = meshRenderer.material;
-                Destroy(meshRenderer);
-                var skinnedMeshRenderer = hull.AddComponent<SkinnedMeshRenderer>();
-                var cloth = hull.AddComponent<Cloth>();
-                float offset = upper ? 0.1f : -0.1f;
-                skinnedMeshRenderer.material = material;
-                cloth.useGravity = true;
-                tf.position = new Vector3(pos.x + offset, pos.y, pos.z + offset);
-            }
-            else
-            {
-                var slicedBody = hull.AddComponent<Rigidbody>();
-                var meshCollider = hull.AddComponent<MeshCollider>();
-                slicedBody.useGravity = true;
-                meshCollider.convex = true;
-                slicedBody.AddExplosionForce(100f, hull.transform.position, 1f);  
-            }
+            var pos = tf.position;
+            float offset = upper ? _tearDistance : -_tearDistance;
+            hull.transform.position = new Vector3(pos.x + offset, pos.y, pos.z + offset);
+
+            var skinnedMeshRenderer = hull.AddComponent<SkinnedMeshRenderer>();
+            var cloth = hull.AddComponent<Cloth>();
+            skinnedMeshRenderer.material = material;
+            cloth.useGravity = true;
+            cloth.capsuleColliders = clothColliders.CapsuleColliders;
+            cloth.sphereColliders = clothColliders.SphereColliders;
+        }
+
+        private void ComposeSlicedObject(GameObject hull)
+        {
+            var slicedBody = hull.AddComponent<Rigidbody>();
+            var meshCollider = hull.AddComponent<MeshCollider>();
+            slicedBody.useGravity = true;
+            meshCollider.convex = true;
+            slicedBody.AddExplosionForce(100f, hull.transform.position, 1f);
         }
 
         private Vector3 GetVelocityEstimate()
