@@ -2481,13 +2481,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 5383521979796775712}
   forwardReference: {fileID: 5960973255819121915}
+  rigidBody: {fileID: 0}
   triggerMode: 1
   leftButton: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   rightButton: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   swimForce: 2
-  spinTorque: 0.01
+  spinSpeed: 0
   dragForce: 0.5
   sinkSpeed: 2
   minInput: 1
