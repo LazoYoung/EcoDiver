@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class QuestDistanceAndDirection : MonoBehaviour
+namespace Script.Quest
 {
-    public Transform target;
+    public class QuestDistanceAndDirection : MonoBehaviour
+    {
+        public Transform target;
 
+    }
 }

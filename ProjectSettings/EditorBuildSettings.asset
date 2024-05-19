@@ -8,6 +8,24 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Level/Experiment/UITestScene.unity
+    guid: b02b5f9ebd1b24ea384cbaa5ca52a419
+  - enabled: 1
+    path: Assets/Level/Production/MainScene.unity
+    guid: 54d1c56ba0332af46842ba195841e428
+  - enabled: 1
+    path: Assets/Level/Production/Plologue.unity
+    guid: 059dabebc406fa74fb84c77316ec3319
+  - enabled: 1
+    path: Assets/Level/Experiment/Test/MainScene.unity
+    guid: 8cd77382093a54e2183eda019f9f8daa
+  - enabled: 1
+    path: Assets/Level/Experiment/Test/EndScene.unity
+    guid: 46a61a2b3bcd54215b56ba8bd552720a
+  - enabled: 1
+    path: Assets/Level/Experiment/Test/StartScene.unity
+    guid: 4d395bff3cca24711a15ff72833287b3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 94cab2ce071f3a3499cb9e3fdb069ca8,
       type: 2}

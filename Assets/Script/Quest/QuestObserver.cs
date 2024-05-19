@@ -100,11 +100,21 @@ namespace Script.Quest
         private void OnFinishAllQuests()
         {
             Debug.Log("All Quests Complete");
+            if (arrowIndicator == null)
+            {
+                Debug.LogWarning("Arrow Indicator is not set.");
+                return;
+            }
             arrowIndicator.gameObject.SetActive(false);
         }
 
         private void UpdateArrow(Quest nextQuest)
         {
+            if (arrowIndicator == null)
+            {
+                Debug.LogWarning("Arrow Indicator is not set.");
+                return;
+            }
             arrowIndicator.questTransform = nextQuest.GetTransform();
         }
 
