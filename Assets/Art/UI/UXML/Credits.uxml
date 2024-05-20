@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/FlexXR/Resources/flexxr-demo-styles.uss?fileID=7433441132597879392&amp;guid=27d95b6aa2853f448b30e08690d91b5d&amp;type=3#flexxr-demo-styles" />
     <Style src="project://database/Assets/FlexXR/Resources/flexxr-demo-unity-root-styles-overrides.uss?fileID=7433441132597879392&amp;guid=c4c497b636654d4abdfbbd1547ca9de0&amp;type=3#flexxr-demo-unity-root-styles-overrides" />
+    <Style src="project://database/Assets/Art/UI/USS/global.uss?fileID=7433441132597879392&amp;guid=1903bf888e2d46ebaf449d5bbd5f0644&amp;type=3#global" />
     <ui:VisualElement style="align-items: center; justify-content: flex-start; height: 100%; width: 100%;">
         <FlexXR.Runtime.FlexXRPanel.FlexXRContainer name="FlexXRContent" class="dp04-solid" style="-unity-background-scale-mode: scale-to-fit; width: 465px; align-items: flex-start; justify-content: flex-start; height: auto; max-height: 50%;">
             <ui:VisualElement name="VisualElement" style="width: 465px; align-items: flex-start; justify-content: flex-start; max-height: none;">

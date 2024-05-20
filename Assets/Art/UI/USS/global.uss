@@ -408,6 +408,10 @@
 }
 
 .menu {
+    padding-top: 10px;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    padding-left: 12px;
 }
 
 .unity-button:hover {
@@ -415,7 +419,41 @@
 }
 
 .unity-label {
-    color: rgb(245, 246, 250);
-    -unity-text-align: upper-center;
-    -unity-font: url("project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Anton.ttf?fileID=12800000&guid=997a43b767814dd0a7642ec9b78cba41&type=3#Anton");
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-font: url("project://database/Assets/Art/UI/Fonts/SCDream7.otf?fileID=12800000&guid=159349d50173dae48b21834cd9bec402&type=3#SCDream7");
+}
+
+.menu {
+    background-color: rgb(114, 136, 179);
+}
+
+.menu:hover {
+    background-color: rgb(153, 160, 201);
+}
+
+.menu-title__text {
+    color: rgb(50, 73, 130);
+    font-size: 29px;
+    -unity-font-style: bold;
+    -unity-text-outline-color: rgb(161, 21, 21);
+    background-color: rgba(147, 39, 39, 0);
+}
+
+.clear-button {
+    -unity-font: url("project://database/Assets/Art/UI/Fonts/SCDream7.otf?fileID=12800000&guid=159349d50173dae48b21834cd9bec402&type=3#SCDream7");
+    -unity-font-style: bold;
+    color: rgb(248, 248, 248);
+    border-left-color: rgb(168, 156, 156);
+    border-right-color: rgb(168, 156, 156);
+    border-top-color: rgb(168, 156, 156);
+    border-bottom-color: rgb(168, 156, 156);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-bottom-left-radius: 9px;
 }
