@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 8a6239dde1ea16e4d8070cb40c69632c, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a5ce2775b1026ee4e9ea0bd48bbe33db, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.48395744, g: 0.57573867, b: 0.68019843, a: 1}
+  m_IndirectSpecularColor: {r: 0.25330302, g: 0.21698889, b: 0.23319246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1188,17 +1188,17 @@ PrefabInstance:
     - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.7
+      value: -24.5
       objectReference: {fileID: 0}
     - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.1
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.6
+      value: -11.9
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
@@ -2088,6 +2088,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnderwaterRock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.52
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
@@ -4693,6 +4708,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnderwaterRock1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4891,6 +4921,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285680199}
   m_Mesh: {fileID: -7184238739441462097, guid: cb63f393416f0bf4785ba0d00d206194, type: 3}
+--- !u!4 &289001458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8771755050146189614, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207141138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &293470074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8420,6 +8456,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnderwaterRock1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9304,6 +9355,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnderwaterRock1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.7
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
@@ -10956,6 +11022,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnderwaterRock1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.6
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
@@ -16630,6 +16711,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnderwaterRock1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.47
+      objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19012,6 +19108,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnderwaterRock1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21182,6 +21293,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1049740912}
     m_Modifications:
+    - target: {fileID: 481030059407834928, guid: 7d4eb90b749e5b8408a1bd64615aede4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 481030059407834928, guid: 7d4eb90b749e5b8408a1bd64615aede4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 95.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 481030059407834928, guid: 7d4eb90b749e5b8408a1bd64615aede4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -57
+      objectReference: {fileID: 0}
     - target: {fileID: 2632769561052385259, guid: 7d4eb90b749e5b8408a1bd64615aede4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25543,6 +25669,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnderwaterRock1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.59
+      objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27022,6 +27163,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 3320918387260283285, guid: 48d440c31b6802c4f94f365f8f5f12e4,
+        type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 289001458}
     - target: {fileID: 3654540592063542841, guid: 48d440c31b6802c4f94f365f8f5f12e4,
         type: 3}
       propertyPath: arrowIndicator
@@ -27528,6 +27674,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnderwaterRock1
       objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27663,6 +27824,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnderwaterRock1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
@@ -27811,6 +27987,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnderwaterRock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.7
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
@@ -31214,6 +31405,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1851167977}
     m_Modifications:
+    - target: {fileID: 481030059407834928, guid: 7d4eb90b749e5b8408a1bd64615aede4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 481030059407834928, guid: 7d4eb90b749e5b8408a1bd64615aede4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 95.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 481030059407834928, guid: 7d4eb90b749e5b8408a1bd64615aede4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -58.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2632769561052385259, guid: 7d4eb90b749e5b8408a1bd64615aede4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34509,6 +34715,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnderwaterRock1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956360677581920491, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.65
       objectReference: {fileID: 0}
     - target: {fileID: 8509364666294312477, guid: e5cd840b18d131a4a8dbc1ccb4fea255,
         type: 3}
