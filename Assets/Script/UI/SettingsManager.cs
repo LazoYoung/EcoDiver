@@ -30,8 +30,11 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    private float brightness = 1f; // Default brightness value
-    private float soundVolume = 1f; // Default sound volume value
+    private const float initialBrightnessValue = 100f;
+    private const float initialSoundEffectValue = 100f;
+
+    private float brightness = initialBrightnessValue; // Default brightness value
+    private float soundVolume = initialSoundEffectValue; // Default sound volume value
 
 
     [SerializeField] [Tooltip("Post Process Profile")]
@@ -64,8 +67,8 @@ public class SettingsManager : MonoBehaviour
 
     public void ClearSettings()
     {
-        Brightness = 1f;
-        SoundVolume = 1f;
+        Brightness = initialBrightnessValue;
+        SoundVolume = initialSoundEffectValue;
     }
 
     void Awake()
@@ -97,14 +100,23 @@ public class SettingsManager : MonoBehaviour
 
     private void AdjustSoundEffect(float volume)
     {
-        AudioListener.volume = volume / 100f;
+        // To prevent the volume from temporarily changing to 0.
+        if (volume != 0f)
+        {
+            AudioListener.volume = volume / 100f;
+        }
+        else
+        {
+            AudioListener.volume = 0.03f;
+        }
     }
 
     private void AdjustBrightness(float volume)
     {
+        // To prevent the volume from temporarily changing to 0.
         if (volume != 0f)
         {
-            _autoExposure.keyValue.value = volume;
+            _autoExposure.keyValue.value = volume / 100f;
         }
         else
         {

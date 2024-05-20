@@ -29,8 +29,8 @@ namespace Script.UI
             }
             else
             {
-                _soundEffectSlider.RegisterValueChangedCallback(OnSoundEffectSliderChanged);
                 _soundEffectSlider.value = initialSoundEffectValue;
+                _soundEffectSlider.RegisterValueChangedCallback(OnSoundEffectSliderChanged);
             }
 
             _brightnessSlider = _uiDocument.rootVisualElement.Q<Slider>("BrightnessSlider");
@@ -40,8 +40,8 @@ namespace Script.UI
             }
             else
             {
-                _brightnessSlider.RegisterValueChangedCallback(OnBrightnessSliderChanged);
                 _brightnessSlider.value = initialBrightnessValue;
+                _brightnessSlider.RegisterValueChangedCallback(OnBrightnessSliderChanged);
             }
 
             _clearButton = _uiDocument.rootVisualElement.Q<Button>("ClearButton");
@@ -58,20 +58,20 @@ namespace Script.UI
 
         private void OnSoundEffectSliderChanged(ChangeEvent<float> evt)
         {
-            float volume = evt.newValue / 100f; // Convert from 0-100 to 0-1 range
+            float volume = evt.newValue;
             if (verbose)
             {
-                Debug.Log($"Sound Effect Volume set to: {volume * 100}%");
+                Debug.Log($"Sound Effect Volume set to: {volume}%");
             }
             SettingsManager.Instance.SoundVolume = volume;
         }
 
         private void OnBrightnessSliderChanged(ChangeEvent<float> evt)
         {
-            float brightness = evt.newValue / 100f; // Convert from 0-100 to 0-1 range
+            float brightness = evt.newValue;
             if (verbose)
             {
-                Debug.Log($"Brightness set to: {brightness * 100}%");
+                Debug.Log($"Brightness set to: {brightness}%");
             }
             SettingsManager.Instance.Brightness = brightness;
         }
@@ -82,9 +82,20 @@ namespace Script.UI
             {
                 Debug.Log("Clearing all settings...");
             }
-            SettingsManager.Instance.ClearSettings();
+            // Unregister callbacks
+            _soundEffectSlider.UnregisterValueChangedCallback(OnSoundEffectSliderChanged);
+            _brightnessSlider.UnregisterValueChangedCallback(OnBrightnessSliderChanged);
+
             _soundEffectSlider.value = initialSoundEffectValue;
             _brightnessSlider.value = initialBrightnessValue;
+
+            SettingsManager.Instance.ClearSettings();
+
+            _soundEffectSlider.RegisterValueChangedCallback(OnSoundEffectSliderChanged);
+            _brightnessSlider.RegisterValueChangedCallback(OnBrightnessSliderChanged);
+
+            _soundEffectSlider.MarkDirtyRepaint();
+            _brightnessSlider.MarkDirtyRepaint();
         }
     }
 }
