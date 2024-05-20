@@ -12,11 +12,17 @@ namespace Script.UI
         private bool verbose = true;
 
         private UIDocument _uiDocument;
+
         private Button _startButton;
         private Button _settingsButton;
         private Button _creditsButton;
-
         private Button _exitButton;
+
+        [SerializeField]
+        private GameObject settingsUI; // Reference to the Settings UI GameObject
+
+        [SerializeField]
+        private GameObject creditsUI; // Reference to the Credits UI GameObject
 
         // Start is called before the first frame update
         void Start()
@@ -54,6 +60,10 @@ namespace Script.UI
             }
 
             _exitButton.RegisterCallback<ClickEvent>(onExitButtonClicked);
+
+            // Ensure Settings and Credits UI are initially hidden
+            if (settingsUI != null) settingsUI.SetActive(false);
+            if (creditsUI != null) creditsUI.SetActive(false);
         }
 
         // Update is called once per frame
@@ -73,25 +83,45 @@ namespace Script.UI
 
         private void onSettingsButtonClicked(ClickEvent clickEvent)
         {
-            if (verbose)
-            {
-                Debug.Log("Settings Button Clicked!");
-            }
+            if (verbose) Debug.Log("Settings Button Clicked!");
+            ShowSettings();
         }
 
         private void onCreditsButtonClicked(ClickEvent clickEvent)
         {
-            if (verbose)
-            {
-                Debug.Log("Credits Button Clicked!");
-            }
+            if (verbose) Debug.Log("Credits Button Clicked!");
+            ShowCredits();
         }
 
         private void onExitButtonClicked(ClickEvent clickEvent)
         {
-            if (verbose)
+            if (verbose) Debug.Log("Exit Button Clicked!");
+            Application.Quit();
+        }
+
+        private void ShowSettings()
+        {
+            if (settingsUI != null)
             {
-                Debug.Log("Exit Button Clicked!");
+                settingsUI.SetActive(true);
+            }
+
+            if (creditsUI != null)
+            {
+                creditsUI.SetActive(false);
+            }
+        }
+
+        private void ShowCredits()
+        {
+            if (creditsUI != null)
+            {
+                creditsUI.SetActive(true);
+            }
+
+            if (settingsUI != null)
+            {
+                settingsUI.SetActive(false);
             }
         }
     }
