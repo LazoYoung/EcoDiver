@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -82,6 +83,15 @@ public class SettingsManager : MonoBehaviour
 
     void Start()
     {
+        if(_postProcessProfile == null)
+        {
+            Debug.LogError("Post Process Profile is null!");
+            return;
+        }
+        if(_postProcessLayer == null)
+        {
+            Debug.LogWarning("Post Process Layer is null! Please Set Main Camera.");
+        }
         _postProcessProfile.TryGetSettings(out _autoExposure);
     }
 
@@ -102,9 +112,8 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    private void OnApplicationQuit()
     {
-        Debug.Log("SettingsManager is disabled");
         _autoExposure.keyValue.value = 1f;
     }
 
