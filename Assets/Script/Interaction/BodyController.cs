@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Script.Interaction
 {
@@ -11,17 +12,23 @@ namespace Script.Interaction
     {
         [SerializeField]
         private Transform cameraTransform;
-        
+
         [SerializeField]
         [Range(0, 3)]
         private float minHeight = 1f;
-        
+
         [SerializeField]
         [Range(0, 3)]
         private float maxHeight = 2f;
 
         [SerializeField]
         private CapsuleCollider bodyCollider;
+
+        [SerializeField]
+        private LocomotionSystem locomotionSystem;
+
+        [SerializeField]
+        private bool freeze;
 
         private void Start()
         {
@@ -39,13 +46,31 @@ namespace Script.Interaction
                 return;
             }
 
+            if (locomotionSystem == null)
+            {
+                locomotionSystem = FindObjectOfType<LocomotionSystem>();
+            }
+
+            if (freeze && locomotionSystem != null)
+            {
+                Freeze();
+            }
+
             bodyCollider.hideFlags = HideFlags.NotEditable;
+        }
+
+        private void Freeze()
+        {
+            foreach (var locomotionProvider in locomotionSystem.GetComponentsInChildren<LocomotionProvider>())
+            {
+                locomotionProvider.enabled = false;
+            }
         }
 
         private void FixedUpdate()
         {
             var pos = cameraTransform.localPosition;
-            float bodyHeight = Mathf.Clamp(pos.y, minHeight, maxHeight);
+            var bodyHeight = Mathf.Clamp(pos.y, minHeight, maxHeight);
             bodyCollider.height = bodyHeight;
             bodyCollider.center = new Vector3(pos.x, bodyHeight / 2, pos.z);
         }
