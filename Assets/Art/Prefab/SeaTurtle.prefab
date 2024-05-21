@@ -1032,7 +1032,9 @@ GameObject:
   - component: {fileID: 5967843837172601733}
   - component: {fileID: 1224711954021313082}
   - component: {fileID: 5287008063655602695}
-  - component: {fileID: 2174885232233335773}
+  - component: {fileID: 5887811784091968136}
+  - component: {fileID: 4627306415622976864}
+  - component: {fileID: 6841713238181274052}
   m_Layer: 0
   m_Name: Fishing Net
   m_TagString: Untagged
@@ -1396,7 +1398,55 @@ Cloth:
   - {x: 0.6666667, y: 0.16666667, z: 0.16666667}
   - {x: 0.5, y: 0.5, z: 0}
   m_VirtualParticleIndices: 
---- !u!114 &2174885232233335773
+--- !u!65 &5887811784091968136
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780699891343676349}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8, y: 2, z: 8}
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!54 &4627306415622976864
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780699891343676349}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6841713238181274052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2718,7 +2768,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb3edd93c2845a6997fdc01e93397a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishingNet: {fileID: 2174885232233335773}
+  fishingNet: {fileID: 0}
+  idleMotion: {fileID: 0}
+  freeMotion: {fileID: 0}
 --- !u!1 &9068422714345789778
 GameObject:
   m_ObjectHideFlags: 0
