@@ -2,8 +2,6 @@
     --unity-colors-dropdown-background: rgb(38, 38, 38);
 }
 
-
-
 .unity-toggle__label {
     color: rgba(255, 255, 255, 0.87);
 }
@@ -11,9 +9,8 @@
 .unity-toggle__input {
 }
 
-
 .dp04-solid {
-    background-color: rgba(38, 38, 38, 0.9);
+    background-color: rgba(236, 240, 241, 0.9);
 }
 
 .foldout-toggle-panel .unity-toggle__checkmark {
@@ -50,9 +47,6 @@
     border-bottom-width: 0;
 }
 
-/*****************************************************************************/
-/* Sliders
-/*****************************************************************************/
 .slider {
     margin-left: 8px;
     margin-right: 8px;
@@ -207,11 +201,6 @@
     height: 8px;
 }
 
-
-/*****************************************************************************/
-/* List
-/*****************************************************************************/
-
 .base-gemplay-list-with-scrollbar {
     background-color: rgba(44, 44, 44, 0);
     border-top-left-radius: 0;
@@ -255,7 +244,6 @@
     border-bottom-color: rgba(0, 0, 0, 0.3);
 }
 
-
 .unity-scroller__low-button {
     display: none;
 }
@@ -264,13 +252,10 @@
     display: none;
 }
 
-.unity-scroll-view{
-    background-color: rgba(255, 255, 255, 0.03)
+.unity-scroll-view {
+    background-color: rgba(73, 122, 219, 0.03);
 }
 
-/*****************************************************************************/
-/* Toggle
-/*****************************************************************************/
 .toggle-checkmark {
     justify-content: center;
     align-items: center;
@@ -290,10 +275,6 @@
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
 }
-
-/*****************************************************************************/
-/* TextField
-/*****************************************************************************/
 
 .tn-input-fields .unity-base-text-field__input {
     border-left-color: rgba(255, 255, 255, 0.38);
@@ -346,11 +327,6 @@
     border-bottom-width: 3px;
 }
 
-
-/*****************************************************************************/
-/* Button
-/*****************************************************************************/
-
 .tn-blue-button-solid {
     padding-top: 0;
     padding-bottom: 0;
@@ -388,13 +364,89 @@
     color: rgb(255, 255, 255);
 }
 
-/*****************************************************************************/
-/* Radio button
-/*****************************************************************************/
 .unity-radio-button__checkmark-background {
     background-color: rgb(100, 157, 159);
 }
 
-.unity-radio-button__checkmark{
+.unity-radio-button__checkmark {
     background-color: rgb(8, 97, 104);
+}
+
+.body {
+    background-color: rgb(88, 133, 175);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+.container {
+    -unity-background-image-tint-color: rgb(236, 240, 241);
+    background-color: rgb(236, 240, 241);
+}
+
+.under-line {
+    background-color: rgb(255, 255, 255);
+    height: 1px;
+    width: 80%;
+}
+
+.under-line__text {
+    -unity-background-image-tint-color: rgb(236, 240, 241);
+    color: rgb(236, 240, 241);
+}
+
+.unity-button {
+    background-color: rgb(114, 136, 179);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    width: auto;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.menu {
+    padding-top: 10px;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.unity-button:hover {
+    background-color: rgb(153, 160, 201);
+}
+
+.unity-label {
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    -unity-font: url("project://database/Assets/Art/UI/Fonts/SCDream7.otf?fileID=12800000&guid=159349d50173dae48b21834cd9bec402&type=3#SCDream7");
+}
+
+.menu {
+    background-color: rgb(114, 136, 179);
+}
+
+.menu:hover {
+    background-color: rgb(0, 150, 199);
+    background-image: url("project://database/Assets/Art/Texture/UI/Blue2_h.png?fileID=2800000&guid=13f3020534ef53341ad61169c6c07a7e&type=3#Blue2_h");
+}
+
+.menu-title__text {
+    color: rgb(50, 73, 130);
+    font-size: 29px;
+    -unity-font-style: bold;
+    -unity-text-outline-color: rgb(161, 21, 21);
+    background-color: rgba(147, 39, 39, 0);
+}
+
+.menu__text {
+    color: rgb(255, 255, 255);
+}
+
+.menu__text:hover {
+    color: rgb(202, 240, 248);
 }

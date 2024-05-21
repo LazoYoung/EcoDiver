@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/FlexXR/Resources/flexxr-demo-styles.uss?fileID=7433441132597879392&amp;guid=27d95b6aa2853f448b30e08690d91b5d&amp;type=3#flexxr-demo-styles" />
+    <Style src="project://database/Assets/FlexXR/Resources/flexxr-demo-unity-root-styles-overrides.uss?fileID=7433441132597879392&amp;guid=c4c497b636654d4abdfbbd1547ca9de0&amp;type=3#flexxr-demo-unity-root-styles-overrides" />
+    <Style src="project://database/Assets/Art/UI/USS/global.uss?fileID=7433441132597879392&amp;guid=1903bf888e2d46ebaf449d5bbd5f0644&amp;type=3#global" />
+    <ui:VisualElement name="Pannel" class="pannel" style="align-items: center; justify-content: flex-start; height: 100%; width: 100%; align-self: center; bottom: 1px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;">
+        <ui:VisualElement name="Container" class="container" style="width: 332px; align-items: center; justify-content: space-between; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; background-color: rgb(255, 255, 255); height: 217px;">
+            <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: column-reverse; margin-bottom: 0; justify-content: flex-end; align-items: flex-start; align-self: center; height: 15px; width: 332px; -unity-font-style: bold; color: rgb(178, 58, 58);" />
+            <ui:VisualElement name="Body" class="body" style="width: 330px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px; background-color: rgba(189, 192, 193, 0); height: 200px;">
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartButton" enable-rich-text="true" class="menu" style="justify-content: flex-end; align-items: center; border-top-left-radius: 2px; border-top-right-radius: 2px; -unity-text-align: middle-center; height: 50px; background-image: url(&quot;project://database/Assets/Art/Texture/UI/Blue2.png?fileID=2800000&amp;guid=0f735512b65f5594ea8ebf12ea41a95f&amp;type=3#Blue2&quot;);">
+                    <ui:Label tabindex="-1" text="START" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Label" class="menu__text" style="color: rgb(255, 255, 255); -unity-text-align: middle-center; left: 113px;" />
+                    <ui:VisualElement class="under-line" style="width: 100%; height: 1px; right: 12px; background-color: rgb(255, 255, 255);" />
+                </ui:Button>
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="SettingsButton" enable-rich-text="true" class="menu" style="justify-content: flex-end; align-items: center; border-top-width: 1px; background-color: rgb(2, 62, 138); background-image: url(&quot;project://database/Assets/Art/Texture/UI/Blue2.png?fileID=2800000&amp;guid=0f735512b65f5594ea8ebf12ea41a95f&amp;type=3#Blue2&quot;); height: 50px;">
+                    <ui:Label tabindex="-1" text="SETTINGS" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Label" class="menu__text" style="color: rgb(255, 255, 255); left: 100px;" />
+                    <ui:VisualElement name="VisualElement" class="under-line" style="width: 100%; right: 12px; background-color: rgb(255, 255, 255);" />
+                </ui:Button>
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="CreditsButton" enable-rich-text="true" class="menu" style="justify-content: flex-end; align-items: center; background-color: rgb(2, 62, 138); background-image: url(&quot;project://database/Assets/Art/Texture/UI/Blue2.png?fileID=2800000&amp;guid=0f735512b65f5594ea8ebf12ea41a95f&amp;type=3#Blue2&quot;); height: 50px;">
+                    <ui:Label tabindex="-1" text="CREDITS" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Label" class="menu__text" style="color: rgb(255, 255, 255); left: 105px;" />
+                    <ui:VisualElement class="under-line" style="width: 100%; right: 12px; background-color: rgb(255, 255, 255);" />
+                </ui:Button>
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ExitButton" enable-rich-text="true" class="menu" style="justify-content: flex-end; align-items: center; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; background-color: rgb(2, 62, 138); background-image: url(&quot;project://database/Assets/Art/Texture/UI/Blue2.png?fileID=2800000&amp;guid=0f735512b65f5594ea8ebf12ea41a95f&amp;type=3#Blue2&quot;); height: 50px;">
+                    <ui:Label tabindex="-1" text="EXIT" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="Label" class="menu__text" style="color: rgb(255, 255, 255); left: 122px;" />
+                    <ui:VisualElement class="under-line" style="width: 100%; right: 12px; background-color: rgb(255, 255, 255);" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
