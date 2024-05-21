@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Level/Experiment/UITestScene.unity
     guid: b02b5f9ebd1b24ea384cbaa5ca52a419
   - enabled: 1
-    path: Assets/Level/Production/MainScene.unity
+    path: Assets/Level/Production/Quest1Scene.unity
     guid: 54d1c56ba0332af46842ba195841e428
   - enabled: 1
-    path: Assets/Level/Production/Plologue.unity
+    path: Assets/Level/Production/PlologueScene.unity
     guid: 059dabebc406fa74fb84c77316ec3319
   - enabled: 1
     path: Assets/Level/Experiment/Test/MainScene.unity
@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Level/Experiment/Test/EndScene.unity
     guid: 46a61a2b3bcd54215b56ba8bd552720a
   - enabled: 1
-    path: Assets/Level/Experiment/Test/StartScene.unity
+    path: Assets/Level/Production/TitleScene.unity
     guid: 4d395bff3cca24711a15ff72833287b3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 94cab2ce071f3a3499cb9e3fdb069ca8,
