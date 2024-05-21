@@ -50,7 +50,7 @@ namespace Script.Scene
         private readonly List<SceneDetail> ProductionScenes = new List<SceneDetail>
         {
             //Example
-            SceneDetail.StartScene, SceneDetail.MainScene, SceneDetail.EndScene
+            SceneDetail.TitleScene, SceneDetail.PrologueScene, SceneDetail.MainScene, SceneDetail.EndingScene
         };
 
         private readonly List<SceneDetail> TestScenes = new List<SceneDetail>

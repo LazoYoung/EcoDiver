@@ -15,8 +15,14 @@ EditorBuildSettings:
     path: Assets/Level/Production/MainScene.unity
     guid: 54d1c56ba0332af46842ba195841e428
   - enabled: 1
-    path: Assets/Level/Production/Plologue.unity
+    path: Assets/Level/Production/PrologueScene.unity
     guid: 059dabebc406fa74fb84c77316ec3319
+  - enabled: 1
+    path: Assets/Level/Production/EndingScene.unity
+    guid: edf42d94318994eea9ac051c12a57a8a
+  - enabled: 1
+    path: Assets/Level/Production/TitleScene.unity
+    guid: 5ec7da9a1d82d426085f1566c2fb0a30
   - enabled: 1
     path: Assets/Level/Experiment/Test/MainScene.unity
     guid: 8cd77382093a54e2183eda019f9f8daa
