@@ -17,6 +17,9 @@ namespace Script.Scene
         [SerializeField] [Tooltip("Fade Screen")]
         private FadeScreen fadeScreen;
 
+        [SerializeField] [Tooltip("Return to Title Scene")]
+        private bool returnToTitle = true;
+
         [SerializeField] [Tooltip("Verbose Mode")]
         private bool verbose = false;
 
@@ -50,7 +53,7 @@ namespace Script.Scene
         private readonly List<SceneDetail> ProductionScenes = new List<SceneDetail>
         {
             //Example
-            SceneDetail.TitleScene, SceneDetail.PrologueScene, SceneDetail.Quest1Scene, SceneDetail.Quest2Scene, SceneDetail.EndingScene
+            SceneDetail.TitleScene, SceneDetail.PrologueScene, SceneDetail.Quest1Scene, SceneDetail.Quest2Scene//, SceneDetail.TitleScene
         };
 
         private readonly List<SceneDetail> TestScenes = new List<SceneDetail>
@@ -157,7 +160,12 @@ namespace Script.Scene
             }
             if (selectedScenario.Count <= currentSceneIndex + 1)
             {
-                Debug.LogError("Next scene is not exist.");
+                if (!returnToTitle)
+                {
+                    Debug.LogError("Next scene is not exist.");
+                    return;
+                }
+                LoadNewScene(selectedScenario[0].Name);
                 return;
             }
 
