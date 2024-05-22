@@ -2633,7 +2633,7 @@ PrefabInstance:
     - target: {fileID: 8739921711493534673, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: freeze
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8739921711493534673, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
@@ -2890,7 +2890,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.1e-44, y: 1.3e-44, z: 1.4e-44, w: 1.5e-44}
+  m_BoundingSphereOverride: {x: 0, y: 6e-44, z: 1e-45, w: 2.20022e-40}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
