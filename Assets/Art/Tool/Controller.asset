@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9642035aa4764b309f608613f071fb3d, type: 3}
+  m_Name: Controller
+  m_EditorClassIdentifier: 
+  id: Controller
+  forearmPrefab: {fileID: 4283425761326543017, guid: eaf24fec90d7de843a4cbaee8c1a020f,
+    type: 3}
