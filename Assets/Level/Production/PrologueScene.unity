@@ -800,17 +800,17 @@ PrefabInstance:
     - target: {fileID: 6491096953317248595, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.88
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 6491096953317248595, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.86
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 6491096953317248595, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.53
+      value: 25.73
       objectReference: {fileID: 0}
     - target: {fileID: 6491096953317248595, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
@@ -846,6 +846,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739921711493534673, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: freeze
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1759,7 +1764,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
