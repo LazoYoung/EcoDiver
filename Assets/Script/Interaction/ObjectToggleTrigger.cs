@@ -6,14 +6,14 @@ namespace Script.Interaction
 {
     public class ObjectToggleTrigger : MonoBehaviour
     {
-        [FormerlySerializedAs("rayObjects")] [SerializeField] [Tooltip("Array of GameObjects To Toggle.")]
-        private GameObject[] toggleObjects; // Array of ray GameObjects
-
         [SerializeField] [Header("Debug")] private bool debugMode;
 
         [SerializeField]
         [Tooltip("Default state(No Enter)'s Object's mode. If true, the object will be enable by default.")]
         private bool isDefaultDisabled = true;
+
+        [SerializeField] [Tooltip("ObjectDisabler script to disable objects.")]
+        private ObjectDisabler objectDisabler;
 
         private void Start()
         {
@@ -69,34 +69,12 @@ namespace Script.Interaction
 
         private void enableObjects()
         {
-            foreach (var rayObject in toggleObjects)
-            {
-                if (rayObject != null)
-                {
-                    if (debugMode)
-                    {
-                        Debug.Log("ObjectToggleTrigger "+ this +": Enable");
-                    }
-
-                    rayObject.SetActive(true); // Enable all rays
-                }
-            }
+            objectDisabler.EnableObjects(debugMode);
         }
 
         private void disableObjects()
         {
-            foreach (var rayObject in toggleObjects)
-            {
-                if (rayObject != null)
-                {
-                    if (debugMode)
-                    {
-                        Debug.Log("ObjectToggleTrigger "+ this +": Disabling ");
-                    }
-
-                    rayObject.SetActive(false); // Disable all rays
-                }
-            }
+            objectDisabler.DisableObjects(debugMode);
         }
     }
 }
