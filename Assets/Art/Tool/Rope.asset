@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rope
   m_EditorClassIdentifier: 
   id: Rope
-  forearmPrefab: {fileID: 536820308681588539, guid: e361b9e3106bb2c4ba2b2bf1f2ab800a,
+  forearmPrefab: {fileID: 3476896350667529717, guid: bc5eb6149194ead4a968c12cb72c8b67,
     type: 3}
