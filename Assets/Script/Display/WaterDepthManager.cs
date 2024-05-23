@@ -15,15 +15,16 @@ namespace Script.Display
 
         void Start()
         {
-            // Initialize the default depth level to the player's starting Y position
-            if (playerTransform != null)
-            {
-                _defaultDepthLevel = playerTransform.position.y;
-            }
-            else
-            {
-                Debug.LogError("Player transform is not assigned to WaterDepthManager.");
-            }
+            _defaultDepthLevel = 0;
+            // // Initialize the default depth level to the player's starting Y position
+            // if (playerTransform != null)
+            // {
+            //     playerTransform.position.y;
+            // }
+            // else
+            // {
+            //     Debug.LogError("Player transform is not assigned to WaterDepthManager.");
+            // }
         }
 
         void Update()

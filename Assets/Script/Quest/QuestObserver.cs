@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Script.Display;
+using Script.Scene;
 using UnityEngine;
 
 namespace Script.Quest
@@ -99,6 +100,10 @@ namespace Script.Quest
 
         private void OnFinishAllQuests()
         {
+            if (_currentQuest == null)
+            {
+                return;
+            }
             Debug.Log("All Quests Complete");
             if (arrowIndicator == null)
             {
@@ -106,6 +111,8 @@ namespace Script.Quest
                 return;
             }
             arrowIndicator.gameObject.SetActive(false);
+
+            SceneLoader.Instance.LoadNextScene();
         }
 
         private void UpdateArrow(Quest nextQuest)
