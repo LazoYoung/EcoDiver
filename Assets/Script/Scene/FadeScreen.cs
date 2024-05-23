@@ -1,20 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace zScene
+namespace Scene
 {
     public class FadeScreen : MonoBehaviour
     {
         [SerializeField] [Tooltip("Fade on start")]
         private bool fadeOnStart = true;
+
         [SerializeField] [Tooltip("Fade duration in seconds")]
         private float fadeDuration = 2;
+
         public float FadeDuration
         {
             get => fadeDuration;
         }
+
         private Color fadeColor;
         private Renderer rend;
 
