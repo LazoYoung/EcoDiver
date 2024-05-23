@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Scene;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using zScene;
 
 namespace Script.Scene
 {
@@ -22,6 +22,11 @@ namespace Script.Scene
 
         [SerializeField] [Tooltip("Verbose Mode")]
         private bool verbose = false;
+
+        [SerializeField] [Tooltip("Verbose Mod")]
+        private float secondsToWaitLoad = 1f;
+
+        private bool isLoadingScene = false;
 
         private static SceneLoader instance;
 
@@ -53,13 +58,15 @@ namespace Script.Scene
         private readonly List<SceneDetail> ProductionScenes = new List<SceneDetail>
         {
             //Example
-            SceneDetail.TitleScene, SceneDetail.PrologueScene, SceneDetail.Quest1Scene, SceneDetail.Quest2Scene//, SceneDetail.TitleScene
+            SceneDetail.TitleScene, SceneDetail.PrologueScene, SceneDetail.Quest1Scene,
+            SceneDetail.Quest2Scene //, SceneDetail.TitleScene
         };
 
         private readonly List<SceneDetail> TestScenes = new List<SceneDetail>
         {
             SceneDetail.TestStartScene, SceneDetail.TestMainScene, SceneDetail.TestEndScene
         };
+
 
         private static int FindSceneIndex(List<SceneDetail> sceneDetails,
             UnityEngine.SceneManagement.Scene currentScene)
@@ -85,12 +92,14 @@ namespace Script.Scene
             {
                 Debug.Log("Awake Singleton");
             }
+
             if (instance == null)
             {
                 if (verbose)
                 {
                     Debug.Log("Instance is null");
                 }
+
                 instance = this;
                 DontDestroyOnLoad(this.gameObject);
             }
@@ -129,6 +138,7 @@ namespace Script.Scene
                 {
                     Debug.LogWarning("Selected Scene doesn't exist in scenario");
                 }
+
                 enabled = false;
             }
 
@@ -158,6 +168,7 @@ namespace Script.Scene
                 Debug.LogError("Current scene is not exist in scenario");
                 return;
             }
+
             if (selectedScenario.Count <= currentSceneIndex + 1)
             {
                 if (!returnToTitle)
@@ -165,6 +176,7 @@ namespace Script.Scene
                     Debug.LogError("Next scene is not exist.");
                     return;
                 }
+
                 LoadNewScene(selectedScenario[0].Name);
                 return;
             }
@@ -174,8 +186,14 @@ namespace Script.Scene
 
         private void LoadNewScene(string sceneName)
         {
+            if (isLoadingScene)
+            {
+                Debug.Log("Loading Scene Failed By Loading : " + sceneName);
+                return;
+            }
+
             Debug.Log("Loading Scene: " + sceneName);
-            StartCoroutine(LoadSceneAsync(sceneName));
+            StartCoroutine(LoadSceneWithDelay(sceneName));
         }
 
         // if press button h to load scene
@@ -189,6 +207,13 @@ namespace Script.Scene
             }
         }
 
+        private IEnumerator LoadSceneWithDelay(string sceneName)
+        {
+            isLoadingScene = true;
+            yield return new WaitForSeconds(secondsToWaitLoad); // Wait for 1 second before starting to load the scene
+            StartCoroutine(LoadSceneAsync(sceneName));
+        }
+
         private IEnumerator LoadSceneAsync(string sceneName)
         {
             if (verbose)
@@ -199,10 +224,12 @@ namespace Script.Scene
             if (fadeScreen == null)
             {
                 Debug.LogWarning("Fade Screen is not set.");
-            } else
+            }
+            else
             {
                 fadeScreen.FadeOut();
             }
+
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
             asyncLoad.allowSceneActivation = false;
 
@@ -214,6 +241,7 @@ namespace Script.Scene
             }
 
             asyncLoad.allowSceneActivation = true;
+            isLoadingScene = false;
         }
     }
 }
