@@ -395,7 +395,6 @@
 }
 
 .unity-button {
-    background-color: rgb(114, 136, 179);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
@@ -405,6 +404,7 @@
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
+    opacity: 1;
 }
 
 .menu {
@@ -412,8 +412,6 @@
     padding-right: 12px;
     padding-bottom: 10px;
     padding-left: 12px;
-    background-image: none;
-    background-color: rgba(255, 255, 255, 0);
 }
 
 .unity-button:hover {
@@ -427,7 +425,6 @@
 }
 
 .menu {
-    background-color: rgb(114, 136, 179);
 }
 
 .menu:hover {
