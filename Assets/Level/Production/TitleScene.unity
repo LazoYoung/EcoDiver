@@ -2386,7 +2386,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defaultTool
       value: 
-      objectReference: {fileID: 11400000, guid: ff434304d3ecd8d40b7008e54413ff29,
+      objectReference: {fileID: 11400000, guid: 4398abeb16cec1e4180d7bb6d4f0479a,
         type: 2}
     - target: {fileID: 5579039734822940325, guid: 48d440c31b6802c4f94f365f8f5f12e4,
         type: 3}
@@ -2500,6 +2500,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 476993759969482063, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 8270855663187062767, guid: a2520f97bae643442a2d9123c5b8752d,
+        type: 3}
     - target: {fileID: 476993759969482063, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: m_EnableInputActions
@@ -2890,7 +2896,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6e-44, z: 1e-45, w: 2.20022e-40}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 1.83672e-40, w: -3.11e-43}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
