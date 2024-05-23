@@ -176,8 +176,14 @@ namespace Script.Scene
 
         private void LoadNewScene(string sceneName)
         {
+            if (isLoadingScene)
+            {
+                Debug.Log("Loading Scene Failed By Loading : " + sceneName);
+                return;
+            }
+
             Debug.Log("Loading Scene: " + sceneName);
-            StartCoroutine(LoadSceneAsync(sceneName));
+            StartCoroutine(LoadSceneWithDelay(sceneName));
         }
 
         // if press button h to load scene
@@ -191,6 +197,13 @@ namespace Script.Scene
             }
         }
 
+        private IEnumerator LoadSceneWithDelay(string sceneName)
+        {
+            isLoadingScene = true;
+            yield return new WaitForSeconds(1f); // Wait for 1 second before starting to load the scene
+            StartCoroutine(LoadSceneAsync(sceneName));
+        }
+
         private IEnumerator LoadSceneAsync(string sceneName)
         {
             if (verbose)
@@ -201,10 +214,12 @@ namespace Script.Scene
             if (fadeScreen == null)
             {
                 Debug.LogWarning("Fade Screen is not set.");
-            } else
+            }
+            else
             {
                 fadeScreen.FadeOut();
             }
+
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
             asyncLoad.allowSceneActivation = false;
 
@@ -216,6 +231,7 @@ namespace Script.Scene
             }
 
             asyncLoad.allowSceneActivation = true;
+            isLoadingScene = false;
         }
     }
 }
