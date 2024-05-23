@@ -546,9 +546,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2bcfbaa982f4685ae7fd447770af29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadButton: {fileID: -3599823989380923159, guid: 0be0028c24f2a4c14a96b6aa39055933,
+  loadButton: {fileID: -7769739712540014693, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   fadeScreen: {fileID: 0}
+  returnToTitle: 1
   verbose: 0
 --- !u!1 &6479390000522651342
 GameObject:
