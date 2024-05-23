@@ -23,6 +23,8 @@ namespace Script.Scene
         [SerializeField] [Tooltip("Verbose Mode")]
         private bool verbose = false;
 
+        private bool isLoadingScene = false;
+
         private static SceneLoader instance;
 
         public static SceneLoader Instance
