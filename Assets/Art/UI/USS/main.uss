@@ -1,0 +1,8 @@
+.item-bg {
+    background-image: url("project://database/Assets/Art/Texture/UI/Blue2.png?fileID=2800000&guid=0f735512b65f5594ea8ebf12ea41a95f&type=3#Blue2");
+    align-items: stretch;
+}
+
+.item-bg:hover {
+    background-image: url("project://database/Assets/Art/Texture/UI/Blue2_h.png?fileID=2800000&guid=13f3020534ef53341ad61169c6c07a7e&type=3#Blue2_h");
+}
