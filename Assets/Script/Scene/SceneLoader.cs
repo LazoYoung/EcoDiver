@@ -59,7 +59,7 @@ namespace Script.Scene
         {
             //Example
             SceneDetail.TitleScene, SceneDetail.PrologueScene, SceneDetail.Quest1Scene,
-            SceneDetail.Quest2Scene //, SceneDetail.TitleScene
+            SceneDetail.Quest2Scene, SceneDetail.Quest3Scene //, SceneDetail.TitleScene
         };
 
         private readonly List<SceneDetail> TestScenes = new List<SceneDetail>
