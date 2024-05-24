@@ -1,0 +1,73 @@
+* {
+    -unity-font-definition: initial;
+}
+
+.tinted-button {
+    width: 380px;
+    height: 120px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    font-size: 36px;
+    -unity-font: url("project://database/Assets/Art/UI/Fonts/SCDream7.otf?fileID=12800000&guid=159349d50173dae48b21834cd9bec402&type=3#SCDream7");
+    -unity-text-align: middle-center;
+}
+
+.panel {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.hollow-button {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+    width: 380px;
+    height: 120px;
+    font-size: 36px;
+    -unity-font: url("project://database/Assets/Art/UI/Fonts/SCDream7.otf?fileID=12800000&guid=159349d50173dae48b21834cd9bec402&type=3#SCDream7");
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -unity-text-align: middle-center;
+}
+
+.hover {
+}
+
+.tinted-button:hover {
+    background-color: rgb(66, 200, 228);
+}
+
+.hollow-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+.button {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}

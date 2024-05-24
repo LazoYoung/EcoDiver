@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/USS/mission.uss?fileID=7433441132597879392&amp;guid=038d7c9ef88a28941b4824a15659791d&amp;type=3#mission" />
+    <FlexXR.Runtime.FlexXRPanel.FlexXRContainer style="width: 100%; height: 100%;">
+        <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/Images/Mission/Quest1.png?fileID=2800000&amp;guid=ae484d41fb906b849be158b40b659afa&amp;type=3#Quest1&quot;);" />
+    </FlexXR.Runtime.FlexXRPanel.FlexXRContainer>
+</ui:UXML>
