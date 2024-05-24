@@ -37,6 +37,10 @@ namespace Script.Interaction
 
         private void OnTriggerExit(Collider other)
         {
+            if (debugMode)
+            {
+                Debug.Log("Exit Object: " + other.tag);
+            }
             // Check if the exiting object has the tag "Player"
             if (other.CompareTag("Player"))
             {
@@ -46,7 +50,10 @@ namespace Script.Interaction
 
         private void Enter()
         {
-            Debug.Log("Enter Object");
+            if (debugMode)
+            {
+                Debug.Log("ObjectToggleTrigger: Enter");
+            }
             if (isDefaultDisabled)
             {
                 enableObjects();
