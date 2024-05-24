@@ -6939,7 +6939,7 @@ MonoBehaviour:
   - {fileID: 7522957771111002253}
   equipment: {fileID: 0}
   tools:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ff434304d3ecd8d40b7008e54413ff29, type: 2}
   - {fileID: 11400000, guid: 2563a75328d3f2d469da5e9ba34cd62d, type: 2}
   - {fileID: 11400000, guid: 14760d0c021bc7e4f9f6b2972933a4c4, type: 2}
   - {fileID: 11400000, guid: 3c625522fadf4504b800ce6dc96b5564, type: 2}

@@ -1,7 +1,7 @@
 ﻿using Script.Interaction;
 using UnityEngine;
 
-namespace Script.Quest
+namespace Script.Quest.Entity
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Turtle : MonoBehaviour

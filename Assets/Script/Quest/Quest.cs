@@ -55,6 +55,16 @@ namespace Script.Quest
             }
         }
         
+        protected void SetupBoxCollider()
+        {
+            if (!TryGetComponent(out BoxCollider boxCollider))
+            {
+                boxCollider = gameObject.AddComponent<BoxCollider>();
+            }
+
+            boxCollider.isTrigger = true;
+        }
+        
         private void Notify()
         {
             QuestObserver.Instance.UpdateQuest(this);

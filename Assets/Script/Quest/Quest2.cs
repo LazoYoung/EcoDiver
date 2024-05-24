@@ -1,5 +1,6 @@
 ﻿using Script.Equipment;
 using Script.Interaction;
+using Script.Quest.Entity;
 using UnityEngine;
 
 namespace Script.Quest
