@@ -20,14 +20,14 @@ namespace Script.Quest
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Enter By: " + other.tag);
-            Debug.Log("Enter By: " + other);
+            // Debug.Log("Enter By: " + other.tag);
+            // Debug.Log("Enter By: " + other);
 
         }
 
         private void OnTriggerExit(Collider other)
         {
-            Debug.Log("Exit By: " + other.tag);
+            // Debug.Log("Exit By: " + other.tag);
         }
     }
 }

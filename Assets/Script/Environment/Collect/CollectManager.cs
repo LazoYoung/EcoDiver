@@ -58,6 +58,7 @@ namespace Script.Environment.Collect
             }
             // Find all collectable items in the scene.
             CollectableItem[] allItems = FindObjectsOfType<CollectableItem>();
+            Debug.Log("Total items in the scene: " + allItems.Length);
 
             // Deactivate all items.
             foreach (var item in allItems)

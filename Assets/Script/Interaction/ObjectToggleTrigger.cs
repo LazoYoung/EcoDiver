@@ -27,6 +27,7 @@ namespace Script.Interaction
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("Enter Object: " + other.tag);
             if (!other.CompareTag("Player"))
             {
                 return;
@@ -45,6 +46,7 @@ namespace Script.Interaction
 
         private void Enter()
         {
+            Debug.Log("Enter Object");
             if (isDefaultDisabled)
             {
                 enableObjects();
