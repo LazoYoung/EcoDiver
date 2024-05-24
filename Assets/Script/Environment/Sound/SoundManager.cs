@@ -1,11 +1,15 @@
 using Crest;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio; // Added to use AudioMixer
 
 public class SoundManager : MonoBehaviour
 {
     public OceanRenderer oceanRenderer; // Assign the OceanRenderer component from Crest
     public AudioSource audioSource; // Assign the AudioSource component
+
+    // Added AudioMixerGroup
+    public AudioMixerGroup effectsMixerGroup;
 
     // Audio clips for different situations
     public AudioClip startSound;
@@ -27,6 +31,9 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         _sampleHeightHelper = new SampleHeightHelper();
+
+        // Assign AudioMixerGroup to AudioSource
+        audioSource.outputAudioMixerGroup = effectsMixerGroup;
 
         // Play the start sound after a delay
         if (startSound) StartCoroutine(PlaySoundWithDelay(startSound, startSoundDelay));
