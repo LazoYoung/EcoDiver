@@ -9,7 +9,7 @@ namespace Script.Interaction
         [FormerlySerializedAs("toggle objects")] [SerializeField] [Tooltip("Array of GameObjects To Toggle.")]
         private GameObject[] toggleObjects; // Array of GameObjects
 
-        public void Enable(bool debugMode)
+        public override void Enable(bool debugMode)
         {
             foreach (var obj in toggleObjects)
             {
@@ -24,7 +24,7 @@ namespace Script.Interaction
             }
         }
 
-        public void Disable(bool debugMode)
+        public override void Disable(bool debugMode)
         {
             foreach (var obj in toggleObjects)
             {
