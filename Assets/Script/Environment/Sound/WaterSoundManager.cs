@@ -1,5 +1,6 @@
 using Crest;
 using UnityEngine;
+using UnityEngine.Audio; // Added to use AudioMixer
 
 namespace Script.Environment.Sound
 {
@@ -12,12 +13,19 @@ namespace Script.Environment.Sound
         public AudioClip underwaterLoopSound; // Underwater loop sound
         public AudioClip surfaceLoopSound; // Surface loop sound
 
+        // Added AudioMixerGroup
+        public AudioMixerGroup backgroundMixerGroup;
+
         private bool isUnderwater = false; // Whether the player is currently underwater
         private SampleHeightHelper _sampleHeightHelper; // Helper for sampling height
 
         private void Start()
         {
             _sampleHeightHelper = new SampleHeightHelper();
+
+            // Assign AudioMixerGroup to AudioSource
+            audioSource.outputAudioMixerGroup = backgroundMixerGroup;
+
             audioSource.clip = surfaceLoopSound;
             audioSource.loop = true; // Set the audio source to loop
             audioSource.Play();

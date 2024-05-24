@@ -1,14 +1,14 @@
 using Crest;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio; // AudioMixer를 사용하기 위해 추가
+using UnityEngine.Audio; // Added to use AudioMixer
 
 public class SoundManager : MonoBehaviour
 {
     public OceanRenderer oceanRenderer; // Assign the OceanRenderer component from Crest
     public AudioSource audioSource; // Assign the AudioSource component
 
-    // AudioMixerGroup 추가
+    // Added AudioMixerGroup
     public AudioMixerGroup effectsMixerGroup;
 
     // Audio clips for different situations
@@ -32,7 +32,7 @@ public class SoundManager : MonoBehaviour
     {
         _sampleHeightHelper = new SampleHeightHelper();
 
-        // AudioMixerGroup을 AudioSource에 할당
+        // Assign AudioMixerGroup to AudioSource
         audioSource.outputAudioMixerGroup = effectsMixerGroup;
 
         // Play the start sound after a delay

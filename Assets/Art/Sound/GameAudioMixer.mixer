@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-8310971864891927304
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Backgrounds
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a41cd2570a59dd743918aacf32fd8df5
+  m_Children: []
+  m_Volume: 81001786ee069ec43bd8bd76f6840642
+  m_Pitch: e967b8a01a4abe442984823fecdf1f93
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -8159989790536309757}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-8159989790536309757
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5bce321d64cf87440bc1647a0e9f09f4
+  m_EffectName: Attenuation
+  m_MixLevel: 8f51beb1308ef9a4091d54ee39c35906
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-6639707200440865354
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -106,6 +139,7 @@ AudioMixerController:
   - guids:
     - 9239a6b38ad8b2240a04ab41db71b80f
     - c7fa4820a6b96be46b493723602122ab
+    - a41cd2570a59dd743918aacf32fd8df5
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -120,6 +154,7 @@ AudioMixerGroupController:
   m_GroupID: 9239a6b38ad8b2240a04ab41db71b80f
   m_Children:
   - {fileID: -5443319540560795247}
+  - {fileID: -8310971864891927304}
   m_Volume: 0731dbc70d793a543a5a40380414c035
   m_Pitch: cd736ae600b9c264d96b7c634c48e2e4
   m_Send: 00000000000000000000000000000000
@@ -153,7 +188,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 3ef5711b7444bfa478d1edfee3e07c1c
   m_FloatValues:
-    7b48cf81ce7bad04a896f3a7948c429e: 20
+    7b48cf81ce7bad04a896f3a7948c429e: 0
     9a6338c19d9811648a437147552e13e4: 900
     945f7ae179b3cb8488d5049fa90342bf: 1.5
     f4b822f38ecbba1419146d413bb1919f: 0.3
