@@ -395,11 +395,6 @@
 }
 
 .unity-button {
-    background-color: rgb(114, 136, 179);
-    border-left-color: rgba(0, 0, 0, 0);
-    border-right-color: rgba(0, 0, 0, 0);
-    border-top-color: rgba(0, 0, 0, 0);
-    border-bottom-color: rgba(0, 0, 0, 0);
     width: auto;
     margin-top: 0;
     margin-right: 0;
