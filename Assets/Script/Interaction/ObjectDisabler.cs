@@ -4,12 +4,12 @@ using UnityEngine.Serialization;
 
 namespace Script.Interaction
 {
-    public class ObjectDisabler : MonoBehaviour
+    public class ObjectDisabler : Disabler
     {
         [FormerlySerializedAs("toggle objects")] [SerializeField] [Tooltip("Array of GameObjects To Toggle.")]
         private GameObject[] toggleObjects; // Array of GameObjects
 
-        public void EnableObjects(bool debugMode)
+        public void Enable(bool debugMode)
         {
             foreach (var obj in toggleObjects)
             {
@@ -24,7 +24,7 @@ namespace Script.Interaction
             }
         }
 
-        public void DisableObjects(bool debugMode)
+        public void Disable(bool debugMode)
         {
             foreach (var obj in toggleObjects)
             {

@@ -13,7 +13,7 @@ namespace Script.Interaction
         private bool isDefaultDisabled = true;
 
         [SerializeField] [Tooltip("ObjectDisabler script to disable objects.")]
-        private ObjectDisabler objectDisabler;
+        private Disabler disabler;
 
         private void Start()
         {
@@ -27,7 +27,10 @@ namespace Script.Interaction
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Enter Object: " + other.tag);
+            if (debugMode)
+            {
+                Debug.Log("Enter Object: " + other.tag);
+            }
             if (!other.CompareTag("Player"))
             {
                 return;
@@ -78,12 +81,12 @@ namespace Script.Interaction
 
         private void enableObjects()
         {
-            objectDisabler.EnableObjects(debugMode);
+            disabler.Enable(debugMode);
         }
 
         private void disableObjects()
         {
-            objectDisabler.DisableObjects(debugMode);
+            disabler.Disable(debugMode);
         }
     }
 }
