@@ -9331,7 +9331,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2514197713876346083, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187962914}
   m_SourcePrefab: {fileID: 100100000, guid: 486966c9d3ee7c84b90e8023ab4b6954, type: 3}
 --- !u!114 &1187962911 stripped
 MonoBehaviour:
@@ -9345,6 +9349,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785fa11f397604c3e95a76a8a3deb4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1187962912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2514197713876346083, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+    type: 3}
+  m_PrefabInstance: {fileID: 1187962910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1187962913 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7478645211944559143, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+    type: 3}
+  m_PrefabInstance: {fileID: 1187962910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187962914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187962912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc90962a8f3f802438673f5357e716ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oceanRenderer: {fileID: 0}
+  audioSource: {fileID: 1187962913}
+  startSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
+  underwaterSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
+  touchMeshSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
+  startSoundDelay: 3
+  underwaterSoundDelay: 3
+  touchMeshSoundDelay: 0
+  targetMesh: {fileID: 1961111914}
 --- !u!114 &1235245606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3200673826156070615, guid: 486966c9d3ee7c84b90e8023ab4b6954,
