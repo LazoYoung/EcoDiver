@@ -16,6 +16,8 @@ namespace Script.Scene
             new SceneDetail("Level/Production/Quest1Scene", "This is the first quest scene of the game.");
         public static readonly SceneDetail Quest2Scene =
             new SceneDetail("Level/Production/Quest2Scene", "This is the second quest scene of the game.");
+        public static readonly SceneDetail Quest3Scene =
+            new SceneDetail("Level/Production/Quest3Scene", "This is the third quest scene of the game.");
         public static readonly SceneDetail EndingScene =
             new SceneDetail("Level/Production/EndingScene", "This is the ending scene of the game.");
 
