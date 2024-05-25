@@ -9344,6 +9344,12 @@ PrefabInstance:
       propertyPath: surfaceLoopSound
       value: 
       objectReference: {fileID: 8300000, guid: 878f7c13f39bc014e8d5007b10386c1d, type: 3}
+    - target: {fileID: 8236971075321567445, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: backgroundMixerGroup
+      value: 
+      objectReference: {fileID: -8310971864891927304, guid: 9d9ff8cba19d9b949a417a4023599a47,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9393,11 +9399,11 @@ MonoBehaviour:
   audioSource: {fileID: 1187962913}
   effectsMixerGroup: {fileID: -5443319540560795247, guid: 9d9ff8cba19d9b949a417a4023599a47,
     type: 2}
-  startSound: {fileID: 8300000, guid: 56c491bb5892ecb42a502c65a64a2c8a, type: 3}
-  underwaterSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
-  touchMeshSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
-  startSoundDelay: 1
-  underwaterSoundDelay: 3
+  startSound: {fileID: 8300000, guid: ba222732e902fb04e800249bae0af625, type: 3}
+  underwaterSound: {fileID: 0}
+  touchMeshSound: {fileID: 8300000, guid: d84fda0386b1cb247b9d27bb6c42aaf5, type: 3}
+  startSoundDelay: 3
+  underwaterSoundDelay: 0
   touchMeshSoundDelay: 0
   targetMesh: {fileID: 1961111914}
 --- !u!114 &1235245606 stripped
