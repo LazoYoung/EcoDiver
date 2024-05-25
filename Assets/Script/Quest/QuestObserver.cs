@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Script.Display;
 using Script.Scene;
@@ -111,7 +112,12 @@ namespace Script.Quest
                 return;
             }
             arrowIndicator.gameObject.SetActive(false);
+            StartCoroutine(WaitAndLoadScene(3));
+        }
 
+        private IEnumerator WaitAndLoadScene(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
             SceneLoader.Instance.LoadNextScene();
         }
 
