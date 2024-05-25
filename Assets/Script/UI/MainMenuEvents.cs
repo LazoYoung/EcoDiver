@@ -96,7 +96,11 @@ namespace Script.UI
         private void onExitButtonClicked(ClickEvent clickEvent)
         {
             if (verbose) Debug.Log("Exit Button Clicked!");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
+#endif
         }
 
         private void ShowSettings()
