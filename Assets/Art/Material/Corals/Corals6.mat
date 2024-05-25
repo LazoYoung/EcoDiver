@@ -129,7 +129,7 @@ Material:
     - _SubSurfaceScattering: 1
     - _SubSurfaceShallowColour: 1
     - _SwayAmplitude: 0.05
-    - _SwaySpeed: 0.3
+    - _SwaySpeed: 0.4
     - _Tiling: 1
     - _TransmisionValue: 1
     - _Transparency: 1
