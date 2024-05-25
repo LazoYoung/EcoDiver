@@ -4,10 +4,12 @@ using Script.Equipment;
 using Script.Interaction;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using Object = UnityEngine.Object;
 
 namespace Script.Quest.Entity
 {
+    [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
     public class ChainedRobot : MonoBehaviour
     {
@@ -16,6 +18,8 @@ namespace Script.Quest.Entity
         public GameObject lastChain;
         public Tool chains;
         private XROrigin _xrOrigin;
+        private LocomotionSystem _locomotion;
+        private Collider _collider;
         private Equipment.Equipment _equipment;
         private Interactable _interactable;
         private Transform _camera;
@@ -23,6 +27,11 @@ namespace Script.Quest.Entity
         
         private void Start()
         {
+            if (!TryFindObject(out _locomotion))
+            {
+                Debug.LogError("Locomotion system is either missing or inactive!");
+            }
+            
             if (!TryFindObject(out _equipment))
             {
                 Debug.LogError("Equipment system is either missing or inactive!");
@@ -48,6 +57,7 @@ namespace Script.Quest.Entity
                 Debug.LogError("XR Origin is either missing or inactive!");
             }
 
+            _collider = GetComponent<Collider>();
             _camera = _xrOrigin?.Camera.transform;
             _body = _xrOrigin?.transform;
             
@@ -89,6 +99,8 @@ namespace Script.Quest.Entity
                 chainBody.MovePosition(newPos);
                 chainBody.MoveRotation(_camera.rotation);
             }
+
+            _collider.isTrigger = _locomotion.busy;
         }
 
         private void InhibitCollisionAgainstPlayer()
