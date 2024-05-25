@@ -8836,11 +8836,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2514197713876346083, guid: 486966c9d3ee7c84b90e8023ab4b6954,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1187962914}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486966c9d3ee7c84b90e8023ab4b6954, type: 3}
 --- !u!114 &1187962911 stripped
 MonoBehaviour:
@@ -8854,41 +8850,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785fa11f397604c3e95a76a8a3deb4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1187962912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2514197713876346083, guid: 486966c9d3ee7c84b90e8023ab4b6954,
-    type: 3}
-  m_PrefabInstance: {fileID: 1187962910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1187962913 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7478645211944559143, guid: 486966c9d3ee7c84b90e8023ab4b6954,
     type: 3}
   m_PrefabInstance: {fileID: 1187962910}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1187962914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187962912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc90962a8f3f802438673f5357e716ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oceanRenderer: {fileID: 0}
-  audioSource: {fileID: 1187962913}
-  effectsMixerGroup: {fileID: -5443319540560795247, guid: 9d9ff8cba19d9b949a417a4023599a47,
-    type: 2}
-  startSound: {fileID: 8300000, guid: 56c491bb5892ecb42a502c65a64a2c8a, type: 3}
-  underwaterSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
-  touchMeshSound: {fileID: 8300000, guid: bce4821cc536a7f449281d70b0fc8dbe, type: 3}
-  startSoundDelay: 1
-  underwaterSoundDelay: 3
-  touchMeshSoundDelay: 0
-  targetMesh: {fileID: 1961111914}
 --- !u!4 &1187962915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8771755050146189614, guid: 486966c9d3ee7c84b90e8023ab4b6954,
@@ -11433,6 +11400,11 @@ PrefabInstance:
       propertyPath: rightController
       value: 
       objectReference: {fileID: 1235245606}
+    - target: {fileID: 5706794763416308942, guid: 48d440c31b6802c4f94f365f8f5f12e4,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1187962913}
     - target: {fileID: 6687425923783167138, guid: 48d440c31b6802c4f94f365f8f5f12e4,
         type: 3}
       propertyPath: camera
