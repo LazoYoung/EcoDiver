@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightController: {fileID: 0}
-  defaultTool: {fileID: 11400000, guid: 55640a82b33aae240a50c8287422d363, type: 2}
+  defaultTool: {fileID: 11400000, guid: ff434304d3ecd8d40b7008e54413ff29, type: 2}
 --- !u!1 &1068283707838919000
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +551,7 @@ MonoBehaviour:
   fadeScreen: {fileID: 0}
   returnToTitle: 1
   verbose: 0
+  secondsToWaitLoad: 1
 --- !u!1 &6479390000522651342
 GameObject:
   m_ObjectHideFlags: 0
