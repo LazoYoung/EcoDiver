@@ -1,46 +1,58 @@
-﻿using UnityEngine;
+﻿using System;
+using Script.Equipment;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using Object = UnityEngine.Object;
 
 namespace Script.Quest.Entity
 {
+    [RequireComponent(typeof(XRGrabInteractable))]
     public class Robot : MonoBehaviour
     {
+        public Action<ChainedRobot> OnChainTied;
         public GameObject chainedPrefab;
-        public new Camera camera;
-        private bool _virgin = true;
-        
+        public Tool chains;
+        private Equipment.Equipment _equipment;
+        private XRGrabInteractable _grabInteractable;
+
         private void Start()
         {
+            if (!TryFindObject(out _equipment))
+            {
+                Debug.LogError("Equipment system is either missing or inactive!");
+            }
+            
+            if (chains == null)
+            {
+                Debug.LogError("Chains tool is not assigned!");
+            }
+            
             if (chainedPrefab == null)
             {
                 Debug.LogError("Chained prefab is not assigned!");
             }
-
-            if (camera == null)
-            {
-                camera = Camera.main;
-                Debug.LogWarning("It's recommended to manually assign the camera.");
-            }
-
-            if (camera == null)
-            {
-                Debug.LogError("Could not locate the camera!");
-            }
-
+            
             SetupBoxCollider();
+            SetupGrabInteractable();
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void SetupGrabInteractable()
         {
-            if (_virgin && other.CompareTag("Hand"))
+            _grabInteractable = GetComponent<XRGrabInteractable>();
+            _grabInteractable.selectEntered.AddListener(OnGrab);
+        }
+
+        private void OnGrab(SelectEnterEventArgs arg0)
+        {
+            if (_equipment.GetActiveTool().Equals(chains))
             {
                 var tf = transform;
                 var obj = Instantiate(chainedPrefab, tf.position, tf.rotation, tf.parent);
                 var rot = obj.transform.eulerAngles;
                 obj.transform.eulerAngles = new Vector3(rot.x, rot.y, 0f);
-                var chainedRobot = obj.GetComponentInChildren<ChainedRobot>();
-                _virgin = false;
-                
-                chainedRobot.SetCameraTransform(camera.transform);
+                OnChainTied?.Invoke(obj.GetComponent<ChainedRobot>());
+
+                _grabInteractable.selectEntered.RemoveListener(OnGrab);
                 Destroy(gameObject);
             }
         }
@@ -54,6 +66,12 @@ namespace Script.Quest.Entity
 
             boxCollider.isTrigger = true;
             boxCollider.size = new Vector3(1f, 1f, 5f);
+        }
+        
+        private static bool TryFindObject<T>(out T instance) where T : Object
+        {
+            instance = FindObjectOfType<T>();
+            return instance != null;
         }
     }
 }

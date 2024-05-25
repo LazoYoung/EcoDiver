@@ -1,23 +1,21 @@
-﻿using UnityEngine;
+﻿using Script.Quest.Entity;
 
 namespace Script.Quest
 {
     public class Quest3A : Quest
     {
+        public Robot robot;
         private bool _find;
 
         protected override void Start()
         {
             base.Start();
-            SetupBoxCollider();
+            robot.OnChainTied += OnRobotTied;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnRobotTied(ChainedRobot obj)
         {
-            if (!_find && other.CompareTag("Player"))
-            {
-                _find = true;
-            }
+            _find = true;
         }
 
         protected override bool CanComplete()

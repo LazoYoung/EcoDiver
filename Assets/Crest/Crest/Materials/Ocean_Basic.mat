@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
@@ -19,6 +19,7 @@ Material:
   - _DIRECTIONALLIGHTVARYROUGHNESS_ON
   - _FOAM3DLIGHTING_ON
   - _FOAM_ON
+  - _PLANARREFLECTIONS_ON
   - _SHADOWS_ON
   - _SUBSURFACESCATTERING_ON
   - _SUBSURFACESHALLOWCOLOUR_ON
@@ -146,7 +147,7 @@ Material:
     - _PlanarReflectionDistanceFactor: 0
     - _PlanarReflectionIntensity: 1
     - _PlanarReflectionNormalsStrength: 1
-    - _PlanarReflections: 0
+    - _PlanarReflections: 1
     - _ProceduralSky: 0
     - _Projection: 0
     - _RefractAmt: 0

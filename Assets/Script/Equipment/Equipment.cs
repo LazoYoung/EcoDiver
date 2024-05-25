@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Script.Equipment
 {
     public class Equipment : MonoBehaviour
     {
+        public UnityAction<Tool> OnEquip;
         [SerializeField] private ActionBasedController rightController;
         [SerializeField] private Tool defaultTool;
         private Tool _activeTool;
@@ -19,6 +21,7 @@ namespace Script.Equipment
             _activeTool = tool;
             DetachModel();
             AttachModel();
+            OnEquip?.Invoke(tool);
             Debug.Log($"Equip: {tool.Identifier}");
         }
 
@@ -50,19 +53,12 @@ namespace Script.Equipment
         {
             if (rightController == null)
             {
-                rightController = FindObjectOfType<ActionBasedController>();
-            }
-
-            if (rightController != null)
-            {
-                rightController.modelPrefab = null;
-            }
-            else
-            {
-                Debug.LogError("ActionBasedController not found! Equipment is disabled.");
+                Debug.LogError("Right controller is either missing or not found!");
                 enabled = false;
                 return;
             }
+            
+            rightController.modelPrefab = null;
 
             if (defaultTool)
             {

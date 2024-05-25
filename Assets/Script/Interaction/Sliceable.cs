@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Script.Interaction
 {
@@ -7,7 +7,7 @@ namespace Script.Interaction
     [RequireComponent(typeof(Collider))]
     public class Sliceable : MonoBehaviour
     {
-        public Action<Slicer> OnSlice;
+        public UnityAction<Slicer> OnSlice;
         
         public void Notify(Slicer slicer)
         {
