@@ -242,6 +242,114 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &321979487623078532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7584611878624358219}
+  - component: {fileID: 3163005803312889535}
+  - component: {fileID: 3101632229037265734}
+  m_Layer: 0
+  m_Name: Headlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7584611878624358219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321979487623078532}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
+  m_LocalPosition: {x: 0, y: 0.031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8771755050146189614}
+  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+--- !u!108 &3163005803312889535
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321979487623078532}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 70
+  m_SpotAngle: 40
+  m_InnerSpotAngle: 4
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!114 &3101632229037265734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321979487623078532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9d893de8f74ac6a27d7acdbd9bc9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tool: {fileID: 11400000, guid: 14760d0c021bc7e4f9f6b2972933a4c4, type: 2}
 --- !u!1 &418958263056655498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1385,7 @@ MonoBehaviour:
   input: {fileID: 3683916490831866579}
   forwardReference: {fileID: 8771755050146189614}
   rigidBody: {fileID: 4407862817285000659}
+  locomotion: {fileID: 0}
   triggerMode: 1
   leftButton: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
@@ -1285,7 +1394,7 @@ MonoBehaviour:
   swimForce: 4
   spinSpeed: 30
   dragForce: 0.2
-  sinkSpeed: 0.1
+  sinkSpeed: 0.01
   minInput: 0.5
   cooldown: 0.3
   verbose: 0
@@ -2293,6 +2402,7 @@ Transform:
   - {fileID: 6055641212561370365}
   - {fileID: 7303938043910452908}
   - {fileID: 587066117892917162}
+  - {fileID: 7584611878624358219}
   m_Father: {fileID: 676047877900278620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5737363850335049450
@@ -2600,6 +2710,7 @@ MonoBehaviour:
   cameOutSound: {fileID: 8300000, guid: bdecf9d7a217c3d4d93db1f02ad87984, type: 3}
   underwaterLoopSound: {fileID: 8300000, guid: d5f49e709a7266c41a0253d0cdd0dc6d, type: 3}
   surfaceLoopSound: {fileID: 8300000, guid: 061aa3ccb83b6d64595ed2babb94111f, type: 3}
+  backgroundMixerGroup: {fileID: 0}
 --- !u!114 &9158688776167311985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6939,7 +7050,7 @@ MonoBehaviour:
   - {fileID: 7522957771111002253}
   equipment: {fileID: 0}
   tools:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ff434304d3ecd8d40b7008e54413ff29, type: 2}
   - {fileID: 11400000, guid: 2563a75328d3f2d469da5e9ba34cd62d, type: 2}
   - {fileID: 11400000, guid: 14760d0c021bc7e4f9f6b2972933a4c4, type: 2}
   - {fileID: 11400000, guid: 3c625522fadf4504b800ce6dc96b5564, type: 2}

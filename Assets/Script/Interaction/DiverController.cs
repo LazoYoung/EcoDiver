@@ -3,6 +3,7 @@ using Crest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.XR.Interaction.Toolkit;
 using static UnityEngine.RigidbodyConstraints;
 using Vector3 = UnityEngine.Vector3;
 
@@ -41,6 +42,8 @@ namespace Script.Interaction
         [SerializeField] private Transform forwardReference;
         [Tooltip("Rigidbody of this player.")]
         [SerializeField] private Rigidbody rigidBody;
+        [Tooltip("Locomotion system of this player.")]
+        [SerializeField] private LocomotionSystem locomotion;
         
         [Header("Controls")]
         [Tooltip("Player should press and hold the buttons to swim.")]
@@ -59,7 +62,7 @@ namespace Script.Interaction
         [Tooltip("Amount of force to simulate fluid resistance.")]
         [SerializeField] private float dragForce = 0.2f;
         [Tooltip("Vertical speed sinking underwater.")]
-        [SerializeField] private float sinkSpeed = 0.1f;
+        [SerializeField] private float sinkSpeed = 0.01f;
         [Tooltip("Minimum amount of input for controller deadzone.")]
         [SerializeField] private float minInput = 0.5f;
         [Tooltip("Cooldown in seconds before the next input is allowed.")]
@@ -71,6 +74,7 @@ namespace Script.Interaction
         [Tooltip("Force underwater physics to persist above sea level. Testing purpose only!")]
         [SerializeField] private bool forceUnderwater;
 
+        private const float FallForce = 2.0f;
         private const float SinkForce = 0.3f;
         private RigidbodyState _rstate;
         private Vector3 _spinVelocity;
@@ -122,12 +126,27 @@ namespace Script.Interaction
             }
             else if (_underwater)
             {
-                UpdateMotion();
+                UpdateUnderwaterMotion();
+            }
+            else
+            {
+                UpdateSurfaceMotion();
             }
         }
 
-        private void UpdateMotion()
+        private void UpdateSurfaceMotion()
         {
+            if (locomotion.busy)
+                return;
+            
+            rigidBody.AddForce(FallForce * Vector3.down, ForceMode.Acceleration);
+        }
+
+        private void UpdateUnderwaterMotion()
+        {
+            if (locomotion.busy)
+                return;
+            
             var leftForce = input.TranslateVelocity(input.leftHandVelocity);
             var rightForce = input.TranslateVelocity(input.rightHandVelocity);
             bool leftPower = IsForceSufficient(leftForce);
@@ -217,6 +236,7 @@ namespace Script.Interaction
             else
             {
                 _rstate.Restore(rigidBody);
+                rigidBody.useGravity = false;
             }
         }
         
@@ -224,6 +244,12 @@ namespace Script.Interaction
         {
             var blame = new List<string>();
 
+            if (locomotion == null)
+                locomotion = FindObjectOfType<LocomotionSystem>();
+            
+            if (locomotion == null)
+                blame.Add("LocomotionSystem");
+            
             if (rigidBody == null)
                 blame.Add("RigidBody");
             

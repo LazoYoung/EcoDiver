@@ -1,5 +1,6 @@
 ﻿using Script.Equipment;
 using Script.Interaction;
+using Script.Quest.Entity;
 using UnityEngine;
 
 namespace Script.Quest
@@ -54,7 +55,7 @@ namespace Script.Quest
             else
             {
                 _fishingNet = turtle.fishingNet;
-                _fishingNet.OnSlice += OnSlice;
+                _fishingNet.onSlice.AddListener(OnSlice);
             }
         }
         

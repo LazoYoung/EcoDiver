@@ -30,6 +30,11 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        if (audioSource == null)
+        {
+            audioSource = FindObjectOfType<AudioSource>();
+        }
+        
         _sampleHeightHelper = new SampleHeightHelper();
 
         // Assign AudioMixerGroup to AudioSource
