@@ -8,23 +8,19 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Corals6
-  m_Shader: {fileID: 4800000, guid: 0d490a2ac1be4e9290905bc997980765, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7a0703d98e225a0429cf16cf6e0a8d54, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
-  - _CAUSTICS_ON
   - _SMOOTHFROMMAPSWITCH_ON
-  - _SUBSURFACESCATTERING_ON
-  - _SUBSURFACESHALLOWCOLOUR_ON
-  - _TRANSPARENCY_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: _EmissionMultiplayer
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -98,11 +94,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1
-    - _BlendModeSrc: 5
-    - _BlendModeTgt: 10
     - _BumpScale: 1
-    - _Caustics: 1
     - _Cutoff: 0.61
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -118,28 +110,21 @@ Material:
     - _OcclusionStrength: 1
     - _ParalaxOffset: 0.001
     - _Parallax: 0.02
-    - _Shadows: 0
     - _SmoothFromMapSwitch: 1
     - _SmoothRough: 0
-    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _Snoothness: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SubSurfaceScattering: 1
-    - _SubSurfaceShallowColour: 1
-    - _SwayAmplitude: 0.05
-    - _SwaySpeed: 0.4
     - _Tiling: 1
     - _TransmisionValue: 1
-    - _Transparency: 1
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _AlbedoColor: {r: 0.09019608, g: 0.09019608, b: 0.09019608, a: 1}
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CubemapColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TransmissionColor: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 0.5019608}
+    - _TransmissionColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0}
   m_BuildTextureStacks: []

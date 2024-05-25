@@ -8758,6 +8758,16 @@ PrefabInstance:
       propertyPath: equipment
       value: 
       objectReference: {fileID: 1162117228}
+    - target: {fileID: 5798619303080225710, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233329091743574330, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6491096953317248595, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8818,6 +8828,11 @@ PrefabInstance:
       propertyPath: _depthFogDensityFactor
       value: 0.065
       objectReference: {fileID: 0}
+    - target: {fileID: 7092671247999280027, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8216630046303842048, guid: 486966c9d3ee7c84b90e8023ab4b6954,
         type: 3}
       propertyPath: questTransform
@@ -8833,6 +8848,11 @@ PrefabInstance:
       propertyPath: surfaceLoopSound
       value: 
       objectReference: {fileID: 8300000, guid: 878f7c13f39bc014e8d5007b10386c1d, type: 3}
+    - target: {fileID: 8974581869555431355, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8850,6 +8870,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785fa11f397604c3e95a76a8a3deb4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1187962912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 418958263056655498, guid: 486966c9d3ee7c84b90e8023ab4b6954,
+    type: 3}
+  m_PrefabInstance: {fileID: 1187962910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1187962913 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7478645211944559143, guid: 486966c9d3ee7c84b90e8023ab4b6954,
@@ -11939,7 +11965,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1187962910}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1187962912}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 121712f3074c459ea053cfe072afacd7, type: 3}
@@ -12368,6 +12394,9 @@ GameObject:
   - component: {fileID: 1831641548}
   - component: {fileID: 1831641547}
   - component: {fileID: 1831641546}
+  - component: {fileID: 1831641550}
+  - component: {fileID: 1831641549}
+  - component: {fileID: 1831641551}
   m_Layer: 0
   m_Name: Quest 3 (Retrieve)
   m_TagString: Untagged
@@ -12455,6 +12484,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831641544}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1831641549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831641544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c81fed4ca034572ab0239782777086c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObjects:
+  - {fileID: 1187962912}
+--- !u!114 &1831641550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831641544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa30eb89f73b14785b23bf510ff78ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 0
+  isDefaultDisabled: 0
+  disabler: {fileID: 1831641549}
+--- !u!65 &1831641551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831641544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: -0.00000006891787, y: 0, z: 0}
 --- !u!1 &1832893320
 GameObject:
   m_ObjectHideFlags: 0
@@ -14084,6 +14163,9 @@ GameObject:
   - component: {fileID: 1961111917}
   - component: {fileID: 1961111916}
   - component: {fileID: 1961111918}
+  - component: {fileID: 1961111920}
+  - component: {fileID: 1961111919}
+  - component: {fileID: 1961111921}
   m_Layer: 0
   m_Name: Quest 3 (Find)
   m_TagString: Untagged
@@ -14171,6 +14253,56 @@ MonoBehaviour:
   completionSound: {fileID: 8300000, guid: 4378ee4648072f447b4945d49c4758a7, type: 3}
   audioSource: {fileID: 1187962913}
   robot: {fileID: 1172615862}
+--- !u!114 &1961111919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961111914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c81fed4ca034572ab0239782777086c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleObjects:
+  - {fileID: 1187962912}
+--- !u!114 &1961111920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961111914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa30eb89f73b14785b23bf510ff78ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 0
+  isDefaultDisabled: 0
+  disabler: {fileID: 1961111919}
+--- !u!65 &1961111921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961111914}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.0000009536743, z: 0.00000023841858}
 --- !u!1 &1967023360
 GameObject:
   m_ObjectHideFlags: 0
