@@ -55,7 +55,7 @@ namespace Script.Quest
             else
             {
                 _fishingNet = turtle.fishingNet;
-                _fishingNet.OnSlice += OnSlice;
+                _fishingNet.onSlice.AddListener(OnSlice);
             }
         }
         

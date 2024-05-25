@@ -28,7 +28,7 @@ namespace Script.Quest.Entity
 
             if (fishingNet != null)
             {
-                fishingNet.OnSlice += OnFree;
+                fishingNet.onSlice.AddListener(OnFree);
             }
 
             idleMotion.legacy = true;

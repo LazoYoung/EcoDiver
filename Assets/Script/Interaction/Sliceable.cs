@@ -7,11 +7,11 @@ namespace Script.Interaction
     [RequireComponent(typeof(Collider))]
     public class Sliceable : MonoBehaviour
     {
-        public UnityAction<Slicer> OnSlice;
+        public UnityEvent<Slicer> onSlice;
         
         public void Notify(Slicer slicer)
         {
-            OnSlice?.Invoke(slicer);
+            onSlice?.Invoke(slicer);
         }
 
         private void Start()
