@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2526603297397129429}
   - component: {fileID: 8193110788785806957}
   - component: {fileID: 6569862666436087185}
-  - component: {fileID: 4029759996230527291}
   - component: {fileID: 886495274645559388}
+  - component: {fileID: 9110437567180009271}
   m_Layer: 0
   m_Name: RayToggleArea
   m_TagString: Untagged
@@ -107,21 +107,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4029759996230527291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245430489874522385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eebd8fc80c504e0794b66e19dfaa6fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugMode: 0
-  isDefaultDisabled: 0
-  objectDisabler: {fileID: 886495274645559388}
 --- !u!114 &886495274645559388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +124,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &9110437567180009271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245430489874522385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa30eb89f73b14785b23bf510ff78ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 0
+  isDefaultDisabled: 1
+  disabler: {fileID: 886495274645559388}
