@@ -11,17 +11,13 @@ namespace Script.Interaction
 
         void Start()
         {
-            Debug.Log("Start RigidbodyDisabler");
             if (targetObject != null)
             {
                 targetRigidbody = targetObject.GetComponent<Rigidbody>();
+                
                 if (targetRigidbody == null)
                 {
                     Debug.LogWarning("Rigidbody component not found on " + targetObject.name);
-                }
-                else
-                {
-                    Debug.Log("Rigidbody component found on " + targetObject.name);
                 }
             }
             else
@@ -32,7 +28,6 @@ namespace Script.Interaction
 
         public override void Disable(bool debugMode)
         {
-            Debug.Log("Disabling Rigidbody");
             if (targetRigidbody != null)
             {
                 targetRigidbody.isKinematic = true; // This will disable physics interactions
@@ -51,7 +46,6 @@ namespace Script.Interaction
 
         public override void Enable(bool debugMode)
         {
-            Debug.Log("Enable Rigidbody");
             if (targetRigidbody != null)
             {
                 targetRigidbody.isKinematic = false; // Re-enable physics interactions
