@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Environment.Optimizer
 {
@@ -29,6 +30,7 @@ namespace Script.Environment.Optimizer
         private BoundingSphere[] _boundingSpheres;
         private CullingObject[] _objects;
         private MarkerObject[] _markers;
+        private bool[] _visible;
         private bool _markerMode;
         private float _renderingDistance;
 
@@ -42,20 +44,21 @@ namespace Script.Environment.Optimizer
             _markerMode = displayMarkers;
             _markers = GetMarkers(_objects);
             var count = _boundingSpheres.Length;
+            _visible = new bool[count];
             
             _group.SetBoundingDistances(new [] {renderingDistance});
             _group.SetBoundingSpheres(_boundingSpheres);
             _group.SetBoundingSphereCount(count);
-            Debug.Log($"CullingOptimizer is tracking {count} objects.");
-            
             _group.onStateChanged = OnCullingStateChanged;
             _group.targetCamera = camera;
             _group.enabled = true;
             
             UpdateObjects(!_markerMode);
+            
+            Debug.Log($"{name} is tracking {count} objects.");
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             UpdateMarkerMode();
             UpdateRenderDistance();
@@ -159,8 +162,6 @@ namespace Script.Environment.Optimizer
         
         private void OnCullingStateChanged(CullingGroupEvent sphere)
         {
-            var cullingObj = _objects[sphere.index];
-
             if (_markerMode)
             {
                 var color = sphere.isVisible ? Color.red : Color.gray;
@@ -169,19 +170,27 @@ namespace Script.Environment.Optimizer
                 return;
             }
 
-            if (sphere.isVisible)
+            if (sphere.isVisible && sphere.currentDistance == 0)
             {
-                cullingObj.SetActive(sphere.currentDistance == 0);
+                _objects[sphere.index].Renderer.enabled = true;
             }
             else
             {
-                cullingObj.SetActive(false);
+                _objects[sphere.index].Renderer.enabled = false;
             }
+            
+            // if (sphere.isVisible)
+            // {
+            //     cullingObj.SetActive(sphere.currentDistance == 0);
+            // }
+            // else
+            // {
+            //     cullingObj.SetActive(false);
+            // }
         }
 
         private void OnDisable()
         {
-            _group.enabled = false;
             _group.Dispose();
             _group = null;
         }
