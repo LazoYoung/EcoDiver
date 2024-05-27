@@ -188,7 +188,10 @@ namespace Script.Environment.Optimizer
         
         private void ValidateCamera()
         {
-            camera = camera != null ? camera : FindObjectOfType<Camera>();
+            if (camera == null)
+            {
+                camera = Camera.main;
+            }
             
             if (camera == null)
             {
