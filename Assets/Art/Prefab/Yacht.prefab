@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6475448199014267949}
   - component: {fileID: 2378121152860619315}
   - component: {fileID: 556421659393252099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 843930300073034075}
   - component: {fileID: 2767652586152873290}
   - component: {fileID: 3542121980260596299}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 5868394446500075467}
   - component: {fileID: 3338402802719973367}
   - component: {fileID: 118097509535441855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 6411313403311678820}
   - component: {fileID: 4233015874959354997}
   - component: {fileID: 6312690471659691483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9007122581391107187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ladder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 6743829450984112853}
   - component: {fileID: 6866287882621421155}
   - component: {fileID: 6011570749042572396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopLeftBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 3921585553458406236}
   - component: {fileID: 6457987464000619558}
   - component: {fileID: 2827303020747847014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3289924079859462125}
   - component: {fileID: 8901969228734643518}
   - component: {fileID: 4336785840424858193}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ GameObject:
   - component: {fileID: 3664535815397526727}
   - component: {fileID: 6999016337957059797}
   - component: {fileID: 286873942512589720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 4453720858697238357}
   - component: {fileID: 5071455538292493062}
   - component: {fileID: 8486441653276089210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1312,7 +1312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8451351475723127559}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 5521593122607994079}
   - component: {fileID: 6539477197861279012}
   - component: {fileID: 7691391555696476858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1454,7 +1454,7 @@ GameObject:
   - component: {fileID: 940265380611678132}
   - component: {fileID: 4606645952988598452}
   - component: {fileID: 4607696577331180202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1573,7 +1573,7 @@ GameObject:
   - component: {fileID: 7268296034048226183}
   - component: {fileID: 4647641222507547547}
   - component: {fileID: 6532485776970695405}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1730,7 +1730,7 @@ GameObject:
   - component: {fileID: 3440969100006714018}
   - component: {fileID: 8641329862094637697}
   - component: {fileID: 8714533553237684318}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1848,7 +1848,7 @@ GameObject:
   - component: {fileID: 4151689281900253153}
   - component: {fileID: 7582651697984369616}
   - component: {fileID: 2742551948148836944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2017,7 +2017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 656782426162636730}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ladder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 943472531370069354}
   - component: {fileID: 8498963402989767607}
   - component: {fileID: 3494746548195791744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 6931059597769311411}
   - component: {fileID: 804313027195368604}
   - component: {fileID: 3669757394521959834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2281,7 +2281,7 @@ GameObject:
   - component: {fileID: 1143754612430494819}
   - component: {fileID: 5990405226658917476}
   - component: {fileID: 6915328547681968244}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2386,7 +2386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1709449296981695276}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2421,7 +2421,7 @@ GameObject:
   - component: {fileID: 7771153533505032535}
   - component: {fileID: 4828009046652778978}
   - component: {fileID: 5196552265964757245}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2529,7 +2529,7 @@ GameObject:
   - component: {fileID: 3366525579600464256}
   - component: {fileID: 8005762460022229709}
   - component: {fileID: 7923431517565533387}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Handles (Climbable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2763,7 +2763,7 @@ GameObject:
   - component: {fileID: 4283930585854780129}
   - component: {fileID: 1523687404433347652}
   - component: {fileID: 4506284206930652550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2988,7 +2988,7 @@ GameObject:
   - component: {fileID: 2803298734868379760}
   - component: {fileID: 7146038160461859119}
   - component: {fileID: 7297796018054249520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopRightBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3435,7 +3435,7 @@ GameObject:
   - component: {fileID: 1340428844659950914}
   - component: {fileID: 1631642757103200299}
   - component: {fileID: 1938560712983150201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3540,7 +3540,7 @@ GameObject:
   - component: {fileID: 4968399764167805675}
   - component: {fileID: 3474989033223821247}
   - component: {fileID: 1578743512973434520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3648,7 +3648,7 @@ GameObject:
   - component: {fileID: 3653107011850485745}
   - component: {fileID: 4325867529305874350}
   - component: {fileID: 1492048077560433922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3753,7 +3753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5948269360974634409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3785,7 +3785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5733945891101108630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3819,7 +3819,7 @@ GameObject:
   - component: {fileID: 3895612362940997091}
   - component: {fileID: 3848782954435931583}
   - component: {fileID: 6416240732198049524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4026,7 +4026,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7816014460081473862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RungSet Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4065,7 +4065,7 @@ GameObject:
   - component: {fileID: 6416508947649638896}
   - component: {fileID: 7799418787511921237}
   - component: {fileID: 6140068827542100342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopRightBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4173,7 +4173,7 @@ GameObject:
   - component: {fileID: 2629184743816720110}
   - component: {fileID: 5120738916018849215}
   - component: {fileID: 937718217655524240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4281,7 +4281,7 @@ GameObject:
   - component: {fileID: 3785182596448737572}
   - component: {fileID: 331374097076168055}
   - component: {fileID: 5057538565651174687}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4420,7 +4420,7 @@ GameObject:
   - component: {fileID: 2258767132877465865}
   - component: {fileID: 5796274046521307032}
   - component: {fileID: 5959277688048239941}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4538,7 +4538,7 @@ GameObject:
   - component: {fileID: 6292431742532382264}
   - component: {fileID: 614969111239731280}
   - component: {fileID: 3566670003900123713}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4656,7 +4656,7 @@ GameObject:
   - component: {fileID: 6640064040651713535}
   - component: {fileID: 298621963852914326}
   - component: {fileID: 6928364212288347491}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 6861681985702748881}
   - component: {fileID: 4753366862588214041}
   - component: {fileID: 3512705295392426742}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4945,7 +4945,7 @@ GameObject:
   - component: {fileID: 8401794714643738429}
   - component: {fileID: 1490748644245435434}
   - component: {fileID: 6980064070963335595}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5064,7 +5064,7 @@ GameObject:
   - component: {fileID: 7586718792478872583}
   - component: {fileID: 2682507525798738310}
   - component: {fileID: 8422935216981376899}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5240,7 +5240,7 @@ GameObject:
   - component: {fileID: 1388207540732097618}
   - component: {fileID: 8515333564216389715}
   - component: {fileID: 2549180365599443539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5391,7 +5391,7 @@ GameObject:
   - component: {fileID: 4056377607750385505}
   - component: {fileID: 1367662158669913022}
   - component: {fileID: 6144673967918095828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5498,7 +5498,7 @@ GameObject:
   - component: {fileID: 3200014654818427285}
   - component: {fileID: 7772638033253521765}
   - component: {fileID: 4766939286998442078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5617,7 +5617,7 @@ GameObject:
   - component: {fileID: 7469556534000935589}
   - component: {fileID: 5862353215864156188}
   - component: {fileID: 4423680455210568492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5725,7 +5725,7 @@ GameObject:
   - component: {fileID: 5135087532709854226}
   - component: {fileID: 8172142909224214581}
   - component: {fileID: 5359706136639991975}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5901,7 +5901,7 @@ GameObject:
   - component: {fileID: 6912872850565164741}
   - component: {fileID: 5082855830555036343}
   - component: {fileID: 298210889226102206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6019,7 +6019,7 @@ GameObject:
   - component: {fileID: 6781537362277427324}
   - component: {fileID: 1187630578459679491}
   - component: {fileID: 4124542809334192262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6192,7 +6192,7 @@ GameObject:
   - component: {fileID: 1085306780105320853}
   - component: {fileID: 5467200477974128145}
   - component: {fileID: 3802955163902645278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6311,7 +6311,7 @@ GameObject:
   - component: {fileID: 2982520016724474781}
   - component: {fileID: 6815253400426482390}
   - component: {fileID: 7713981808213903674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopLeftBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6418,7 +6418,7 @@ GameObject:
   - component: {fileID: 5551326023349713348}
   - component: {fileID: 7038806569346689894}
   - component: {fileID: 513924325532512330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6537,7 +6537,7 @@ GameObject:
   - component: {fileID: 9020432999243727776}
   - component: {fileID: 3228931728048175414}
   - component: {fileID: 848519332549621325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Top Handles (Climbable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6830,7 +6830,7 @@ GameObject:
   - component: {fileID: 3600596404437506124}
   - component: {fileID: 8221470693744810918}
   - component: {fileID: 7607223198964721143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6946,7 +6946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8382296350659599573}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RungSet Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7033,7 +7033,7 @@ GameObject:
   - component: {fileID: 4984844213501306825}
   - component: {fileID: 761157664185440290}
   - component: {fileID: 8617827241481575266}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7141,7 +7141,7 @@ GameObject:
   - component: {fileID: 512307975810821323}
   - component: {fileID: 5671125071832385646}
   - component: {fileID: 5778440397155365333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7246,7 +7246,7 @@ GameObject:
   - component: {fileID: 3589770554531454660}
   - component: {fileID: 5356273420188746218}
   - component: {fileID: 4050486407926507793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7394,7 +7394,7 @@ GameObject:
   - component: {fileID: 5247861678498140979}
   - component: {fileID: 2568230996430269173}
   - component: {fileID: 1932420259449884766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7501,7 +7501,7 @@ GameObject:
   - component: {fileID: 2525833341418210912}
   - component: {fileID: 5145931171060443508}
   - component: {fileID: 1074315817320749616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7619,7 +7619,7 @@ GameObject:
   - component: {fileID: 1778075509110298615}
   - component: {fileID: 3291951262729297555}
   - component: {fileID: 2252215671298682568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7737,7 +7737,7 @@ GameObject:
   - component: {fileID: 3439055120466520442}
   - component: {fileID: 3487801807110287667}
   - component: {fileID: 5714219173480571514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7856,7 +7856,7 @@ GameObject:
   - component: {fileID: 5415387697183864308}
   - component: {fileID: 3557061591600671286}
   - component: {fileID: 1319141441551796750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Handles (Climbable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8081,7 +8081,7 @@ GameObject:
   - component: {fileID: 6887895598479481190}
   - component: {fileID: 7046109098504682792}
   - component: {fileID: 4844864215048407293}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8189,7 +8189,7 @@ GameObject:
   - component: {fileID: 1141288190051604526}
   - component: {fileID: 4141771182434753856}
   - component: {fileID: 9171946380754384332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8349,7 +8349,7 @@ GameObject:
   - component: {fileID: 7162287989390330865}
   - component: {fileID: 8481011928990151695}
   - component: {fileID: 870233503843517810}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Color Affordance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8468,7 +8468,7 @@ GameObject:
   - component: {fileID: 4671553396180334326}
   - component: {fileID: 4761789019311565694}
   - component: {fileID: 3085686691435721368}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8576,7 +8576,7 @@ GameObject:
   - component: {fileID: 4065686903730490436}
   - component: {fileID: 759784322007959851}
   - component: {fileID: 7116284823215463719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8684,7 +8684,7 @@ GameObject:
   - component: {fileID: 2581164246555587479}
   - component: {fileID: 5342114769927049034}
   - component: {fileID: 7541221114881271022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Top Handles (Climbable)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

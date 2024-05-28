@@ -1195,7 +1195,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 23
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &2819376627990974345
 SphereCollider:
@@ -2710,7 +2710,8 @@ MonoBehaviour:
   cameOutSound: {fileID: 8300000, guid: bdecf9d7a217c3d4d93db1f02ad87984, type: 3}
   underwaterLoopSound: {fileID: 8300000, guid: d5f49e709a7266c41a0253d0cdd0dc6d, type: 3}
   surfaceLoopSound: {fileID: 8300000, guid: 061aa3ccb83b6d64595ed2babb94111f, type: 3}
-  backgroundMixerGroup: {fileID: 0}
+  backgroundMixerGroup: {fileID: -8310971864891927304, guid: 9d9ff8cba19d9b949a417a4023599a47,
+    type: 2}
 --- !u!114 &9158688776167311985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6147,7 +6148,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 23
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -6218,7 +6219,7 @@ MonoBehaviour:
   m_ImproveAccuracyWithSphereCollider: 1
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   m_PhysicsTriggerInteraction: 1
 --- !u!135 &1470309541056360801
 SphereCollider:
