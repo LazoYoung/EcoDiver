@@ -1,11 +1,16 @@
 using UnityEngine;
 
-public class ApplicationSettings : MonoBehaviour
+namespace Script
 {
-    void Start()
+    public class ApplicationSettings : MonoBehaviour
     {
-        Application.targetFrameRate = 60;
-        Time.fixedDeltaTime = 1f / 60f;
-        Debug.Log("Framerate: " + 60);
+        public int maxFrameRate = 50;
+
+        private void Start()
+        {
+            Application.targetFrameRate = maxFrameRate;
+            Time.fixedDeltaTime = 1f / maxFrameRate;
+            Debug.Log("Framerate set: " + maxFrameRate);
+        }
     }
 }
