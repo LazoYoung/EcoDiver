@@ -2116,6 +2116,10 @@ MonoBehaviour:
   followDuration: 30
   loop: 1
   pingPong: 0
+  renderDistance: 40
+  motionFrequency: 0.05
+  entity: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!114 &1397799414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,6 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a564c2e9ffe4846b55705dd7cc40fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFrameRate: 60
 --- !u!4 &1597541748
 Transform:
   m_ObjectHideFlags: 0
