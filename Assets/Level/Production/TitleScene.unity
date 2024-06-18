@@ -1783,6 +1783,72 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1841183896}
   m_SourcePrefab: {fileID: 100100000, guid: 342a1af240a6e9e48a21f9eb6ff767bc, type: 3}
+--- !u!1 &946416890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946416893}
+  - component: {fileID: 946416892}
+  - component: {fileID: 946416891}
+  m_Layer: 3
+  m_Name: SettingsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &946416891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946416890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 8574b777f2f6944ed8e4a0e36120345c, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &946416892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946416890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f93c6c38fc342e8a330c3b341b13cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFrameRate: 60
+  _postProcessProfile: {fileID: 11400000, guid: 8574b777f2f6944ed8e4a0e36120345c,
+    type: 2}
+  _postProcessLayer: {fileID: 1745001164}
+--- !u!4 &946416893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946416890}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002498251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,6 +2182,10 @@ MonoBehaviour:
   followDuration: 30
   loop: 1
   pingPong: 0
+  renderDistance: 40
+  motionFrequency: 0.05
+  entity: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!114 &1397799414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2463,50 +2533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a5df2202a8b96488c744be3bd0c33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1597541746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1597541748}
-  - component: {fileID: 1597541747}
-  m_Layer: 0
-  m_Name: AppSettings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1597541747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597541746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a564c2e9ffe4846b55705dd7cc40fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1597541748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597541746}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.803606, y: -7.0729346, z: 24.50075}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1745001163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2932,7 +2958,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.1835e-41, y: 1.8293635e-37, z: 4.070149e-37, w: 8.181151e-37}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.8e-44, z: 1.98432e-40, w: 5.8473e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3157,4 +3183,4 @@ SceneRoots:
   - {fileID: 1745001163}
   - {fileID: 1474835654}
   - {fileID: 454982188}
-  - {fileID: 1597541748}
+  - {fileID: 946416893}

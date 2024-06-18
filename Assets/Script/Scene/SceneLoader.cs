@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scene;
+using Script.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -241,7 +243,13 @@ namespace Script.Scene
             }
 
             asyncLoad.allowSceneActivation = true;
+            asyncLoad.completed += OnSceneLoaded;
             isLoadingScene = false;
+        }
+
+        private void OnSceneLoaded(AsyncOperation obj)
+        {
+            SettingsManager.Instance.Reload();
         }
     }
 }

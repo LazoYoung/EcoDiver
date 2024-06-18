@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace Script.Environment.Optimizer
 {
     public class CullingOptimizer : MonoBehaviour
