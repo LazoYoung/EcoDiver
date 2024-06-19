@@ -35,7 +35,7 @@ namespace Script.UI
 
         private const float InitialBrightnessValue = 100f;
         private const float InitialSoundEffectValue = 100f;
-        private const XROrigin.TrackingOriginMode InitialTrackingMode = Floor;
+        private const XROrigin.TrackingOriginMode InitialTrackingMode = Device;
 
         private float _brightness = InitialBrightnessValue; // Default brightness value
         private float _soundVolume = InitialSoundEffectValue; // Default sound volume value
