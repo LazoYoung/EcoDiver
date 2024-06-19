@@ -11,48 +11,51 @@ namespace Script.Scene
 {
     public class SceneLoader : MonoBehaviour
     {
-        private List<SceneDetail> selectedScenario;
-
         [SerializeField] [Tooltip("temporary button for loading scene")]
         private InputActionReference loadButton;
 
-        [SerializeField] [Tooltip("Fade Screen")]
-        private FadeScreen fadeScreen;
+        // [SerializeField] [Tooltip("Fade Screen")]
+        // private FadeScreen fadeScreen;
 
         [SerializeField] [Tooltip("Return to Title Scene")]
         private bool returnToTitle = true;
 
         [SerializeField] [Tooltip("Verbose Mode")]
-        private bool verbose = false;
+        private bool verbose;
 
         [SerializeField] [Tooltip("Verbose Mod")]
         private float secondsToWaitLoad = 1f;
 
-        private bool isLoadingScene = false;
+        private List<SceneDetail> _selectedScenario;
+        
+        private bool _isLoadingScene;
 
-        private static SceneLoader instance;
+        private FadeScreen _fadeScreen;
+        
+        private static SceneLoader _instance;
 
         public static SceneLoader Instance
         {
             get
             {
-                if (instance == null)
+                if (!_instance)
                 {
                     SetupInstance();
                 }
 
-                return instance;
+                return _instance;
             }
         }
 
         private static void SetupInstance()
         {
-            instance = FindObjectOfType<SceneLoader>();
-            if (instance == null)
+            _instance = FindObjectOfType<SceneLoader>();
+            
+            if (!_instance)
             {
                 GameObject gameObj = new GameObject();
                 gameObj.name = "SceneLoader";
-                instance = gameObj.AddComponent<SceneLoader>();
+                _instance = gameObj.AddComponent<SceneLoader>();
                 DontDestroyOnLoad(gameObj);
             }
         }
@@ -68,6 +71,7 @@ namespace Script.Scene
         {
             SceneDetail.TestStartScene, SceneDetail.TestMainScene, SceneDetail.TestEndScene
         };
+        private Coroutine _holdButtonCoroutine;
 
 
         private static int FindSceneIndex(List<SceneDetail> sceneDetails,
@@ -88,6 +92,16 @@ namespace Script.Scene
             LoadScene();
         }
 
+        private FadeScreen GetFadeScreen()
+        {
+            if (!_fadeScreen)
+            {
+                _fadeScreen = FindObjectOfType<FadeScreen>(true);
+            }
+
+            return _fadeScreen;
+        }
+
         private void LoadInstance()
         {
             if (verbose)
@@ -95,14 +109,14 @@ namespace Script.Scene
                 Debug.Log("Awake Singleton");
             }
 
-            if (instance == null)
+            if (_instance == null)
             {
                 if (verbose)
                 {
                     Debug.Log("Instance is null");
                 }
 
-                instance = this;
+                _instance = this;
                 DontDestroyOnLoad(this.gameObject);
             }
             else
@@ -120,7 +134,7 @@ namespace Script.Scene
         {
             if (DoExistInScenario(TestScenes, SceneManager.GetActiveScene()))
             {
-                selectedScenario = TestScenes;
+                _selectedScenario = TestScenes;
                 if (verbose)
                 {
                     Debug.Log("Selected Scene is Test Scene");
@@ -128,7 +142,7 @@ namespace Script.Scene
             }
             else if (DoExistInScenario(ProductionScenes, SceneManager.GetActiveScene()))
             {
-                selectedScenario = ProductionScenes;
+                _selectedScenario = ProductionScenes;
                 if (verbose)
                 {
                     Debug.Log("Selected Scene is Production Scene");
@@ -144,34 +158,19 @@ namespace Script.Scene
                 enabled = false;
             }
 
-            if (fadeScreen == null)
-            {
-                if (verbose)
-                {
-                    Debug.LogWarning("Fade Screen is not set.");
-                }
-            }
-            else
-            {
-                if (verbose)
-                {
-                    Debug.Log("Fade screen found.");
-                }
-
-                fadeScreen.gameObject.SetActive(true);
-            }
+            GetFadeScreen().gameObject.SetActive(true);
         }
 
         public void LoadNextScene()
         {
-            int currentSceneIndex = FindSceneIndex(selectedScenario, SceneManager.GetActiveScene());
+            int currentSceneIndex = FindSceneIndex(_selectedScenario, SceneManager.GetActiveScene());
             if (currentSceneIndex == -1)
             {
                 Debug.LogError("Current scene is not exist in scenario");
                 return;
             }
 
-            if (selectedScenario.Count <= currentSceneIndex + 1)
+            if (_selectedScenario.Count <= currentSceneIndex + 1)
             {
                 if (!returnToTitle)
                 {
@@ -179,16 +178,16 @@ namespace Script.Scene
                     return;
                 }
 
-                LoadNewScene(selectedScenario[0].Name);
+                LoadNewScene(_selectedScenario[0].Name);
                 return;
             }
 
-            LoadNewScene(selectedScenario[currentSceneIndex + 1].Name);
+            LoadNewScene(_selectedScenario[currentSceneIndex + 1].Name);
         }
 
         private void LoadNewScene(string sceneName)
         {
-            if (isLoadingScene)
+            if (_isLoadingScene)
             {
                 Debug.Log("Loading Scene Failed By Loading : " + sceneName);
                 return;
@@ -198,20 +197,36 @@ namespace Script.Scene
             StartCoroutine(LoadSceneWithDelay(sceneName));
         }
 
-        // if press button h to load scene
         private void Update()
         {
-            //테스트 용도 실 사용 계획 X
             if (loadButton && loadButton.action.WasPressedThisFrame())
             {
-                Debug.Log("Loading Scene Triggered by Button Pressed");
+                OnLoadButtonPressed();
+            }
+        }
+
+        private void OnLoadButtonPressed()
+        {
+            if (_holdButtonCoroutine != null)
+                return;
+
+            _holdButtonCoroutine = StartCoroutine(LoadButtonCoroutine());
+        }
+        private IEnumerator LoadButtonCoroutine()
+        {
+            yield return new WaitForSeconds(1f);
+
+            _holdButtonCoroutine = null;
+            
+            if (loadButton.action.IsPressed())
+            {
                 LoadNextScene();
             }
         }
 
         private IEnumerator LoadSceneWithDelay(string sceneName)
         {
-            isLoadingScene = true;
+            _isLoadingScene = true;
             yield return new WaitForSeconds(secondsToWaitLoad); // Wait for 1 second before starting to load the scene
             StartCoroutine(LoadSceneAsync(sceneName));
         }
@@ -223,20 +238,14 @@ namespace Script.Scene
                 Debug.Log("To Load Scene's name : " + sceneName);
             }
 
-            if (fadeScreen == null)
-            {
-                Debug.LogWarning("Fade Screen is not set.");
-            }
-            else
-            {
-                fadeScreen.FadeOut();
-            }
+            FadeScreen fadeScreen = GetFadeScreen();
+            fadeScreen.FadeOut();
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
             asyncLoad.allowSceneActivation = false;
 
             float timer = 0;
-            while ((fadeScreen != null && timer <= fadeScreen.FadeDuration) && !asyncLoad.isDone)
+            while ((fadeScreen && timer <= fadeScreen.FadeDuration) && !asyncLoad.isDone)
             {
                 timer += Time.deltaTime;
                 yield return null;
@@ -244,11 +253,12 @@ namespace Script.Scene
 
             asyncLoad.allowSceneActivation = true;
             asyncLoad.completed += OnSceneLoaded;
-            isLoadingScene = false;
+            _isLoadingScene = false;
         }
 
         private void OnSceneLoaded(AsyncOperation obj)
         {
+            GetFadeScreen().gameObject.SetActive(true);
             SettingsManager.Instance.Reload();
         }
     }
