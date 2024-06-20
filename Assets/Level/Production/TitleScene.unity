@@ -214,7 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadButton: {fileID: -7769739712540014693, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  fadeScreen: {fileID: 1745001167}
   returnToTitle: 1
   verbose: 0
   secondsToWaitLoad: 1
@@ -3008,7 +3007,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.8e-44, z: 1.98432e-40, w: 5.8473e-41}
+  m_BoundingSphereOverride: {x: -4.863021e-27, y: 116.39417, z: 0.9643805, w: -5.630561e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
