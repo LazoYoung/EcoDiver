@@ -6,9 +6,8 @@ namespace Script.Environment.Sound
     public class SoundPlayer : MonoBehaviour
     {
         public AudioClip clip;
+        public AudioSource source;
         public float delay;
-        private SoundManager _manager;
-        private AudioSource _source;
 
         public void PlayOnce()
         {
@@ -18,7 +17,7 @@ namespace Script.Environment.Sound
         private IEnumerator PlayWithDelay()
         {
             yield return new WaitForSeconds(delay);
-            _source.PlayOneShot(clip);
+            source.PlayOneShot(clip);
         }
 
         private void Start()
@@ -29,9 +28,13 @@ namespace Script.Environment.Sound
                 enabled = false;
                 return;
             }
-            
-            _manager = FindObjectOfType<SoundManager>();
-            _source = _manager.audioSource;
+
+            if (source == null)
+            {
+                Debug.LogError("No audio source assigned.");
+                enabled = false;
+                return;
+            }
         }
     }
 }
