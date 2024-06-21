@@ -6,6 +6,7 @@ namespace Script.Interaction
     public class AreaTrigger : MonoBehaviour
     {
         public UnityEvent onEnter;
+        public UnityEvent onStay;
         public UnityEvent onExit;
         
         private void Start()
@@ -18,6 +19,14 @@ namespace Script.Interaction
             if (other.CompareTag("Player"))
             {
                 onEnter?.Invoke();
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                onStay?.Invoke();
             }
         }
 

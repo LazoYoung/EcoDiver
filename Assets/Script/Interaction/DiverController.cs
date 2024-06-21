@@ -88,13 +88,19 @@ namespace Script.Interaction
         public void IncreaseDrag()
         {
             dragForce = _increasedDrag;
-            Debug.Log("Drag increased!");
+            Debug.Log("Fluid drag increased!");
+        }
+
+        public void SetDrag(float force)
+        {
+            dragForce = force;
+            Debug.Log($"Fluid drag set: {force}");
         }
 
         public void RestoreDrag()
         {
             dragForce = _initDrag;
-            Debug.Log("Drag restored.");
+            Debug.Log("Fluid drag restored.");
         }
         
         private void Awake()
