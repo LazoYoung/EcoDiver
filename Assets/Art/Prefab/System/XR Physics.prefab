@@ -1327,7 +1327,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -6605,7 +6605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locomotion: {fileID: 6590190276775228014}
-  toggleButton: {fileID: -7277766448095803431, guid: c348712bda248c246b8c49b3db54643f,
+  toggleButton: {fileID: -2295303568239890232, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   thumbstickAxis: {fileID: -7909307222782261502, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}

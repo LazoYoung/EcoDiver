@@ -8,7 +8,20 @@ namespace Script.Quest
 {
     public class QuestObserver : MonoBehaviour
     {
-        public static QuestObserver Instance { get; private set; }
+        public static QuestObserver Instance
+        {
+            get
+            {
+                if (!_instance)
+                {
+                    _instance = FindObjectOfType<QuestObserver>();
+                }
+
+                return _instance;
+            }
+        }
+
+        private static QuestObserver _instance;
         
         [SerializeField]
         private QuestArrowIndicator arrowIndicator;
@@ -20,18 +33,18 @@ namespace Script.Quest
         private QuestLevel _questLevel;
         private Quest _currentQuest;
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        // private void Awake()
+        // {
+        //     if (Instance == null)
+        //     {
+        //         Instance = this;
+        //         DontDestroyOnLoad(gameObject);
+        //     }
+        //     else
+        //     {
+        //         Destroy(gameObject);
+        //     }
+        // }
 
         private void Start()
         {
