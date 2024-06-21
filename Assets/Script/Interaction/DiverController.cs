@@ -82,7 +82,21 @@ namespace Script.Interaction
         private bool _inPropel;
         private bool _inSpin;
         private bool _underwater;
+        private float _initDrag;
+        private float _increasedDrag;
 
+        public void IncreaseDrag()
+        {
+            dragForce = _increasedDrag;
+            Debug.Log("Drag increased!");
+        }
+
+        public void RestoreDrag()
+        {
+            dragForce = _initDrag;
+            Debug.Log("Drag restored.");
+        }
+        
         private void Awake()
         {
             if (!ValidateComponents())
@@ -93,6 +107,8 @@ namespace Script.Interaction
 
             _underwater = forceUnderwater;
             _spinVelocity = new Vector3(0, spinSpeed, 0);
+            _initDrag = dragForce;
+            _increasedDrag = dragForce * 5;
             rigidBody.automaticCenterOfMass = false;
             _rstate.Save(rigidBody);
             UpdateRigidbody();

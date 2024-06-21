@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace Script.Interaction
 {
     public class ObjectToggleTrigger : MonoBehaviour
