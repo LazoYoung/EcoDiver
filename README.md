@@ -1,6 +1,8 @@
 # Eco Diver
 에코 다이버 - 한국기술교육대학교 2024년 졸업작품
 
+[![Video thumbnail](http://img.youtube.com/vi/jHwWPGVBufc/0.jpg)](http://www.youtube.com/watch?v=jHwWPGVBufc "Watch on YouTube")
+
 ## 제작진
 - [박찬영](https://github.com/LazoYoung) : Director, C# developer
 - [박한수](https://github.com/Invidam) : C# developer
